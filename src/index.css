@@ -1,0 +1,28 @@
+:root {
+  --night: #1e2a4a;
+  --night-soft: #2c3b63;
+  --moon: #ffe9a8;
+  --text: #fdf6e3;
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  background: var(--night);
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  touch-action: manipulation;
+}
+
+body {
+  background: radial-gradient(circle at 75% 15%, var(--night-soft), var(--night) 70%);
+}

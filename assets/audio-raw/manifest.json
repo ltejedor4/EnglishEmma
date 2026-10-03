@@ -1,0 +1,1158 @@
+{
+  "colors/red": {
+    "text": "Red.",
+    "hash": "12ec6f9258722393"
+  },
+  "colors/red-ask": {
+    "text": "Find the red one!",
+    "hash": "62625916abce1ac1"
+  },
+  "colors/red-fact-1": {
+    "text": "The apple is red.",
+    "hash": "7b160c40cbcb3500"
+  },
+  "colors/red-fact-2": {
+    "text": "The fire truck is red.",
+    "hash": "85709134b830b670"
+  },
+  "animals/dog": {
+    "text": "Dog.",
+    "hash": "48f24f535c81d0a6"
+  },
+  "animals/dog-ask": {
+    "text": "Where is the dog?",
+    "hash": "2d716e565862d694"
+  },
+  "animals/dog-fact-1": {
+    "text": "The dog says woof!",
+    "hash": "d361283359bd5701"
+  },
+  "animals/dog-fact-2": {
+    "text": "The dog is happy.",
+    "hash": "2f58e6e0c4128c20"
+  },
+  "animals/cat": {
+    "text": "Cat.",
+    "hash": "a5f2458a0e5424bc"
+  },
+  "animals/cat-ask": {
+    "text": "Where is the cat?",
+    "hash": "29a4393705508999"
+  },
+  "animals/cat-fact-1": {
+    "text": "The cat says meow!",
+    "hash": "fd90ba08c3f35af5"
+  },
+  "animals/cat-fact-2": {
+    "text": "The cat is sleeping.",
+    "hash": "a16deb13300bd79d"
+  },
+  "family/sister": {
+    "text": "Sister.",
+    "hash": "79b3f84b970c481f"
+  },
+  "family/sister-ask": {
+    "text": "Where is my sister?",
+    "hash": "570bebbbc252cdf5"
+  },
+  "family/sister-fact-1": {
+    "text": "This is my sister, MaLu.",
+    "hash": "a592681b18715d8e"
+  },
+  "family/sister-fact-2": {
+    "text": "I love you, MaLu!",
+    "hash": "2abbe59e4f33489b"
+  },
+  "common/hello-emma": {
+    "text": "[cheerfully] Hello, Emma!",
+    "hash": "08415a1a027c71f9"
+  },
+  "common/great-job": {
+    "text": "[cheerfully] Great job!",
+    "hash": "fa65592168000e64"
+  },
+  "common/look-here-it-is": {
+    "text": "[calmly] Look, here it is!",
+    "hash": "eb453606c3a39f78"
+  },
+  "common/good-night-emma": {
+    "text": "[softly] Good night, Emma!",
+    "hash": "50504b4536d100fa"
+  },
+  "colors/title": {
+    "text": "Colors!",
+    "hash": "03460a0ad95f882d"
+  },
+  "colors/blue": {
+    "text": "Blue.",
+    "hash": "a025a186c5ebac54"
+  },
+  "colors/blue-ask": {
+    "text": "Find the blue one!",
+    "hash": "f0df7093b55f3022"
+  },
+  "colors/blue-fact-1": {
+    "text": "The sky is blue.",
+    "hash": "4da9cc224572e269"
+  },
+  "colors/blue-fact-2": {
+    "text": "The sea is blue.",
+    "hash": "c96b5ab3c4bee307"
+  },
+  "colors/yellow": {
+    "text": "Yellow.",
+    "hash": "94879f9a0038fdff"
+  },
+  "colors/yellow-ask": {
+    "text": "Find the yellow one!",
+    "hash": "dcfc0277722a5afd"
+  },
+  "colors/yellow-fact-1": {
+    "text": "The sun is yellow.",
+    "hash": "96a4fcffd6e146e7"
+  },
+  "colors/yellow-fact-2": {
+    "text": "The banana is yellow.",
+    "hash": "14dbc46f23517adc"
+  },
+  "colors/green": {
+    "text": "Green.",
+    "hash": "e05eb88eccf7b922"
+  },
+  "colors/green-ask": {
+    "text": "Find the green one!",
+    "hash": "f1cb0259f52094a5"
+  },
+  "colors/green-fact-1": {
+    "text": "The tree is green.",
+    "hash": "6342ffb8b0d22937"
+  },
+  "colors/green-fact-2": {
+    "text": "The frog is green.",
+    "hash": "37431b961a850ea2"
+  },
+  "colors/pink": {
+    "text": "Pink.",
+    "hash": "8d947bbd70c1556e"
+  },
+  "colors/pink-ask": {
+    "text": "Find the pink one!",
+    "hash": "e00b489128e92b8b"
+  },
+  "colors/pink-fact-1": {
+    "text": "The flower is pink.",
+    "hash": "5338a5638c743bef"
+  },
+  "colors/pink-fact-2": {
+    "text": "The pig is pink.",
+    "hash": "2e6b60eef4bb4beb"
+  },
+  "colors/orange": {
+    "text": "Orange.",
+    "hash": "83eda42cba864322"
+  },
+  "colors/orange-ask": {
+    "text": "Find the orange one!",
+    "hash": "b13cf01d58a771e2"
+  },
+  "colors/orange-fact-1": {
+    "text": "The carrot is orange.",
+    "hash": "40db8415078833b7"
+  },
+  "colors/orange-fact-2": {
+    "text": "The orange is orange!",
+    "hash": "4e1c491f5c0aeedd"
+  },
+  "animals/title": {
+    "text": "Animals!",
+    "hash": "d871ba9d89c29a6f"
+  },
+  "animals/fish": {
+    "text": "Fish.",
+    "hash": "ef6fe719432d19b9"
+  },
+  "animals/fish-ask": {
+    "text": "Where is the fish?",
+    "hash": "76ddbd74b494db44"
+  },
+  "animals/fish-fact-1": {
+    "text": "The fish can swim.",
+    "hash": "b47a23eb13e6f87b"
+  },
+  "animals/fish-fact-2": {
+    "text": "The fish is in the water.",
+    "hash": "cf7870900d2db7f0"
+  },
+  "animals/bird": {
+    "text": "Bird.",
+    "hash": "5c275feab2506726"
+  },
+  "animals/bird-ask": {
+    "text": "Where is the bird?",
+    "hash": "825e449aeaed294c"
+  },
+  "animals/bird-fact-1": {
+    "text": "The bird can fly.",
+    "hash": "3143a03230300096"
+  },
+  "animals/bird-fact-2": {
+    "text": "The bird says tweet tweet!",
+    "hash": "5811fb0292c8a41e"
+  },
+  "animals/cow": {
+    "text": "Cow.",
+    "hash": "894d80ae343b104a"
+  },
+  "animals/cow-ask": {
+    "text": "Where is the cow?",
+    "hash": "77906ab452de0ec8"
+  },
+  "animals/cow-fact-1": {
+    "text": "The cow says moo!",
+    "hash": "575502fe9797d9ec"
+  },
+  "animals/cow-fact-2": {
+    "text": "The cow is big.",
+    "hash": "0becb27ac6b488dc"
+  },
+  "animals/lion": {
+    "text": "Lion.",
+    "hash": "a5c22c54ff467057"
+  },
+  "animals/lion-ask": {
+    "text": "Where is the lion?",
+    "hash": "69f3633e5a119d06"
+  },
+  "animals/lion-fact-1": {
+    "text": "The lion says roar!",
+    "hash": "d27a09fdd6f1ff75"
+  },
+  "animals/lion-fact-2": {
+    "text": "The lion is big and yellow.",
+    "hash": "3cce36caff2ecc09"
+  },
+  "body/title": {
+    "text": "My body!",
+    "hash": "5cef2c72a0c9497a"
+  },
+  "body/head": {
+    "text": "Head.",
+    "hash": "8defc7b7d64a5758"
+  },
+  "body/head-ask": {
+    "text": "Where is the head?",
+    "hash": "ff2117618cf88212"
+  },
+  "body/head-fact-1": {
+    "text": "Touch your head!",
+    "hash": "055ec3b2e7514db9"
+  },
+  "body/head-fact-2": {
+    "text": "Shake your head!",
+    "hash": "022ad46acc2ff566"
+  },
+  "body/eyes": {
+    "text": "Eyes.",
+    "hash": "633fd3949b061c20"
+  },
+  "body/eyes-ask": {
+    "text": "Where are the eyes?",
+    "hash": "c41ed7d04a60ed25"
+  },
+  "body/eyes-fact-1": {
+    "text": "Touch your eyes!",
+    "hash": "44ef751104e49f9b"
+  },
+  "body/eyes-fact-2": {
+    "text": "I see with my eyes.",
+    "hash": "661b26c671f09a6a"
+  },
+  "body/nose": {
+    "text": "Nose.",
+    "hash": "137b49e336b972c7"
+  },
+  "body/nose-ask": {
+    "text": "Where is the nose?",
+    "hash": "645c7144e70af937"
+  },
+  "body/nose-fact-1": {
+    "text": "Touch your nose!",
+    "hash": "d714b48dfec0ff1b"
+  },
+  "body/nose-fact-2": {
+    "text": "I smell with my nose.",
+    "hash": "e420454b77160760"
+  },
+  "body/mouth": {
+    "text": "Mouth.",
+    "hash": "0f23eef0d75f78ea"
+  },
+  "body/mouth-ask": {
+    "text": "Where is the mouth?",
+    "hash": "7e2d40af040a3d4f"
+  },
+  "body/mouth-fact-1": {
+    "text": "Open your mouth!",
+    "hash": "3726cf38bc688431"
+  },
+  "body/mouth-fact-2": {
+    "text": "I eat with my mouth.",
+    "hash": "a90d89f75c5e0bf3"
+  },
+  "body/hands": {
+    "text": "Hands.",
+    "hash": "ee36daab1a09847c"
+  },
+  "body/hands-ask": {
+    "text": "Where are the hands?",
+    "hash": "c72bb3df08a20d3b"
+  },
+  "body/hands-fact-1": {
+    "text": "Clap your hands!",
+    "hash": "7857091294c03f76"
+  },
+  "body/hands-fact-2": {
+    "text": "Wash your hands.",
+    "hash": "60a9a5a94aea1a7b"
+  },
+  "body/feet": {
+    "text": "Feet.",
+    "hash": "9d7c680b116519fb"
+  },
+  "body/feet-ask": {
+    "text": "Where are the feet?",
+    "hash": "1f290ad338c10740"
+  },
+  "body/feet-fact-1": {
+    "text": "Stamp your feet!",
+    "hash": "dea45b738f830c81"
+  },
+  "body/feet-fact-2": {
+    "text": "I walk with my feet.",
+    "hash": "c279297cc11959f2"
+  },
+  "food/title": {
+    "text": "Food!",
+    "hash": "4662fe046fbe4559"
+  },
+  "food/apple": {
+    "text": "Apple.",
+    "hash": "8c12525b6f1a7bf4"
+  },
+  "food/apple-ask": {
+    "text": "Where is the apple?",
+    "hash": "3b490cfc1c6f5a68"
+  },
+  "food/apple-fact-1": {
+    "text": "I want an apple.",
+    "hash": "e5936a4fd0eb48fd"
+  },
+  "food/apple-fact-2": {
+    "text": "The apple is red.",
+    "hash": "7b160c40cbcb3500"
+  },
+  "food/banana": {
+    "text": "Banana.",
+    "hash": "96edf5bef0a175e2"
+  },
+  "food/banana-ask": {
+    "text": "Where is the banana?",
+    "hash": "e86331418868f754"
+  },
+  "food/banana-fact-1": {
+    "text": "I want a banana.",
+    "hash": "262886b3031deafe"
+  },
+  "food/banana-fact-2": {
+    "text": "The banana is yellow.",
+    "hash": "14dbc46f23517adc"
+  },
+  "food/milk": {
+    "text": "Milk.",
+    "hash": "94103a336f2208ad"
+  },
+  "food/milk-ask": {
+    "text": "Where is the milk?",
+    "hash": "53ae2a15c5037e83"
+  },
+  "food/milk-fact-1": {
+    "text": "I drink milk.",
+    "hash": "7f925c493ca0c15e"
+  },
+  "food/milk-fact-2": {
+    "text": "Milk is white.",
+    "hash": "0ee03f6693559ddf"
+  },
+  "food/bread": {
+    "text": "Bread.",
+    "hash": "708a2db443ec06ca"
+  },
+  "food/bread-ask": {
+    "text": "Where is the bread?",
+    "hash": "82f12536ba6fee38"
+  },
+  "food/bread-fact-1": {
+    "text": "I eat bread.",
+    "hash": "750dbd0f98401aaa"
+  },
+  "food/bread-fact-2": {
+    "text": "Bread is yummy!",
+    "hash": "316825426f10c0af"
+  },
+  "food/egg": {
+    "text": "Egg.",
+    "hash": "07d66ed5e62810d6"
+  },
+  "food/egg-ask": {
+    "text": "Where is the egg?",
+    "hash": "063af4b557ae7e4a"
+  },
+  "food/egg-fact-1": {
+    "text": "I want an egg.",
+    "hash": "2f38de6828381466"
+  },
+  "food/egg-fact-2": {
+    "text": "The egg is white.",
+    "hash": "bcf06d42e460591e"
+  },
+  "food/water": {
+    "text": "Water.",
+    "hash": "fb8e5176ad2e3699"
+  },
+  "food/water-ask": {
+    "text": "Where is the water?",
+    "hash": "7e4834dcb427ab8d"
+  },
+  "food/water-fact-1": {
+    "text": "I drink water.",
+    "hash": "70dd068dc89812cc"
+  },
+  "food/water-fact-2": {
+    "text": "Water, please!",
+    "hash": "3e6be432eaafed27"
+  },
+  "numbers/title": {
+    "text": "Numbers!",
+    "hash": "5a4f02891fc546f3"
+  },
+  "numbers/one": {
+    "text": "One.",
+    "hash": "d60156a887c6352d"
+  },
+  "numbers/one-ask": {
+    "text": "Show me one!",
+    "hash": "76dfc0147d5f5727"
+  },
+  "numbers/one-fact-1": {
+    "text": "One!",
+    "hash": "a528b4c94efe9fbb"
+  },
+  "numbers/one-fact-2": {
+    "text": "I have one nose.",
+    "hash": "8f2171f517092825"
+  },
+  "numbers/two": {
+    "text": "Two.",
+    "hash": "b20d451dfa81888b"
+  },
+  "numbers/two-ask": {
+    "text": "Show me two!",
+    "hash": "e1c22ceff7a32097"
+  },
+  "numbers/two-fact-1": {
+    "text": "One, two!",
+    "hash": "554929d219716103"
+  },
+  "numbers/two-fact-2": {
+    "text": "I have two eyes.",
+    "hash": "43aa7f1da88184b1"
+  },
+  "numbers/three": {
+    "text": "Three.",
+    "hash": "ae3070dca4299bb8"
+  },
+  "numbers/three-ask": {
+    "text": "Show me three!",
+    "hash": "017c963888251fc0"
+  },
+  "numbers/three-fact-1": {
+    "text": "One, two, three!",
+    "hash": "e78a3222827c956f"
+  },
+  "numbers/three-fact-2": {
+    "text": "Three little fish.",
+    "hash": "67b42b773b11b70b"
+  },
+  "numbers/four": {
+    "text": "Four.",
+    "hash": "6307ba25748db7b4"
+  },
+  "numbers/four-ask": {
+    "text": "Show me four!",
+    "hash": "1adc2f07f673f1a3"
+  },
+  "numbers/four-fact-1": {
+    "text": "One, two, three, four!",
+    "hash": "f44907c5a63edce3"
+  },
+  "numbers/four-fact-2": {
+    "text": "The cat has four legs.",
+    "hash": "4bac27fc647f8f36"
+  },
+  "numbers/five": {
+    "text": "Five.",
+    "hash": "406a92cb5a22fb51"
+  },
+  "numbers/five-ask": {
+    "text": "Show me five!",
+    "hash": "7f176b6c15a649a6"
+  },
+  "numbers/five-fact-1": {
+    "text": "One, two, three, four, five!",
+    "hash": "d05fcb32bb637273"
+  },
+  "numbers/five-fact-2": {
+    "text": "I have five fingers.",
+    "hash": "abb72a2a0ec095ed"
+  },
+  "numbers/six": {
+    "text": "Six.",
+    "hash": "dafb7b4596b54ec1"
+  },
+  "numbers/six-ask": {
+    "text": "Show me six!",
+    "hash": "b6972f7557f0aa8d"
+  },
+  "numbers/six-fact-1": {
+    "text": "One, two, three, four, five, six!",
+    "hash": "74bc7e26439972f9"
+  },
+  "numbers/six-fact-2": {
+    "text": "Six yellow ducks.",
+    "hash": "cb64f36c589376d7"
+  },
+  "numbers/seven": {
+    "text": "Seven.",
+    "hash": "a1cc38f51a7d5970"
+  },
+  "numbers/seven-ask": {
+    "text": "Show me seven!",
+    "hash": "c65f2b8b265682d9"
+  },
+  "numbers/seven-fact-1": {
+    "text": "One, two, three, four, five, six, seven!",
+    "hash": "39227455bf26cd2e"
+  },
+  "numbers/seven-fact-2": {
+    "text": "Seven little stars.",
+    "hash": "3181ae905114f7f9"
+  },
+  "numbers/eight": {
+    "text": "Eight.",
+    "hash": "51771f5a7c495446"
+  },
+  "numbers/eight-ask": {
+    "text": "Show me eight!",
+    "hash": "7f02524362c157bb"
+  },
+  "numbers/eight-fact-1": {
+    "text": "One, two, three, four, five, six, seven, eight!",
+    "hash": "d0ee581576a78ce5"
+  },
+  "numbers/eight-fact-2": {
+    "text": "The spider has eight legs.",
+    "hash": "cb12722afc81bb5a"
+  },
+  "numbers/nine": {
+    "text": "Nine.",
+    "hash": "b4c4027d5e1fd65f"
+  },
+  "numbers/nine-ask": {
+    "text": "Show me nine!",
+    "hash": "6f89ec87b9293f6f"
+  },
+  "numbers/nine-fact-1": {
+    "text": "One, two, three, four, five, six, seven, eight, nine!",
+    "hash": "de3791d63a3f9137"
+  },
+  "numbers/nine-fact-2": {
+    "text": "Nine red apples.",
+    "hash": "b670162f98898d6c"
+  },
+  "numbers/ten": {
+    "text": "Ten.",
+    "hash": "7ee343b02b6a73d4"
+  },
+  "numbers/ten-ask": {
+    "text": "Show me ten!",
+    "hash": "828de639621a4393"
+  },
+  "numbers/ten-fact-1": {
+    "text": "One, two, three, four, five, six, seven, eight, nine, ten!",
+    "hash": "815e1d88ae12836f"
+  },
+  "numbers/ten-fact-2": {
+    "text": "I have ten toes.",
+    "hash": "5c4ccaef58decfae"
+  },
+  "toys/title": {
+    "text": "Toys!",
+    "hash": "412522ee777e924b"
+  },
+  "toys/ball": {
+    "text": "Ball.",
+    "hash": "8ee7786faf23c202"
+  },
+  "toys/ball-ask": {
+    "text": "Where is the ball?",
+    "hash": "cb36e44f73b48f35"
+  },
+  "toys/ball-fact-1": {
+    "text": "Give me the ball.",
+    "hash": "793cb8becc4ea2c1"
+  },
+  "toys/ball-fact-2": {
+    "text": "Let's play with the ball!",
+    "hash": "07e4ccb35620ea82"
+  },
+  "toys/doll": {
+    "text": "Doll.",
+    "hash": "1182422b6ae3464f"
+  },
+  "toys/doll-ask": {
+    "text": "Where is the doll?",
+    "hash": "702a347017bbd0f0"
+  },
+  "toys/doll-fact-1": {
+    "text": "Give me the doll.",
+    "hash": "b2d97eef41d61a4f"
+  },
+  "toys/doll-fact-2": {
+    "text": "I love my doll.",
+    "hash": "180f720c8cc8a804"
+  },
+  "toys/car": {
+    "text": "Car.",
+    "hash": "f9c7bd2a68ad91ea"
+  },
+  "toys/car-ask": {
+    "text": "Where is the car?",
+    "hash": "07a99bf8e13b5e4a"
+  },
+  "toys/car-fact-1": {
+    "text": "The car goes vroom!",
+    "hash": "d8643b8b2f3c7fd4"
+  },
+  "toys/car-fact-2": {
+    "text": "Give me the car.",
+    "hash": "375dac28fc5cea18"
+  },
+  "toys/teddy-bear": {
+    "text": "Teddy bear.",
+    "hash": "cfe7fd098ddfb2f6"
+  },
+  "toys/teddy-bear-ask": {
+    "text": "Where is the teddy bear?",
+    "hash": "bef241088dffacff"
+  },
+  "toys/teddy-bear-fact-1": {
+    "text": "Give me the teddy bear.",
+    "hash": "80f427e30a3a0dea"
+  },
+  "toys/teddy-bear-fact-2": {
+    "text": "I hug my teddy bear.",
+    "hash": "387418ba1e0f2ee1"
+  },
+  "toys/blocks": {
+    "text": "Blocks.",
+    "hash": "07f51974c32c7a59"
+  },
+  "toys/blocks-ask": {
+    "text": "Where are the blocks?",
+    "hash": "c381ceb15f873b28"
+  },
+  "toys/blocks-fact-1": {
+    "text": "Give me the blocks.",
+    "hash": "8bc8a6db488532a6"
+  },
+  "toys/blocks-fact-2": {
+    "text": "Let's build with blocks!",
+    "hash": "396ada11b5ae12a4"
+  },
+  "toys/train": {
+    "text": "Train.",
+    "hash": "0b15193d0b7d7a4a"
+  },
+  "toys/train-ask": {
+    "text": "Where is the train?",
+    "hash": "917599f43ece2c32"
+  },
+  "toys/train-fact-1": {
+    "text": "The train goes choo choo!",
+    "hash": "90cf4c6ee4f751b7"
+  },
+  "toys/train-fact-2": {
+    "text": "Give me the train.",
+    "hash": "a76ac8cf0de318c9"
+  },
+  "family/title": {
+    "text": "My family!",
+    "hash": "8f5ccdfe2a8f01dc"
+  },
+  "family/mom": {
+    "text": "Mom.",
+    "hash": "6fe2060b18114b3b"
+  },
+  "family/mom-ask": {
+    "text": "Where is mom?",
+    "hash": "dad52b6beabf48f5"
+  },
+  "family/mom-fact-1": {
+    "text": "This is my mom.",
+    "hash": "cf5610304323bc3d"
+  },
+  "family/mom-fact-2": {
+    "text": "I love you, Mom!",
+    "hash": "5a0153624b084053"
+  },
+  "family/dad": {
+    "text": "Dad.",
+    "hash": "0826397cc7dd6796"
+  },
+  "family/dad-ask": {
+    "text": "Where is dad?",
+    "hash": "d434f672ecdc6613"
+  },
+  "family/dad-fact-1": {
+    "text": "This is my dad.",
+    "hash": "042043026c8c267f"
+  },
+  "family/dad-fact-2": {
+    "text": "I love you, Dad!",
+    "hash": "acaf6301cee9ea39"
+  },
+  "family/grandma": {
+    "text": "Grandma.",
+    "hash": "8beeb3b05e071749"
+  },
+  "family/grandma-ask": {
+    "text": "Where is grandma?",
+    "hash": "52e224dea74a2646"
+  },
+  "family/grandma-fact-1": {
+    "text": "This is my grandma.",
+    "hash": "4507d612a668d049"
+  },
+  "family/grandma-fact-2": {
+    "text": "Hello, Grandma!",
+    "hash": "276b0aa36b2140a9"
+  },
+  "family/grandpa": {
+    "text": "Grandpa.",
+    "hash": "31e3723e75dc35e0"
+  },
+  "family/grandpa-ask": {
+    "text": "Where is grandpa?",
+    "hash": "6b5517230494c108"
+  },
+  "family/grandpa-fact-1": {
+    "text": "This is my grandpa.",
+    "hash": "43a68c94865f9674"
+  },
+  "family/grandpa-fact-2": {
+    "text": "Hello, Grandpa!",
+    "hash": "cafa6df06de7bdaf"
+  },
+  "actions/title": {
+    "text": "Let's move!",
+    "hash": "5b40560913a13b37"
+  },
+  "actions/jump": {
+    "text": "Jump.",
+    "hash": "cf3be788e133fd26"
+  },
+  "actions/jump-ask": {
+    "text": "Who is jumping?",
+    "hash": "f18645d10a5c1a3f"
+  },
+  "actions/jump-fact-1": {
+    "text": "Let's jump!",
+    "hash": "348068d1c92459bf"
+  },
+  "actions/jump-fact-2": {
+    "text": "Jump, jump, jump!",
+    "hash": "b394f473b4661bb6"
+  },
+  "actions/run": {
+    "text": "Run.",
+    "hash": "91cb2ab5d30b4272"
+  },
+  "actions/run-ask": {
+    "text": "Who is running?",
+    "hash": "1418d221925ba4b7"
+  },
+  "actions/run-fact-1": {
+    "text": "Let's run!",
+    "hash": "7c67e7928a4dc806"
+  },
+  "actions/run-fact-2": {
+    "text": "Run, run, run!",
+    "hash": "d852353cb68e2762"
+  },
+  "actions/sit": {
+    "text": "Sit.",
+    "hash": "f8011df764d7e250"
+  },
+  "actions/sit-ask": {
+    "text": "Who is sitting?",
+    "hash": "111344a9783975f6"
+  },
+  "actions/sit-fact-1": {
+    "text": "Sit down, please.",
+    "hash": "f76772f84fb17dba"
+  },
+  "actions/sit-fact-2": {
+    "text": "Let's sit!",
+    "hash": "4d0e7b2521b39407"
+  },
+  "actions/clap": {
+    "text": "Clap.",
+    "hash": "1bd0b13605689774"
+  },
+  "actions/clap-ask": {
+    "text": "Who is clapping?",
+    "hash": "8f5df0c0a770b1f5"
+  },
+  "actions/clap-fact-1": {
+    "text": "Clap your hands!",
+    "hash": "7857091294c03f76"
+  },
+  "actions/clap-fact-2": {
+    "text": "Clap, clap, clap!",
+    "hash": "ce6367f8bc6dda47"
+  },
+  "actions/dance": {
+    "text": "Dance.",
+    "hash": "28763f687247b64d"
+  },
+  "actions/dance-ask": {
+    "text": "Who is dancing?",
+    "hash": "7b594ac52484e935"
+  },
+  "actions/dance-fact-1": {
+    "text": "Let's dance!",
+    "hash": "104f5b81da4526ad"
+  },
+  "actions/dance-fact-2": {
+    "text": "Dance, dance, dance!",
+    "hash": "cd172fb2b2a8ca86"
+  },
+  "actions/sleep": {
+    "text": "Sleep.",
+    "hash": "b28db38a639f00cd"
+  },
+  "actions/sleep-ask": {
+    "text": "Who is sleeping?",
+    "hash": "106288c091dda723"
+  },
+  "actions/sleep-fact-1": {
+    "text": "Time to sleep.",
+    "hash": "aa99462822d015a6"
+  },
+  "actions/sleep-fact-2": {
+    "text": "Shh! MaLu is sleeping.",
+    "hash": "8c707dded49e8033"
+  },
+  "clothes/title": {
+    "text": "Clothes!",
+    "hash": "6928430b34f01f36"
+  },
+  "clothes/shirt": {
+    "text": "Shirt.",
+    "hash": "96157641f3fa8e8e"
+  },
+  "clothes/shirt-ask": {
+    "text": "Where is the shirt?",
+    "hash": "345a3080f02e2e36"
+  },
+  "clothes/shirt-fact-1": {
+    "text": "Put on your shirt.",
+    "hash": "c6d96c6d97a881e9"
+  },
+  "clothes/shirt-fact-2": {
+    "text": "My shirt is blue.",
+    "hash": "ec116e7fd605e8c5"
+  },
+  "clothes/shoes": {
+    "text": "Shoes.",
+    "hash": "7e3175d82a0c2e13"
+  },
+  "clothes/shoes-ask": {
+    "text": "Where are the shoes?",
+    "hash": "714745e9fc240dfb"
+  },
+  "clothes/shoes-fact-1": {
+    "text": "Put on your shoes.",
+    "hash": "a068e6f51a39fb1b"
+  },
+  "clothes/shoes-fact-2": {
+    "text": "My shoes are pink.",
+    "hash": "e4ddefca0f9f8b25"
+  },
+  "clothes/hat": {
+    "text": "Hat.",
+    "hash": "ca36a9dd5c979ce2"
+  },
+  "clothes/hat-ask": {
+    "text": "Where is the hat?",
+    "hash": "bed1a818576f1349"
+  },
+  "clothes/hat-fact-1": {
+    "text": "Put on your hat.",
+    "hash": "5a5d792b5f753b6a"
+  },
+  "clothes/hat-fact-2": {
+    "text": "The hat is on my head.",
+    "hash": "20e8ced926c27273"
+  },
+  "clothes/socks": {
+    "text": "Socks.",
+    "hash": "2719a4d5a50f8885"
+  },
+  "clothes/socks-ask": {
+    "text": "Where are the socks?",
+    "hash": "5e68cd6710d24df8"
+  },
+  "clothes/socks-fact-1": {
+    "text": "Put on your socks.",
+    "hash": "81e79ff526e13fa6"
+  },
+  "clothes/socks-fact-2": {
+    "text": "My socks are yellow.",
+    "hash": "c1ba42263bacaaa7"
+  },
+  "clothes/pants": {
+    "text": "Pants.",
+    "hash": "9025cb3713828bc9"
+  },
+  "clothes/pants-ask": {
+    "text": "Where are the pants?",
+    "hash": "104dd76dd0652a49"
+  },
+  "clothes/pants-fact-1": {
+    "text": "Put on your pants.",
+    "hash": "9da790d519182395"
+  },
+  "clothes/pants-fact-2": {
+    "text": "My pants are blue.",
+    "hash": "60d243ad9a514694"
+  },
+  "clothes/jacket": {
+    "text": "Jacket.",
+    "hash": "0743e6e363e6f406"
+  },
+  "clothes/jacket-ask": {
+    "text": "Where is the jacket?",
+    "hash": "afd7d7896e098127"
+  },
+  "clothes/jacket-fact-1": {
+    "text": "Put on your jacket.",
+    "hash": "40b9bbe79936c59f"
+  },
+  "clothes/jacket-fact-2": {
+    "text": "It's cold! Put on your jacket.",
+    "hash": "09619d9ea136b84d"
+  },
+  "feelings/title": {
+    "text": "Feelings!",
+    "hash": "a8d7560d8d3b165d"
+  },
+  "feelings/happy": {
+    "text": "Happy.",
+    "hash": "d85c1be21112b0f6"
+  },
+  "feelings/happy-ask": {
+    "text": "Who is happy?",
+    "hash": "0dd104dfdb7b5613"
+  },
+  "feelings/happy-fact-1": {
+    "text": "I am happy!",
+    "hash": "444e398e95d9f159"
+  },
+  "feelings/happy-fact-2": {
+    "text": "Happy! Let's smile!",
+    "hash": "fe6034c4f2a1e785"
+  },
+  "feelings/sad": {
+    "text": "Sad.",
+    "hash": "61703f9c11aceda6"
+  },
+  "feelings/sad-ask": {
+    "text": "Who is sad?",
+    "hash": "dbdefda87c23206c"
+  },
+  "feelings/sad-fact-1": {
+    "text": "I am sad.",
+    "hash": "0baa5991b0d42799"
+  },
+  "feelings/sad-fact-2": {
+    "text": "Don't be sad. Hug!",
+    "hash": "b04cc0e458840286"
+  },
+  "feelings/angry": {
+    "text": "Angry.",
+    "hash": "9adda2cf18dfb1d1"
+  },
+  "feelings/angry-ask": {
+    "text": "Who is angry?",
+    "hash": "98c24cc9bd310289"
+  },
+  "feelings/angry-fact-1": {
+    "text": "I am angry!",
+    "hash": "8bc9c3115a560e70"
+  },
+  "feelings/angry-fact-2": {
+    "text": "Take a deep breath.",
+    "hash": "b0275b87e8a6fd57"
+  },
+  "feelings/tired": {
+    "text": "Tired.",
+    "hash": "1aa17dff8e554096"
+  },
+  "feelings/tired-ask": {
+    "text": "Who is tired?",
+    "hash": "876c5e9d5504e05b"
+  },
+  "feelings/tired-fact-1": {
+    "text": "I am tired.",
+    "hash": "96f0d2da68069d03"
+  },
+  "feelings/tired-fact-2": {
+    "text": "Time for bed.",
+    "hash": "048dbad91c1d12f9"
+  },
+  "feelings/scared": {
+    "text": "Scared.",
+    "hash": "72023561162d682f"
+  },
+  "feelings/scared-ask": {
+    "text": "Who is scared?",
+    "hash": "fe4e3a44b215293b"
+  },
+  "feelings/scared-fact-1": {
+    "text": "I am scared.",
+    "hash": "6567bb10910e591d"
+  },
+  "feelings/scared-fact-2": {
+    "text": "It's okay. I'm here.",
+    "hash": "49b349e4675cdbe3"
+  },
+  "feelings/surprised": {
+    "text": "Surprised.",
+    "hash": "bf8529ee36b7231d"
+  },
+  "feelings/surprised-ask": {
+    "text": "Who is surprised?",
+    "hash": "f8f6d94e2c2f41af"
+  },
+  "feelings/surprised-fact-1": {
+    "text": "Wow! I am surprised!",
+    "hash": "63da782872f421ad"
+  },
+  "feelings/surprised-fact-2": {
+    "text": "Oh! A surprise!",
+    "hash": "ec0a6a29c05b3d6d"
+  },
+  "common/im-buddy": {
+    "text": "[cheerfully] Hi! I'm Buddy!",
+    "hash": "60def95ddb064aec"
+  },
+  "common/lets-play": {
+    "text": "[cheerfully] Let's play!",
+    "hash": "e1c114b08469beb2"
+  },
+  "common/awesome": {
+    "text": "[cheerfully] Awesome!",
+    "hash": "616521fbcaecc8d7"
+  },
+  "common/you-did-it": {
+    "text": "[cheerfully] You did it!",
+    "hash": "3fbf686d63cd9e95"
+  },
+  "common/well-done": {
+    "text": "[cheerfully] Well done!",
+    "hash": "3cebef87536249fb"
+  },
+  "common/yay-right": {
+    "text": "[cheerfully] Yay! That's right!",
+    "hash": "958a7d8c6ae58d61"
+  },
+  "common/super": {
+    "text": "[cheerfully] Super!",
+    "hash": "c56de9b257bab57a"
+  },
+  "common/listen-again": {
+    "text": "[calmly] Listen again.",
+    "hash": "8338e6de473332c7"
+  },
+  "common/this-one": {
+    "text": "[calmly] This one!",
+    "hash": "0cc01ec244c5336e"
+  },
+  "common/listen-and-touch": {
+    "text": "Listen and touch!",
+    "hash": "e44eab4c1f7509e8"
+  },
+  "common/touch-to-listen": {
+    "text": "Touch to listen!",
+    "hash": "375dc4ba966bbe8c"
+  },
+  "common/find-in-picture": {
+    "text": "Find it in the picture!",
+    "hash": "a480c4723c44b988"
+  },
+  "common/find-the-pairs": {
+    "text": "Find the pairs!",
+    "hash": "82337a3257a47972"
+  },
+  "common/simon-says": {
+    "text": "Simon says:",
+    "hash": "87a36b91db4df687"
+  },
+  "common/pop-the-balloons": {
+    "text": "Pop the balloons!",
+    "hash": "033b5c4ecffdf0b8"
+  },
+  "common/lets-review": {
+    "text": "Let's review!",
+    "hash": "a3478fef309784f2"
+  },
+  "common/new-words": {
+    "text": "[cheerfully] New words!",
+    "hash": "ee914ac5ef79574d"
+  },
+  "common/lets-play-a-game": {
+    "text": "[cheerfully] Let's play a game!",
+    "hash": "ca667e72f87e890f"
+  },
+  "common/new-puzzle-piece": {
+    "text": "[cheerfully] You got a new puzzle piece!",
+    "hash": "dbd4c81a8b68bae8"
+  },
+  "common/put-the-piece": {
+    "text": "Put the piece in the puzzle!",
+    "hash": "58a08b73b0e1470e"
+  },
+  "common/puzzle-finished": {
+    "text": "[cheerfully] You finished the puzzle!",
+    "hash": "3b50782384d54e48"
+  },
+  "common/see-you-tomorrow": {
+    "text": "[softly] See you tomorrow!",
+    "hash": "e1e4331d57a40d2d"
+  },
+  "common/sweet-dreams": {
+    "text": "[softly] Sweet dreams!",
+    "hash": "b46ec45fd09a177d"
+  }
+}

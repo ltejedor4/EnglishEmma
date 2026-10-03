@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+
+# Herramientas de audio instaladas a mano por la prueba con Codex
+.audio-tools/
+
+# Pruebas de voz anteriores (Codex / chat de ElevenLabs) y página de revisión generada
+/audio/
+/ElevenLabs_audio_*.mp3
+/audio-preview.html
