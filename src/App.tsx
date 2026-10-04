@@ -5,7 +5,6 @@ import type { LessonMode } from './lib/lesson.ts';
 import { loadProgress, saveProgress } from './lib/progress.ts';
 import { doingWell, planSession, planTopicSession, recordResult, today } from './lib/review.ts';
 import type { SessionPlan } from './lib/review.ts';
-import { GoodNight } from './screens/GoodNight.tsx';
 import { Home } from './screens/Home.tsx';
 import { ParentGate } from './screens/ParentGate.tsx';
 import { ParentZone } from './screens/ParentZone.tsx';
@@ -14,12 +13,11 @@ import { PUZZLE_PIECES, PuzzleScreen } from './screens/PuzzleScreen.tsx';
 import { Session } from './screens/Session.tsx';
 
 type Screen =
-  | { name: 'home' }
+  | { name: 'home'; justFinished?: boolean }
   | { name: 'gate' }
   | { name: 'parents' }
   | { name: 'session'; plan: SessionPlan; mode: LessonMode }
-  | { name: 'puzzle'; topic: Topic; placedBefore: number }
-  | { name: 'night' };
+  | { name: 'puzzle'; topic: Topic; placedBefore: number };
 
 export default function App() {
   const [progress, setProgress] = useState(loadProgress);
@@ -59,7 +57,7 @@ export default function App() {
       const topic = topics[Math.floor(progress.pieces / PUZZLE_PIECES) % topics.length];
       setScreen({ name: 'puzzle', topic, placedBefore: progress.pieces % PUZZLE_PIECES });
     } else {
-      setScreen({ name: 'night' });
+      setScreen({ name: 'home', justFinished: true });
     }
   }
 
@@ -68,7 +66,9 @@ export default function App() {
     case 'home':
       return (
         <Home
+          key={String(screen.justFinished)}
           playedToday={playedToday}
+          justFinished={screen.justFinished}
           onStart={() => setScreen({ name: 'session', plan: todaysPlan(), mode: 'mix' })}
           onParents={() => setScreen({ name: 'gate' })}
         />
@@ -80,8 +80,6 @@ export default function App() {
     case 'session':
       return <Session plan={screen.plan} progress={progress.words} mode={screen.mode} onFinish={finish} />;
     case 'puzzle':
-      return <PuzzleScreen topic={screen.topic} placedBefore={screen.placedBefore} onDone={() => setScreen({ name: 'night' })} />;
-    case 'night':
-      return <GoodNight />;
+      return <PuzzleScreen topic={screen.topic} placedBefore={screen.placedBefore} onDone={() => setScreen({ name: 'home', justFinished: true })} />;
   }
 }
