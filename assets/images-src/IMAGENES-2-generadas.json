@@ -150,6 +150,596 @@
       ],
       "transparent": true,
       "prompt": "A single cute small cartoon nose, close-up, skin colored like the girl's, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Draw it exactly like the matching object in the attached scene (same shape and colors). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-body-mouth.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-2dec7be4-7146-4f2a-9a49-fbd5b56a15ae.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single big happy smiling cartoon mouth with pink lips, close-up, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Draw it exactly like the matching object in the attached scene (same shape and colors). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-body-hands.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-2e4b03cd-7661-42d5-ba3f-f9b6838ede89.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single two open child's hands, palms facing forward, waving, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Draw it exactly like the matching object in the attached scene (same shape and colors). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-body-feet.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-10f493b9-fc63-4b74-89de-5d640610a4ee.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "Create an educational cartoon vocabulary icon for the English word feet: a matching pair of small rounded cartoon bare feet, front view, each with exactly five clearly visible toes. Simplified children's picture-book illustration, peach skin color matching the reference, thick smooth dark-brown outlines, flat colors with gentle soft shading. Only two feet, no person, no legs above ankles, no other body parts, no setting. Transparent PNG, square 1024x1024, centered, fill about 80%, no ground shadow. Friendly simple classroom illustration for learning body-part names. No text, letters, numbers or logos."
+    },
+    {
+      "file": "word-food-apple.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-ea183259-2ee4-4a7d-b4a1-de46c21ac9c5.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single red apple with a green leaf, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Draw it exactly like the matching object in the attached scene (same shape and colors). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-food-banana.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-233d3257-7bad-43f3-a912-bc93ec943411.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single yellow banana, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Draw it exactly like the matching object in the attached scene (same shape and colors). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-food-milk.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-5cc723c4-de8e-4fd1-8f83-687ed040af19.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single glass of white milk, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Draw it exactly like the matching object in the attached scene (same shape and colors). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-food-bread.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-47a5cee5-ffb0-43ab-bf0f-cd26315d2911.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single loaf of bread, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Draw it exactly like the matching object in the attached scene (same shape and colors). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-food-egg.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-bddb7494-a063-4567-aaf0-bd2cb025913a.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single white egg in a blue egg cup, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Draw it exactly like the matching object in the attached scene (same shape and colors). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-food-water.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-45b8f9f3-5361-470b-bb7b-4a6f00b5ccc9.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single glass of clear water with a light blue tint, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Draw it exactly like the matching object in the attached scene (same shape and colors). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-numbers-one.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-b904fcc6-269b-402b-95ed-e2a244db8749.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "Exactly 1 cute smiling yellow stars, all the same size, arranged in the center, centered, with clear space between them so they are easy to count. Count carefully: exactly 1 stars, no more, no less. Transparent background, PNG. Square 1024x1024. No ground shadow. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-numbers-two.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-35044dc1-4bf6-412e-b85c-a184aa685f6c.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "Exactly 2 cute smiling yellow stars, all the same size, arranged side by side, centered, with clear space between them so they are easy to count. Count carefully: exactly 2 stars, no more, no less. Transparent background, PNG. Square 1024x1024. No ground shadow. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-numbers-three.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-b83dd3e2-0941-4d16-84f4-d79ea34495af.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "Exactly 3 cute smiling yellow stars, all the same size, arranged in a triangle, centered, with clear space between them so they are easy to count. Count carefully: exactly 3 stars, no more, no less. Transparent background, PNG. Square 1024x1024. No ground shadow. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-numbers-four.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-5405bab3-926e-4fe1-8119-d75fa615282c.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "Exactly 4 cute smiling yellow stars, all the same size, arranged in a 2 by 2 square, centered, with clear space between them so they are easy to count. Count carefully: exactly 4 stars, no more, no less. Transparent background, PNG. Square 1024x1024. No ground shadow. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-numbers-five.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-14af7dcc-258d-4a83-a386-d3dc2d6bea3f.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "Exactly 5 cute smiling yellow stars, all the same size, arranged like the five dots on a dice, centered, with clear space between them so they are easy to count. Count carefully: exactly 5 stars, no more, no less. Transparent background, PNG. Square 1024x1024. No ground shadow. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-numbers-six.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-c0be57b9-8094-4395-944f-be1f6a2a2d7b.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "Exactly 6 cute smiling yellow stars, all the same size, arranged in two rows of three, centered, with clear space between them so they are easy to count. Count carefully: exactly 6 stars, no more, no less. Transparent background, PNG. Square 1024x1024. No ground shadow. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-numbers-seven.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-59adad3a-74d6-4bbf-b5f6-b496cfd412bb.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "Exactly 7 cute smiling yellow stars, all the same size, arranged in two rows: four on top, three below, centered, with clear space between them so they are easy to count. Count carefully: exactly 7 stars, no more, no less. Transparent background, PNG. Square 1024x1024. No ground shadow. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-numbers-eight.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-eb96c155-5270-4fff-89a7-60fa01a1c78d.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "Exactly 8 cute smiling yellow stars, all the same size, arranged in two rows of four, centered, with clear space between them so they are easy to count. Count carefully: exactly 8 stars, no more, no less. Transparent background, PNG. Square 1024x1024. No ground shadow. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-numbers-nine.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-0d3c1f7b-6e1d-41b2-869c-59b22c1c8983.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "Exactly 9 cute smiling yellow stars, all the same size, arranged in a 3 by 3 square, centered, with clear space between them so they are easy to count. Count carefully: exactly 9 stars, no more, no less. Transparent background, PNG. Square 1024x1024. No ground shadow. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-numbers-ten.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-d391bfd8-17fd-4f98-83cb-0583f687c145.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "Exactly 10 cute smiling yellow stars, all the same size, arranged in two rows of five, centered, with clear space between them so they are easy to count. Count carefully: exactly 10 stars, no more, no less. Transparent background, PNG. Square 1024x1024. No ground shadow. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-toys-ball.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-cdcd5cc6-0049-4bce-b432-de7a0624a1d0.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single colorful beach ball, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Draw it exactly like the matching object in the attached scene (same shape and colors). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-toys-doll.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-f7bc9fd6-c112-4680-a89d-b12c6bda647f.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single rag doll with orange pigtails and a pink dress, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Draw it exactly like the matching object in the attached scene (same shape and colors). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-toys-car.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-45abf2d3-5b76-4a54-9a83-448dd285f827.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single small red toy car, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Draw it exactly like the matching object in the attached scene (same shape and colors). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-toys-teddy-bear.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-14164ad3-903d-42ce-9c6d-b7659adbfc02.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single brown teddy bear with a red bow tie, sitting, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Draw it exactly like the matching object in the attached scene (same shape and colors). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-toys-blocks.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-b192fe11-f2ae-4307-99fd-283276a76460.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single small stack of colorful toy blocks, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Draw it exactly like the matching object in the attached scene (same shape and colors). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-toys-train.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-efcd009d-2335-4e26-8ce3-bc497ae26bda.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single wooden toy train with two colorful wagons, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Draw it exactly like the matching object in the attached scene (same shape and colors). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-family-mom.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-8e02d484-0b5a-4f1e-9467-e31413c6289d.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single portrait of the mom from the scene, waist up, smiling, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Draw it exactly like the matching object in the attached scene (same shape and colors). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-family-dad.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-f876093b-a9d9-477c-a880-a956d17cab4e.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single portrait of the dad from the scene, waist up, smiling, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Draw it exactly like the matching object in the attached scene (same shape and colors). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-family-sister.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-40008296-0b71-4f80-8758-3bde7ddd3361.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single portrait of the little sister (the smaller girl, about 3 years old) from the scene, waist up, smiling, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Draw it exactly like the matching object in the attached scene (same shape and colors). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-family-grandma.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-dde4c447-130f-4f81-bece-a3e58becbaf3.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single portrait of the grandma from the scene, waist up, smiling, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Draw it exactly like the matching object in the attached scene (same shape and colors). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-family-grandpa.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-d9a905e6-2456-4780-92b9-9ad20aa22ac2.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single portrait of the grandpa from the scene, waist up, smiling, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Draw it exactly like the matching object in the attached scene (same shape and colors). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-actions-jump.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-30064b5c-f7f1-4baf-8800-aafc62eeff5d.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single Buddy the puppy jumping high in the air, all four paws off the ground, with small motion lines, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Use the attached character reference for Buddy the puppy (same colors, LEFT eye patch, blue collar with round yellow star tag). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-actions-run.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-877db100-0ea6-43bd-905d-58160f6da886.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single Buddy the puppy running fast, side view, ears flying back, small dust puffs, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Use the attached character reference for Buddy the puppy (same colors, LEFT eye patch, blue collar with round yellow star tag). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-actions-sit.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-52cb1e47-c0da-4e3b-9771-61d1ce4aaf8a.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single Buddy the puppy sitting nicely on a small round cushion, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Use the attached character reference for Buddy the puppy (same colors, LEFT eye patch, blue collar with round yellow star tag). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-actions-clap.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-d6ee61b8-70c9-4edf-b38f-6a6c04841b49.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single Buddy the puppy standing on his hind legs clapping his front paws, with small clap sparkles, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Use the attached character reference for Buddy the puppy (same colors, LEFT eye patch, blue collar with round yellow star tag). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-actions-dance.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-f1d0eb91-340a-4759-9e1a-9c98f525d316.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single Buddy the puppy dancing happily on his hind legs, with a few musical notes around (notes are fine, no letters), centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Use the attached character reference for Buddy the puppy (same colors, LEFT eye patch, blue collar with round yellow star tag). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-actions-sleep.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-f298997c-a23e-4813-a209-37804113a520.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single Buddy the puppy sleeping in a small bed with a blanket, with a \"zzz\" drawn as three small cloud-like shapes (no letters), centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Use the attached character reference for Buddy the puppy (same colors, LEFT eye patch, blue collar with round yellow star tag). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image. The three sleep clouds are abstract soft shapes, absolutely do not draw Z letters or zzz."
+    },
+    {
+      "file": "word-clothes-shirt.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-08a814e2-840e-47f7-a96a-f029a0b49ad3.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single blue t-shirt, laid flat, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Draw it exactly like the matching object in the attached scene (same shape and colors). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-clothes-shoes.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-4d540a0d-80b7-4fa3-ac18-5ae46c1b33a8.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single pair of pink sneakers, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Draw it exactly like the matching object in the attached scene (same shape and colors). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-clothes-hat.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-23a38d9b-d34d-4bcf-b172-d574f0c32ca1.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single straw sun hat with a pink ribbon, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Draw it exactly like the matching object in the attached scene (same shape and colors). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-clothes-socks.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-53bdf4e0-3320-4636-9e8a-2cc3ea24818b.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single pair of yellow socks, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Draw it exactly like the matching object in the attached scene (same shape and colors). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-clothes-pants.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-72422876-e3ea-443f-a2be-33ff593962a5.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single pair of blue jeans, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Draw it exactly like the matching object in the attached scene (same shape and colors). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-clothes-jacket.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-59121c8f-9915-4fd0-b118-52c5655b9a44.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single green zip-up jacket with a hood, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Draw it exactly like the matching object in the attached scene (same shape and colors). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-feelings-happy.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-c7e178cc-f4a3-4511-97bb-df3e1346c1e3.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single Buddy the puppy's head, very happy, big open smile, eyes shining, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Use the attached character reference for Buddy the puppy (same colors, LEFT eye patch, blue collar with round yellow star tag). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-feelings-sad.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-c40aa2cb-cd9c-49d0-b0c2-bfb86b4e9592.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single Buddy the puppy's head, sad, droopy ears, a single tear, small frown, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Use the attached character reference for Buddy the puppy (same colors, LEFT eye patch, blue collar with round yellow star tag). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-feelings-angry.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-f51e216f-8892-4e55-aa73-cf79dbac9c3f.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single Buddy the puppy's head, angry in a cute way, frowning eyebrows, red cheeks, puffed face, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Use the attached character reference for Buddy the puppy (same colors, LEFT eye patch, blue collar with round yellow star tag). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-feelings-tired.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-b643022e-7e55-4091-a355-4682f8feb7c4.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single Buddy the puppy's head, tired, yawning, half-closed eyes, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Use the attached character reference for Buddy the puppy (same colors, LEFT eye patch, blue collar with round yellow star tag). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-feelings-scared.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-0b3ad996-a741-446a-9b4e-f535945195dc.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single Buddy the puppy's head, a little scared, wide eyes, ears back, small wobbly mouth, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Use the attached character reference for Buddy the puppy (same colors, LEFT eye patch, blue collar with round yellow star tag). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "word-feelings-surprised.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-009d6bf0-5c19-48a6-81f5-8794a000d893.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single Buddy the puppy's head, surprised, round open mouth, very wide eyes, raised eyebrows, centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Use the attached character reference for Buddy the puppy (same colors, LEFT eye patch, blue collar with round yellow star tag). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "balloon-red.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-018651d9-db11-473d-af64-64aee5bba0b7.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "transparent": true,
+      "prompt": "A single shiny party balloon in pure bright red, with a small highlight and a curly string hanging below, centered, filling most of the height. Transparent background, PNG. Vertical 1024x1536. No ground shadow. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "balloon-blue.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-37819085-6e41-4240-b37d-c4ba873f2b33.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "transparent": true,
+      "prompt": "A single shiny party balloon in pure bright blue, with a small highlight and a curly string hanging below, centered, filling most of the height. Transparent background, PNG. Vertical 1024x1536. No ground shadow. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "balloon-yellow.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-9da52f7f-082c-40aa-b592-eb1c43c09502.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "transparent": true,
+      "prompt": "A single shiny party balloon in pure bright yellow, with a small highlight and a curly string hanging below, centered, filling most of the height. Transparent background, PNG. Vertical 1024x1536. No ground shadow. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "balloon-green.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-5d239167-67ad-4117-b014-6bd45eafab17.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "transparent": true,
+      "prompt": "A single shiny party balloon in pure bright green, with a small highlight and a curly string hanging below, centered, filling most of the height. Transparent background, PNG. Vertical 1024x1536. No ground shadow. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "balloon-pink.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-d9dbfd2d-0237-4cfe-936a-7e0ec9bfa485.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "transparent": true,
+      "prompt": "A single shiny party balloon in pure bright pink, with a small highlight and a curly string hanging below, centered, filling most of the height. Transparent background, PNG. Vertical 1024x1536. No ground shadow. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "balloon-orange.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-f441e182-ffd8-400c-9bad-1df9329a7ff1.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "transparent": true,
+      "prompt": "A single shiny party balloon in pure bright orange, with a small highlight and a curly string hanging below, centered, filling most of the height. Transparent background, PNG. Vertical 1024x1536. No ground shadow. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "card-back.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-088d1659-8486-434a-b975-afbc930c4a6c.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": false,
+      "prompt": "The back of a children's memory card: a rounded square card in deep night blue with a soft border in warm yellow, a small cute golden paw print in the center and a few tiny stars around it. Fill the whole image with the card. Square 1024x1024. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "topic-colors.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-c275edc3-9a30-4ac1-ad83-2258a5eebf42.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A small round badge icon showing a painter's palette with six bright paint colors, centered, simple and bold so it reads well when small. Transparent background, PNG. Square 1024x1024. The attached reference is only for the consistent illustration style; do not add Buddy unless the subject calls for him. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "topic-animals.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-305eedc4-90e0-4b4d-a2ee-ec1a36a9f566.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A small round badge icon showing a cute paw print, centered, simple and bold so it reads well when small. Transparent background, PNG. Square 1024x1024. The attached reference is only for the consistent illustration style; do not add Buddy unless the subject calls for him. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "topic-body.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-590c859d-8cbe-41c4-b4aa-a80b66792444.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A small round badge icon showing a smiling child's face waving a hand, centered, simple and bold so it reads well when small. Transparent background, PNG. Square 1024x1024. The attached reference is only for the consistent illustration style; do not add Buddy unless the subject calls for him. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "topic-food.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-d72b9f47-6dfc-4def-a37f-113a60d322a9.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A small round badge icon showing a red apple and a banana, centered, simple and bold so it reads well when small. Transparent background, PNG. Square 1024x1024. The attached reference is only for the consistent illustration style; do not add Buddy unless the subject calls for him. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
     }
   ]
 }
