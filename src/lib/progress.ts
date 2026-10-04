@@ -9,14 +9,14 @@ export interface Progress {
 }
 
 const KEY = 'emma-english:v1';
-const EMPTY: Progress = { words: {}, sessionDays: [], pieces: 0 };
+export const EMPTY_PROGRESS: Progress = { words: {}, sessionDays: [], pieces: 0 };
 
 export function loadProgress(): Progress {
   try {
     const raw = localStorage.getItem(KEY);
-    return raw ? { ...EMPTY, ...JSON.parse(raw) } : EMPTY;
+    return raw ? { ...EMPTY_PROGRESS, ...JSON.parse(raw) } : EMPTY_PROGRESS;
   } catch {
-    return EMPTY;
+    return EMPTY_PROGRESS;
   }
 }
 

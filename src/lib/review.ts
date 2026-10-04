@@ -124,6 +124,12 @@ export function planTopicSession(topic: Topic, progress: WordProgress, { maxRevi
   return { review, fresh };
 }
 
+/** Borra lo que vio de un tema (para repetir pruebas o volver a empezarlo): el tema queda como nuevo. */
+export function resetTopic(progress: WordProgress, topic: Topic): WordProgress {
+  const keys = new Set(refsOf(topic).map(keyOf));
+  return Object.fromEntries(Object.entries(progress).filter(([key]) => !keys.has(key)));
+}
+
 /** Registra el resultado de una palabra en la sesión. firstTry = la acertó a la primera en todas sus rondas. */
 export function recordResult(progress: WordProgress, key: string, firstTry: boolean, day: string): WordProgress {
   const prev = progress[key];

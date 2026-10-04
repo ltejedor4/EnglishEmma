@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { topics } from './content/index.ts';
 import type { Topic } from './content/types.ts';
 import type { LessonMode } from './lib/lesson.ts';
-import { loadProgress, saveProgress } from './lib/progress.ts';
-import { doingWell, planSession, planTopicSession, recordResult, today } from './lib/review.ts';
+import { EMPTY_PROGRESS, loadProgress, saveProgress } from './lib/progress.ts';
+import type { Progress } from './lib/progress.ts';
+import { doingWell, planSession, planTopicSession, recordResult, resetTopic, today } from './lib/review.ts';
 import type { SessionPlan } from './lib/review.ts';
 import { Home } from './screens/Home.tsx';
 import { ParentGate } from './screens/ParentGate.tsx';
@@ -39,6 +40,17 @@ export default function App() {
     setScreen({ name: 'session', plan, mode });
   }
 
+  function update(next: Progress) {
+    setProgress(next);
+    saveProgress(next);
+  }
+
+  /** Zona de padres: un tema vuelve a estar como nuevo (las fichas del rompecabezas no se tocan). */
+  function resetTopicProgress(topicId: string) {
+    const topic = topics.find((t) => t.id === topicId);
+    if (topic) update({ ...progress, words: resetTopic(progress.words, topic) });
+  }
+
   function finish(results: Record<string, boolean>) {
     let words = progress.words;
     for (const [key, firstTry] of Object.entries(results)) words = recordResult(words, key, firstTry, day);
@@ -50,8 +62,7 @@ export default function App() {
       sessionDays: earnsPiece ? [...progress.sessionDays, day] : progress.sessionDays,
       pieces: progress.pieces + (earnsPiece ? 1 : 0),
     };
-    setProgress(next);
-    saveProgress(next);
+    update(next);
 
     if (earnsPiece) {
       const topic = topics[Math.floor(progress.pieces / PUZZLE_PIECES) % topics.length];
@@ -76,7 +87,16 @@ export default function App() {
     case 'gate':
       return <ParentGate onPass={() => setScreen({ name: 'parents' })} onCancel={home} />;
     case 'parents':
-      return <ParentZone progress={progress.words} playedToday={playedToday} onStart={startLesson} onClose={home} />;
+      return (
+        <ParentZone
+          progress={progress.words}
+          playedToday={playedToday}
+          onStart={startLesson}
+          onResetTopic={resetTopicProgress}
+          onResetAll={() => update(EMPTY_PROGRESS)}
+          onClose={home}
+        />
+      );
     case 'session':
       return <Session plan={screen.plan} progress={progress.words} mode={screen.mode} onFinish={finish} />;
     case 'puzzle':

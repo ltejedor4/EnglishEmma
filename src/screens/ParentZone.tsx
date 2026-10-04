@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { topics } from '../content/index.ts';
 import { image } from '../lib/images.ts';
 import { LESSON_MODES } from '../lib/lesson.ts';
@@ -13,11 +13,13 @@ interface Props {
   progress: WordProgress;
   playedToday: boolean;
   onStart: (choice: LessonChoice, mode: LessonMode) => void;
+  onResetTopic: (topicId: string) => void;
+  onResetAll: () => void;
   onClose: () => void;
 }
 
-/** Zona de padres: elegir tema y tipo de juego, ver cómo va y las misiones para casa. */
-export function ParentZone({ progress, playedToday, onStart, onClose }: Props) {
+/** Zona de padres: elegir tema y tipo de juego, ver cómo va, misiones para casa y reiniciar el progreso. */
+export function ParentZone({ progress, playedToday, onStart, onResetTopic, onResetAll, onClose }: Props) {
   const [choice, setChoice] = useState<LessonChoice>('today');
   const [mode, setMode] = useState<LessonMode>('mix');
   const topic = topics.find((t) => t.id === choice);
@@ -53,15 +55,30 @@ export function ParentZone({ progress, playedToday, onStart, onClose }: Props) {
               const learned = refs.filter((ref) => isLearned(progress[keyOf(ref)])).length;
               const icon = image(`topic-${t.id}`);
               return (
-                <button key={t.id} className={option(choice === t.id)} onClick={() => setChoice(t.id)} data-choice={t.id}>
-                  {icon ? <img src={icon} alt="" className="size-12" /> : <span className="text-4xl">{t.icon}</span>}
-                  <span>
-                    <span className="block font-semibold">{t.title}</span>
-                    <span className="text-sm text-cream/70">
-                      {seen ? `Vio ${seen} de ${refs.length} · aprendió ${learned}` : 'Todavía no empezó'}
+                <div key={t.id} className="relative">
+                  <button
+                    className={`${option(choice === t.id)} w-full ${seen ? 'pr-28' : ''}`}
+                    onClick={() => setChoice(t.id)}
+                    data-choice={t.id}
+                  >
+                    {icon ? <img src={icon} alt="" className="size-12" /> : <span className="text-4xl">{t.icon}</span>}
+                    <span>
+                      <span className="block font-semibold">{t.title}</span>
+                      <span className="text-sm text-cream/70">
+                        {seen ? `Vio ${seen} de ${refs.length} · aprendió ${learned}` : 'Todavía no empezó'}
+                      </span>
                     </span>
-                  </span>
-                </button>
+                  </button>
+                  {seen > 0 && (
+                    <ConfirmButton
+                      className="absolute top-1/2 right-3 -translate-y-1/2"
+                      label="Reiniciar"
+                      armedLabel="¿Borrar?"
+                      onConfirm={() => onResetTopic(t.id)}
+                      data-reset={t.id}
+                    />
+                  )}
+                </div>
               );
             })}
           </div>
@@ -108,7 +125,49 @@ export function ParentZone({ progress, playedToday, onStart, onClose }: Props) {
               : 'Es la primera sesión de hoy: al terminar gana su ficha del rompecabezas.'}
           </p>
         </div>
+
+        <section className="mt-4 flex flex-col items-center gap-2 border-t border-white/10 pt-6">
+          <ConfirmButton label="Reiniciar todo" onConfirm={onResetAll} data-reset="all" />
+          <p className="m-0 text-center text-sm text-cream/60">
+            Borra todas las palabras, las fichas del rompecabezas y las noches jugadas.
+          </p>
+        </section>
       </div>
     </main>
+  );
+}
+
+/**
+ * Botón que pide un segundo toque: el primero lo pone en rojo ("¿Borrar?") y,
+ * si no se confirma en 4 segundos, vuelve a la normalidad.
+ */
+function ConfirmButton({
+  label,
+  onConfirm,
+  className = '',
+  armedLabel = '¿Borrar? Toca otra vez',
+  ...rest
+}: { label: string; armedLabel?: string; onConfirm: () => void; className?: string } & Record<`data-${string}`, string>) {
+  const [armed, setArmed] = useState(false);
+  useEffect(() => {
+    if (!armed) return;
+    const timer = setTimeout(() => setArmed(false), 4000);
+    return () => clearTimeout(timer);
+  }, [armed]);
+
+  return (
+    <button
+      {...rest}
+      className={`rounded-full px-4 py-2 text-sm font-semibold active:scale-95 ${
+        armed ? 'bg-red-500 text-white' : 'bg-white/12 text-cream/80'
+      } ${className}`}
+      onClick={() => {
+        if (!armed) return setArmed(true);
+        setArmed(false);
+        onConfirm();
+      }}
+    >
+      {armed ? armedLabel : `↺ ${label}`}
+    </button>
   );
 }

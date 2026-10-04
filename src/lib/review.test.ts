@@ -13,6 +13,7 @@ import {
   planTopicSession,
   recordResult,
   refsOf,
+  resetTopic,
 } from './review.ts';
 import type { WordProgress } from './review.ts';
 
@@ -175,4 +176,13 @@ test('práctica tras fallar yellow: el repaso no es solo yellow', () => {
   const ids = plan.review.map((r) => r.word.id);
   assert.equal(ids[0], 'yellow', 'la que le cuesta va primero');
   assert.deepEqual([...ids].sort(), ['blue', 'red', 'yellow']);
+});
+
+test('resetTopic borra solo las palabras de ese tema', () => {
+  let p = recordResult({}, 'colors/red', true, '2026-10-03');
+  p = recordResult(p, 'colors/blue', false, '2026-10-03');
+  p = recordResult(p, 'animals/dog', true, '2026-10-03');
+  const after = resetTopic(p, colors);
+  assert.deepEqual(Object.keys(after), ['animals/dog']);
+  assert.deepEqual(planSession(topics, resetTopic(after, animals), '2026-10-04').fresh.map((r) => r.word.id), ['red', 'blue', 'yellow']);
 });
