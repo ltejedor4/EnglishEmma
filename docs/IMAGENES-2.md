@@ -17,7 +17,7 @@ Style: children's picture book illustration for a 5-year-old. Soft rounded shape
 
 ---
 
-## 1. Tarjetas de palabras (61) — cuadradas 1024×1024, fondo transparente
+## 1. Tarjetas de palabras (63) — cuadradas 1024×1024, fondo transparente
 
 Se ven en una tarjeta color crema, así que el objeto tiene que **leerse de un vistazo**: grande, centrado, sin fondo ni escenario.
 
@@ -221,4 +221,4 @@ Plantilla: `A small round badge icon showing [ÍCONO], centered, simple and bold
 3. Tarjetas del resto (29)
 4. Globos, reverso de cartas, íconos de temas y stickers (19)
 
-Total: **80 imágenes**. Con Codex se pueden pedir por tandas (por ejemplo, un tema completo a la vez).
+Total: **82 imágenes**. Con Codex se pueden pedir por tandas (por ejemplo, un tema completo a la vez).
