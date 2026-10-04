@@ -13,8 +13,8 @@ const ROOT = join(import.meta.dirname, '..');
 const SRC = join(ROOT, 'assets', 'images-src');
 const OUT = join(ROOT, 'src', 'assets', 'images');
 
-/** Lado mayor máximo según el tipo de imagen: los fondos y rompecabezas se ven grandes, Buddy no tanto. */
-const maxSize = (name: string) => (name.startsWith('buddy-') ? 640 : 1600);
+/** Lado mayor máximo: los fondos y rompecabezas se ven a pantalla completa; Buddy, tarjetas, globos e íconos, no. */
+const maxSize = (name: string) => (/^(bg|puzzle)-/.test(name) ? 1600 : 640);
 
 mkdirSync(OUT, { recursive: true });
 // Las hojas de referencia (buddy-reference.png) solo sirven para pedir las demás imágenes; no van al juego.
