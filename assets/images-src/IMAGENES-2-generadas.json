@@ -502,16 +502,6 @@
       "prompt": "A single Buddy the puppy dancing happily on his hind legs, with a few musical notes around (notes are fine, no letters), centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Use the attached character reference for Buddy the puppy (same colors, LEFT eye patch, blue collar with round yellow star tag). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
     },
     {
-      "file": "word-actions-sleep.png",
-      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-f298997c-a23e-4813-a209-37804113a520.png",
-      "size": [
-        1024,
-        1024
-      ],
-      "transparent": true,
-      "prompt": "A single Buddy the puppy sleeping in a small bed with a blanket, with a \"zzz\" drawn as three small cloud-like shapes (no letters), centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Use the attached character reference for Buddy the puppy (same colors, LEFT eye patch, blue collar with round yellow star tag). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image. The three sleep clouds are abstract soft shapes, absolutely do not draw Z letters or zzz."
-    },
-    {
       "file": "word-clothes-shirt.png",
       "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-08a814e2-840e-47f7-a96a-f029a0b49ad3.png",
       "size": [
@@ -740,6 +730,96 @@
       ],
       "transparent": true,
       "prompt": "A small round badge icon showing a red apple and a banana, centered, simple and bold so it reads well when small. Transparent background, PNG. Square 1024x1024. The attached reference is only for the consistent illustration style; do not add Buddy unless the subject calls for him. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "topic-numbers.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-83d71815-7004-4a18-8246-761562e03482.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A small round badge icon showing a small abacus with colorful beads (no digits), centered, simple and bold so it reads well when small. Transparent background, PNG. Square 1024x1024. The attached reference is only for the consistent illustration style; do not add Buddy unless the subject calls for him. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "topic-toys.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-a5434fc6-f622-4762-8317-d5dff18170e4.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A small round badge icon showing a teddy bear peeking out of a toy box, centered, simple and bold so it reads well when small. Transparent background, PNG. Square 1024x1024. The attached reference is only for the consistent illustration style; do not add Buddy unless the subject calls for him. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "topic-family.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-76a1d64f-f4a3-475c-bccb-0e3727e095c4.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A small round badge icon showing a cozy little house with a heart above it, centered, simple and bold so it reads well when small. Transparent background, PNG. Square 1024x1024. The attached reference is only for the consistent illustration style; do not add Buddy unless the subject calls for him. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "topic-actions.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-1de98c53-70ed-4df5-a867-92e859a26735.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A small round badge icon showing a little sneaker with motion lines, centered, simple and bold so it reads well when small. Transparent background, PNG. Square 1024x1024. The attached reference is only for the consistent illustration style; do not add Buddy unless the subject calls for him. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "topic-clothes.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-50819f0e-1993-437c-9235-ca72f3cb2882.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A small round badge icon showing a t-shirt on a hanger, centered, simple and bold so it reads well when small. Transparent background, PNG. Square 1024x1024. The attached reference is only for the consistent illustration style; do not add Buddy unless the subject calls for him. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "topic-feelings.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-d9b4ad95-667a-4cfd-945c-7c6a8438480f.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A small round badge icon showing a happy face and a sad face side by side, centered, simple and bold so it reads well when small. Transparent background, PNG. Square 1024x1024. The attached reference is only for the consistent illustration style; do not add Buddy unless the subject calls for him. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image."
+    },
+    {
+      "file": "sticker-star.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-71cd7885-f2a8-4052-a435-b129fa6fe2c6.png",
+      "size": [
+        512,
+        512
+      ],
+      "transparent": true,
+      "prompt": "A shiny golden star sticker with a cute sleepy smile and a thin white sticker border. Transparent background, PNG. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image.. Square 512x512. Use reference only for illustration style, not for the subject."
+    },
+    {
+      "file": "sticker-moon.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-1023a32f-e72b-4ab6-bd3d-7b293394cda8.png",
+      "size": [
+        512,
+        512
+      ],
+      "transparent": true,
+      "prompt": "A soft yellow crescent moon sticker with a cute sleeping face and a thin white sticker border. Transparent background, PNG. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image.. Square 512x512. Use reference only for illustration style, not for the subject."
+    },
+    {
+      "file": "word-actions-sleep.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-4aec7313-bfba-48ea-8717-18f91f9832e0.png",
+      "size": [
+        1024,
+        1024
+      ],
+      "transparent": true,
+      "prompt": "A single Buddy the puppy sleeping in a small bed with a blanket, with a \"zzz\" drawn as three small cloud-like shapes (no letters), centered, large, filling about 80% of the image, seen from the front unless the requested action explicitly requires a side view, nothing else in the image except the specifically requested cushion, bed, blanket, motion lines, musical notes or pairs of body parts. Transparent background, PNG, no ground shadow. Square 1024x1024. Use the attached character reference for Buddy the puppy (same colors, LEFT eye patch, blue collar with round yellow star tag). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image. The three sleep clouds are abstract soft shapes, absolutely do not draw Z letters or zzz.\nRevision: Edit this illustration very minimally: keep Buddy, bed, blanket, all colors, outlines, framing and existing two clouds exactly as shown. Add ONE more small pale-blue abstract cloud-like sleep shape above Buddy, so there are EXACTLY THREE separate sleep clouds total, increasing slightly in size, with clear space between them. No text, letters, Z symbols or numbers. Keep square layout and transparent background. Children's picture book illustration, dark-brown smooth outlines and gentle shading, matching the original."
     }
   ]
 }
