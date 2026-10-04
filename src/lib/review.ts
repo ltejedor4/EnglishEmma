@@ -27,6 +27,8 @@ export const LEARNED_DAYS = 3;
 export const UNLOCK_RATIO = 0.5;
 /** Tope de palabras nuevas por día, sumando la sesión de la noche y las prácticas. */
 export const MAX_NEW_PER_DAY = 6;
+/** Palabras distintas mínimas en un repaso (si hay suficientes vistas). */
+export const MIN_REVIEW = 3;
 
 export const keyOf = (ref: WordRef) => `${ref.topicId}/${ref.word.id}`;
 
@@ -96,6 +98,13 @@ export function planSession(
 
   // Nunca una sesión vacía: si no toca nada, repasa las que más le cuestan.
   if (!fresh.length && !review.length) review = [...seen].sort(byPriority).slice(0, reviewCount);
+
+  // Un repaso de una sola palabra (la que falló) se vuelve "toca el amarillo" ocho veces: se suman otras
+  // que ya vio, aunque no les toque hoy, para que tenga que escuchar y elegir de verdad.
+  if (review.length && review.length < MIN_REVIEW) {
+    const others = seen.filter((ref) => !review.includes(ref)).sort(byPriority);
+    review = [...review, ...others].slice(0, Math.min(MIN_REVIEW, reviewCount));
+  }
 
   return { review, fresh };
 }

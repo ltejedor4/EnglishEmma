@@ -1,7 +1,8 @@
 import { motion } from 'motion/react';
 import { image } from '../lib/images.ts';
+import type { Pose } from '../lib/pose.ts';
 
-export type Pose = 'hello' | 'listen' | 'point' | 'cheer' | 'puzzle' | 'sleepy' | 'sleeping';
+export type { Pose };
 
 const SLEEPY: Pose[] = ['sleepy', 'sleeping'];
 

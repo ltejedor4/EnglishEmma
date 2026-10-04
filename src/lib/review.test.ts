@@ -165,3 +165,14 @@ test('planTopicSession: lección de un tema aunque no esté desbloqueado', () =>
   assert.deepEqual(plan.review.map((r) => r.word.id), ['banana', 'apple']); // primero la que le cuesta
   assert.deepEqual(plan.fresh.map((r) => r.word.id), ['milk', 'bread', 'egg']);
 });
+
+test('práctica tras fallar yellow: el repaso no es solo yellow', () => {
+  let p: WordProgress = {};
+  for (const [id, ok] of [['red', true], ['blue', true], ['yellow', false]] as const) {
+    p = recordResult(p, `colors/${id}`, ok, '2026-10-03');
+  }
+  const plan = planSession(topics, p, '2026-10-03', { maxReview: 6, maxNew: 0 });
+  const ids = plan.review.map((r) => r.word.id);
+  assert.equal(ids[0], 'yellow', 'la que le cuesta va primero');
+  assert.deepEqual([...ids].sort(), ['blue', 'red', 'yellow']);
+});
