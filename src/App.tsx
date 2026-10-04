@@ -1,17 +1,23 @@
 import { useState } from 'react';
 import { topics } from './content/index.ts';
 import type { Topic } from './content/types.ts';
+import type { LessonMode } from './lib/lesson.ts';
 import { loadProgress, saveProgress } from './lib/progress.ts';
-import { doingWell, planSession, recordResult, today } from './lib/review.ts';
+import { doingWell, planSession, planTopicSession, recordResult, today } from './lib/review.ts';
 import type { SessionPlan } from './lib/review.ts';
 import { GoodNight } from './screens/GoodNight.tsx';
 import { Home } from './screens/Home.tsx';
+import { ParentGate } from './screens/ParentGate.tsx';
+import { ParentZone } from './screens/ParentZone.tsx';
+import type { LessonChoice } from './screens/ParentZone.tsx';
 import { PUZZLE_PIECES, PuzzleScreen } from './screens/PuzzleScreen.tsx';
 import { Session } from './screens/Session.tsx';
 
 type Screen =
   | { name: 'home' }
-  | { name: 'session'; plan: SessionPlan }
+  | { name: 'gate' }
+  | { name: 'parents' }
+  | { name: 'session'; plan: SessionPlan; mode: LessonMode }
   | { name: 'puzzle'; topic: Topic; placedBefore: number }
   | { name: 'night' };
 
@@ -21,11 +27,18 @@ export default function App() {
   const day = today();
   const playedToday = progress.sessionDays.includes(day);
 
-  function start() {
-    // Después de la sesión de la noche se puede seguir practicando. Si va bien, también con palabras
-    // nuevas (hasta el tope diario); si le está costando, solo repaso.
+  /** La lección automática. Después de la de la noche se puede seguir practicando: si va bien, también
+   *  con palabras nuevas (hasta el tope diario); si le está costando, solo repaso. */
+  function todaysPlan() {
     const options = playedToday ? { maxReview: 6, maxNew: doingWell(progress.words) ? 3 : 0 } : undefined;
-    setScreen({ name: 'session', plan: planSession(topics, progress.words, day, options) });
+    return planSession(topics, progress.words, day, options);
+  }
+
+  /** Lección elegida en la zona de padres: la de hoy o un tema concreto, con el tipo de juego elegido. */
+  function startLesson(choice: LessonChoice, mode: LessonMode) {
+    const topic = topics.find((t) => t.id === choice);
+    const plan = topic ? planTopicSession(topic, progress.words) : todaysPlan();
+    setScreen({ name: 'session', plan, mode });
   }
 
   function finish(results: Record<string, boolean>) {
@@ -50,11 +63,22 @@ export default function App() {
     }
   }
 
+  const home = () => setScreen({ name: 'home' });
   switch (screen.name) {
     case 'home':
-      return <Home playedToday={playedToday} onStart={start} />;
+      return (
+        <Home
+          playedToday={playedToday}
+          onStart={() => setScreen({ name: 'session', plan: todaysPlan(), mode: 'mix' })}
+          onParents={() => setScreen({ name: 'gate' })}
+        />
+      );
+    case 'gate':
+      return <ParentGate onPass={() => setScreen({ name: 'parents' })} onCancel={home} />;
+    case 'parents':
+      return <ParentZone progress={progress.words} playedToday={playedToday} onStart={startLesson} onClose={home} />;
     case 'session':
-      return <Session plan={screen.plan} progress={progress.words} onFinish={finish} />;
+      return <Session plan={screen.plan} progress={progress.words} mode={screen.mode} onFinish={finish} />;
     case 'puzzle':
       return <PuzzleScreen topic={screen.topic} placedBefore={screen.placedBefore} onDone={() => setScreen({ name: 'night' })} />;
     case 'night':

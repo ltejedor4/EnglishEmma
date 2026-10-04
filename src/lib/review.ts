@@ -100,6 +100,21 @@ export function planSession(
   return { review, fresh };
 }
 
+/**
+ * Lección de un tema elegido por papá/mamá (aunque no esté desbloqueado): presenta hasta 3 palabras
+ * que no ha visto y repasa las que ya vio de ese tema, empezando por las que más le cuestan.
+ */
+export function planTopicSession(topic: Topic, progress: WordProgress, { maxReview = 6, maxNew = 3 } = {}): SessionPlan {
+  const refs = refsOf(topic);
+  const state = (ref: WordRef) => progress[keyOf(ref)];
+  const fresh = refs.filter((ref) => !state(ref)).slice(0, maxNew);
+  const review = refs
+    .filter((ref) => state(ref))
+    .sort((a, b) => state(a).box - state(b).box || state(a).lastSeen.localeCompare(state(b).lastSeen))
+    .slice(0, maxReview);
+  return { review, fresh };
+}
+
 /** Registra el resultado de una palabra en la sesión. firstTry = la acertó a la primera en todas sus rondas. */
 export function recordResult(progress: WordProgress, key: string, firstTry: boolean, day: string): WordProgress {
   const prev = progress[key];

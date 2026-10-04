@@ -180,7 +180,7 @@ Todos reutilizan el mismo contenido de cada tema.
 - Mascota guía (un perrito "Buddy") que habla y celebra.
 - Botón 🔊 siempre visible para repetir la instrucción.
 - **Tono nocturno:** colores suaves y fondos oscuros cálidos, sin destellos ni confeti explosivo; celebraciones con estrellas que aparecen despacio.
-- **Zona de papá/mamá:** se entra manteniendo presionado 3 s o resolviendo una suma simple. Ahí: palabras aprendidas, progreso, misiones para casa, reiniciar.
+- **Zona de papá/mamá:** botón ⚙️ en el inicio + una suma de dos cifras (34 + 27). Ahí: elegir la lección (la de hoy o cualquier tema) y el tipo de juego (mezcla, Where is…?, frases, Find these two!), ver palabras vistas/aprendidas por tema y las misiones para casa.
 - Alto contraste en lo importante, sin parpadeos, volumen consistente entre audios.
 
 ---
@@ -276,7 +276,7 @@ EmmaIngles/
 - [ ] Temas My body, Food, Numbers
 
 ### Fase 3 — Zona de padres y pulido
-- [ ] Zona de padres (palabras aprendidas + misiones para casa)
+- [x] Zona de padres: ⚙️ + suma de dos cifras; elegir tema y tipo de juego, ver progreso y misiones para casa
 - [ ] Drag & Drop
 - [ ] Resto de temas
 

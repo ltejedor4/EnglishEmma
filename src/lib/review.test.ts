@@ -1,7 +1,19 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { topics } from '../content/index.ts';
-import { currentTopic, daysBetween, doingWell, factsNaming, isLearned, keyOf, pickOptions, planSession, recordResult, refsOf } from './review.ts';
+import {
+  currentTopic,
+  daysBetween,
+  doingWell,
+  factsNaming,
+  isLearned,
+  keyOf,
+  pickOptions,
+  planSession,
+  planTopicSession,
+  recordResult,
+  refsOf,
+} from './review.ts';
 import type { WordProgress } from './review.ts';
 
 const [colors, animals] = topics;
@@ -140,4 +152,16 @@ test('pickOptions con dos objetivos', () => {
   const options = pickOptions([red, blue], colors, 4);
   assert.equal(options.length, 4);
   assert.ok(['red', 'blue'].every((id) => options.some((o) => o.word.id === id)));
+});
+
+test('planTopicSession: lección de un tema aunque no esté desbloqueado', () => {
+  const food = topics.find((t) => t.id === 'food')!;
+  let plan = planTopicSession(food, {});
+  assert.deepEqual(plan.fresh.map((r) => r.word.id), ['apple', 'banana', 'milk']);
+  assert.equal(plan.review.length, 0);
+  let p = recordResult({}, 'food/apple', true, '2026-10-03');
+  p = recordResult(p, 'food/banana', false, '2026-10-03');
+  plan = planTopicSession(food, p);
+  assert.deepEqual(plan.review.map((r) => r.word.id), ['banana', 'apple']); // primero la que le cuesta
+  assert.deepEqual(plan.fresh.map((r) => r.word.id), ['milk', 'bread', 'egg']);
 });
