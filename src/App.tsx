@@ -9,9 +9,6 @@ import { Home } from './screens/Home.tsx';
 import { PUZZLE_PIECES, PuzzleScreen } from './screens/PuzzleScreen.tsx';
 import { Session } from './screens/Session.tsx';
 
-/** Con ?libre en la URL se puede jugar más de una sesión por día (para probar). */
-const FREE_PLAY = new URLSearchParams(location.search).has('libre');
-
 type Screen =
   | { name: 'home' }
   | { name: 'session'; plan: SessionPlan }
@@ -25,7 +22,9 @@ export default function App() {
   const playedToday = progress.sessionDays.includes(day);
 
   function start() {
-    setScreen({ name: 'session', plan: planSession(topics, progress.words, day) });
+    // Después de la sesión de la noche se puede seguir practicando: solo repaso, sin palabras nuevas.
+    const options = playedToday ? { maxReview: 6, maxNew: 0 } : undefined;
+    setScreen({ name: 'session', plan: planSession(topics, progress.words, day, options) });
   }
 
   function finish(results: Record<string, boolean>) {
@@ -52,7 +51,7 @@ export default function App() {
 
   switch (screen.name) {
     case 'home':
-      return <Home playedToday={playedToday && !FREE_PLAY} onStart={start} />;
+      return <Home playedToday={playedToday} onStart={start} />;
     case 'session':
       return <Session plan={screen.plan} progress={progress.words} onFinish={finish} />;
     case 'puzzle':

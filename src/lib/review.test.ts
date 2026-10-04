@@ -78,6 +78,20 @@ test('sin palabras nuevas disponibles, la sesión es más repaso', () => {
   assert.equal(plan.review.length, 6);
 });
 
+test('la práctica (maxNew 0) es solo repaso, aunque le cueste', () => {
+  let p: WordProgress = {};
+  for (const ref of refsOf(colors).slice(0, 3)) p = recordResult(p, keyOf(ref), false, '2026-10-03');
+  const plan = planSession(topics, p, '2026-10-03', { maxReview: 6, maxNew: 0 });
+  assert.equal(plan.fresh.length, 0);
+  assert.deepEqual(plan.review.map((r) => r.word.id).sort(), ['blue', 'red', 'yellow']);
+});
+
+test('la práctica repasa aunque nada esté pendiente hoy', () => {
+  let p: WordProgress = {};
+  for (const ref of refsOf(colors).slice(0, 3)) p = recordResult(p, keyOf(ref), true, '2026-10-03');
+  assert.equal(planSession(topics, p, '2026-10-03', { maxReview: 6, maxNew: 0 }).review.length, 3);
+});
+
 test('pickOptions incluye la correcta y no repite', () => {
   const [red] = refsOf(colors);
   const options = pickOptions(red, colors, 4);

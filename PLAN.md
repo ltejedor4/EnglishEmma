@@ -168,6 +168,7 @@ Todos reutilizan el mismo contenido de cada tema.
 3. **Palabras nuevas:** presentación dentro de una escena (toca para escuchar) → 1–2 mini-juegos.
 4. **¡Ficha nueva!** 🧩 Emma la coloca en su rompecabezas.
 5. Estrellita en el calendario → Buddy bosteza: "Good night, Emma!" 🌙 y la sesión termina.
+6. Si vuelve el mismo día: Buddy está dormido, pero con un ▶ más pequeño puede **practicar** (solo repaso, sin palabras nuevas ni ficha).
 
 ---
 

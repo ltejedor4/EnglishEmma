@@ -75,7 +75,7 @@ export function planSession(
 
   // Si le está costando (muchas en la caja 0), menos palabras nuevas.
   const struggling = seen.filter((ref) => state(ref).box === 0).length;
-  const newCount = struggling >= 4 ? 1 : struggling >= 2 ? 2 : maxNew;
+  const newCount = Math.min(struggling >= 4 ? 1 : struggling >= 2 ? 2 : maxNew, maxNew);
   const topic = currentTopic(topics, progress);
   const fresh = topic ? refsOf(topic).filter((ref) => !state(ref)).slice(0, newCount) : [];
 
