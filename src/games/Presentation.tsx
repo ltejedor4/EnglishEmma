@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { cardClass, cardSize } from '../components/cardStyles.ts';
 import { NextButton } from '../components/NextButton.tsx';
 import { GameArea } from '../components/Screen.tsx';
-import { WordImage } from '../components/WordImage.tsx';
+import { WordCaption, WordImage } from '../components/WordImage.tsx';
 import { say } from '../lib/audio.ts';
 import type { WordRef } from '../lib/review.ts';
 
@@ -32,7 +32,7 @@ export function Presentation({ target, onDone }: { target: WordRef; onDone: () =
         onClick={() => say(base)}
       >
         <WordImage target={target} />
-        <span className="absolute bottom-[6%] text-[calc(var(--size)*0.12)] font-bold text-night">{target.word.say.replace(/\.$/, '')}</span>
+        <WordCaption target={target} />
       </motion.button>
       {ready && <NextButton onClick={onDone} />}
     </GameArea>

@@ -5,7 +5,7 @@ import { cardClass, cardHintClass, cardSize } from '../components/cardStyles.ts'
 import { GameArea } from '../components/Screen.tsx';
 import { SpeakerButton } from '../components/SpeakerButton.tsx';
 import { Stars } from '../components/Stars.tsx';
-import { WordImage } from '../components/WordImage.tsx';
+import { WordCaption, WordImage } from '../components/WordImage.tsx';
 import { randomCelebration, say } from '../lib/audio.ts';
 import { keyOf } from '../lib/review.ts';
 import type { WordRef } from '../lib/review.ts';
@@ -78,7 +78,7 @@ export function ListenTouch({ targets, options, prompt, onDone }: Props) {
           return (
             <motion.button
               key={key}
-              className={`${cardClass} ${hint ? cardHintClass : ''} ${right ? 'border-success' : ''}`}
+              className={`${cardClass} pb-[14%] ${hint ? cardHintClass : ''} ${right ? 'border-success' : ''}`}
               style={cardSize(options.length > 4 ? 'min(24vw, 32vh, 200px)' : 'min(30vw, 36vh, 240px)')}
               data-card={right ? 'right' : ''}
               animate={
@@ -90,6 +90,7 @@ export function ListenTouch({ targets, options, prompt, onDone }: Props) {
               onClick={() => touch(ref)}
             >
               <WordImage target={ref} />
+              <WordCaption target={ref} />
             </motion.button>
           );
         })}
