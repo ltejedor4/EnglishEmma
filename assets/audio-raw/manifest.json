@@ -76,8 +76,8 @@
     "hash": "eb453606c3a39f78"
   },
   "common/good-night-emma": {
-    "text": "[softly] Good night, Emma!",
-    "hash": "50504b4536d100fa"
+    "text": "[warmly] Good night, Emma!",
+    "hash": "a383967bf66d7906"
   },
   "colors/title": {
     "text": "Colors!",
@@ -1148,12 +1148,12 @@
     "hash": "3b50782384d54e48"
   },
   "common/see-you-tomorrow": {
-    "text": "[softly] See you tomorrow!",
-    "hash": "e1e4331d57a40d2d"
+    "text": "[warmly] See you tomorrow!",
+    "hash": "b90342acd2ec4881"
   },
   "common/sweet-dreams": {
-    "text": "[softly] Sweet dreams!",
-    "hash": "b46ec45fd09a177d"
+    "text": "[warmly] Sweet dreams!",
+    "hash": "2ebedd383dc18267"
   },
   "common/find-these-two": {
     "text": "[cheerfully] Find these two!",

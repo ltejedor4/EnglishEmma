@@ -34,7 +34,8 @@ const VOICE_SETTINGS = {};
 const MOOD_TAGS: Record<Mood, string> = {
   cheerful: '[cheerfully] ',
   calm: '[calmly] ',
-  sleepy: '[softly] ',
+  // Cálido y tranquilo para la noche. [softly] sonaba a susurro y podía asustar.
+  sleepy: '[warmly] ',
 };
 
 interface Clip {
