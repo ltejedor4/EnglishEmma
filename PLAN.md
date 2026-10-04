@@ -219,31 +219,21 @@ EmmaIngles/
 │   │   ├── images.ts         # imágenes optimizadas, con emojis de respaldo
 │   │   └── review.ts         # repaso espaciado (lógica pura, con pruebas)
 │   └── styles/
+├── Dockerfile                # build + Nginx para Coolify
 └── deploy/
-    ├── Caddyfile
-    └── deploy.ps1            # build + subida al VPS desde Windows
+    └── nginx.conf            # caché: sw.js/index.html sin caché, /assets inmutable
 ```
 
 ---
 
-## 10. Despliegue en el VPS
+## 10. Despliegue en el VPS (Coolify)
 
-1. Subdominio apuntando al VPS (ej. `emma.tudominio.com`). **HTTPS es obligatorio** para instalar la PWA.
-2. Instalar Caddy en el VPS con este `Caddyfile`:
-   ```
-   emma.tudominio.com {
-       root * /var/www/emma
-       try_files {path} /index.html
-       file_server
-       encode gzip
-   }
-   ```
-3. En tu PC: `npm run build` → genera `dist/`.
-4. Subir: `scp -r dist/* usuario@vps:/var/www/emma/` (o `rsync`, o WinSCP).
-5. En la tablet: abrir la URL en Chrome/Safari → "Agregar a pantalla de inicio".
-6. Opcional después: GitHub Actions que haga build y deploy en cada push.
+Detalle paso a paso en [docs/DESPLIEGUE.md](docs/DESPLIEGUE.md).
 
-> Si ya usas Docker en el VPS: contenedor `caddy:alpine` sirviendo `dist/`.
+1. Repo en GitHub (privado) → Coolify lo construye con el `Dockerfile` (Node para el build, Nginx en el puerto 80, config en `deploy/nginx.conf`).
+2. Subdominio con registro A al VPS; Coolify gestiona el HTTPS (obligatorio para la PWA).
+3. Cada `git push` a `main` redespliega.
+4. En la tablet: abrir la URL → "Agregar a pantalla de inicio".
 
 ---
 

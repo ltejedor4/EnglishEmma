@@ -1,0 +1,13 @@
+# Solo entra lo necesario para el build: src, public, scripts (tsc los revisa), configs.
+node_modules
+dist
+.git
+.env
+.env.*
+assets
+audio
+.audio-tools
+docs
+*.md
+ElevenLabs_audio_*.mp3
+audio-preview.html
