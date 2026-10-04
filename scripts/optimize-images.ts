@@ -17,7 +17,10 @@ const OUT = join(ROOT, 'src', 'assets', 'images');
 const maxSize = (name: string) => (name.startsWith('buddy-') ? 640 : 1600);
 
 mkdirSync(OUT, { recursive: true });
-const files = existsSync(SRC) ? readdirSync(SRC).filter((f) => /\.(png|jpe?g|webp)$/i.test(f)) : [];
+// Las hojas de referencia (buddy-reference.png) solo sirven para pedir las demás imágenes; no van al juego.
+const files = existsSync(SRC)
+  ? readdirSync(SRC).filter((f) => /\.(png|jpe?g|webp)$/i.test(f) && !f.includes('-reference'))
+  : [];
 if (!files.length) console.log(`No hay imágenes en ${SRC}`);
 
 for (const file of files) {
