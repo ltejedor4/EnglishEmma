@@ -1154,5 +1154,13 @@
   "common/sweet-dreams": {
     "text": "[softly] Sweet dreams!",
     "hash": "b46ec45fd09a177d"
+  },
+  "common/find-these-two": {
+    "text": "[cheerfully] Find these two!",
+    "hash": "a546c83f07edb430"
+  },
+  "common/and": {
+    "text": "and...",
+    "hash": "def224ad089c0912"
   }
 }

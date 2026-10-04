@@ -10,6 +10,8 @@ export interface WordState {
   /** Caja de Leitner: 0 = repasar en la próxima sesión … MAX_BOX = repasar cada pocos días. */
   box: number;
   lastSeen: string;
+  /** Día en que la vio por primera vez (para no presentar demasiadas palabras nuevas en un día). */
+  firstSeen?: string;
   /** Días (YYYY-MM-DD) en que la acertó a la primera. */
   firstTryDays: string[];
 }
@@ -21,8 +23,10 @@ export const INTERVALS = [0, 1, 2, 4];
 export const MAX_BOX = INTERVALS.length - 1;
 /** Aciertos a la primera, en días distintos, para considerar una palabra aprendida. */
 export const LEARNED_DAYS = 3;
-/** Fracción de palabras aprendidas de un tema para empezar el siguiente. */
+/** Fracción de palabras de un tema que debe acertar (en su último intento) para empezar el siguiente. */
 export const UNLOCK_RATIO = 0.5;
+/** Tope de palabras nuevas por día, sumando la sesión de la noche y las prácticas. */
+export const MAX_NEW_PER_DAY = 6;
 
 export const keyOf = (ref: WordRef) => `${ref.topicId}/${ref.word.id}`;
 
@@ -45,14 +49,18 @@ const isDue = (state: WordState, day: string) => daysBetween(state.lastSeen, day
 
 export const refsOf = (topic: Topic): WordRef[] => topic.words.map((word) => ({ topicId: topic.id, word }));
 
-/** Tema del que salen las palabras nuevas: el primero con palabras sin ver, si el anterior ya va bien. */
+/**
+ * Tema del que salen las palabras nuevas: el primero con palabras sin ver, siempre que el anterior ya
+ * se haya visto completo y acierte la mayoría. Así, si ya sabe los colores, pasa a Animals enseguida.
+ */
 export function currentTopic(topics: Topic[], progress: WordProgress): Topic | undefined {
   for (const [i, topic] of topics.entries()) {
     if (refsOf(topic).some((ref) => !progress[keyOf(ref)])) {
       const previous = topics[i - 1];
       if (!previous) return topic;
-      const learned = refsOf(previous).filter((ref) => isLearned(progress[keyOf(ref)])).length;
-      return learned >= previous.words.length * UNLOCK_RATIO ? topic : undefined;
+      const states = refsOf(previous).map((ref) => progress[keyOf(ref)]);
+      const right = states.filter((s) => s && s.box >= 1).length;
+      return states.every(Boolean) && right >= previous.words.length * UNLOCK_RATIO ? topic : undefined;
     }
   }
   return undefined;
@@ -75,9 +83,10 @@ export function planSession(
 
   // Si le está costando (muchas en la caja 0), menos palabras nuevas.
   const struggling = seen.filter((ref) => state(ref).box === 0).length;
-  const newCount = Math.min(struggling >= 4 ? 1 : struggling >= 2 ? 2 : maxNew, maxNew);
+  const newToday = seen.filter((ref) => state(ref).firstSeen === day).length;
+  const newCount = Math.min(struggling >= 4 ? 1 : struggling >= 2 ? 2 : maxNew, maxNew, MAX_NEW_PER_DAY - newToday);
   const topic = currentTopic(topics, progress);
-  const fresh = topic ? refsOf(topic).filter((ref) => !state(ref)).slice(0, newCount) : [];
+  const fresh = topic && newCount > 0 ? refsOf(topic).filter((ref) => !state(ref)).slice(0, newCount) : [];
 
   // Sin palabras nuevas, la sesión se completa con más repaso.
   const reviewCount = fresh.length ? maxReview : maxReview + maxNew;
@@ -95,16 +104,20 @@ export function planSession(
 export function recordResult(progress: WordProgress, key: string, firstTry: boolean, day: string): WordProgress {
   const prev = progress[key];
   const firstTryDays = prev?.firstTryDays ?? [];
+  const firstSeen = prev ? prev.firstSeen : day;
   let next: WordState;
   if (!firstTry) {
-    next = { box: 0, lastSeen: day, firstTryDays };
+    next = { box: 0, lastSeen: day, firstSeen, firstTryDays };
   } else {
     // Solo sube de caja una vez por día, aunque juegue dos sesiones.
     const box = !prev ? 1 : prev.lastSeen === day ? prev.box : Math.min(prev.box + 1, MAX_BOX);
-    next = { box, lastSeen: day, firstTryDays: firstTryDays.includes(day) ? firstTryDays : [...firstTryDays, day] };
+    next = { box, lastSeen: day, firstSeen, firstTryDays: firstTryDays.includes(day) ? firstTryDays : [...firstTryDays, day] };
   }
   return { ...progress, [key]: next };
 }
+
+/** Va bien: ninguna de las palabras que ya vio está en la caja 0. Entonces la práctica también trae palabras nuevas. */
+export const doingWell = (progress: WordProgress) => Object.values(progress).every((s) => s.box >= 1);
 
 export function shuffle<T>(items: T[]): T[] {
   const copy = [...items];
@@ -116,11 +129,30 @@ export function shuffle<T>(items: T[]): T[] {
 }
 
 /**
- * Opciones para Listen & Touch: la palabra correcta + distractores del mismo tema.
+ * Opciones para Listen & Touch: la(s) palabra(s) correcta(s) + distractores del mismo tema.
  * Prefiere palabras que ya conoce, para que tenga que entender y no solo descartar la desconocida.
  */
-export function pickOptions(target: WordRef, topic: Topic, count: number, known: Set<string> = new Set()): WordRef[] {
-  const others = shuffle(refsOf(topic).filter((ref) => ref.word.id !== target.word.id));
+export function pickOptions(
+  targets: WordRef | WordRef[],
+  topic: Topic,
+  count: number,
+  known: Set<string> = new Set(),
+): WordRef[] {
+  const list = Array.isArray(targets) ? targets : [targets];
+  const ids = new Set(list.map(keyOf));
+  const others = shuffle(refsOf(topic).filter((ref) => !ids.has(keyOf(ref))));
   others.sort((a, b) => Number(known.has(keyOf(b))) - Number(known.has(keyOf(a))));
-  return shuffle([target, ...others.slice(0, count - 1)]);
+  return shuffle([...list, ...others.slice(0, Math.max(0, count - list.length))]);
+}
+
+/**
+ * Frases de contexto que sirven como pregunta: nombran la palabra y ninguna otra del tema
+ * ("The sky is blue." para blue sí; "One, two, three!" para three no, porque también dice one y two).
+ */
+export function factsNaming(word: Word, topic: Topic): number[] {
+  const names = (w: Word) => new RegExp(String.raw`\b${w.say.replace(/[.!?]/g, '')}`, 'i');
+  const others = topic.words.filter((w) => w.id !== word.id).map(names);
+  return word.facts.flatMap((fact, i) =>
+    names(word).test(fact) && !others.some((re) => re.test(fact)) ? [i + 1] : [],
+  );
 }

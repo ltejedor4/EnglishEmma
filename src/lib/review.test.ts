@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { topics } from '../content/index.ts';
-import { currentTopic, daysBetween, isLearned, keyOf, pickOptions, planSession, recordResult, refsOf } from './review.ts';
+import { currentTopic, daysBetween, doingWell, factsNaming, isLearned, keyOf, pickOptions, planSession, recordResult, refsOf } from './review.ts';
 import type { WordProgress } from './review.ts';
 
 const [colors, animals] = topics;
@@ -54,14 +54,32 @@ test('aprendida = 3 días distintos acertando a la primera', () => {
   assert.equal(isLearned(p['colors/red']), true);
 });
 
-test('Animals no empieza hasta tener aprendida la mitad de Colors', () => {
+test('Animals empieza cuando ya vio todos los colores y acierta la mayoría', () => {
+  let p: WordProgress = {};
+  for (const ref of refsOf(colors).slice(0, 5)) p = recordResult(p, keyOf(ref), true, '2026-10-03');
+  assert.equal(currentTopic(topics, p)?.id, colors.id, 'falta ver orange');
+  p = recordResult(p, 'colors/orange', true, '2026-10-03');
+  assert.equal(currentTopic(topics, p)?.id, animals.id);
+});
+
+test('si vio todos los colores pero falla la mayoría, sigue repasando colores', () => {
+  let p: WordProgress = {};
+  for (const [i, ref] of refsOf(colors).entries()) p = recordResult(p, keyOf(ref), i < 2, '2026-10-03');
+  assert.equal(currentTopic(topics, p), undefined);
+});
+
+test('no más de 6 palabras nuevas por día, sumando prácticas', () => {
   let p: WordProgress = {};
   for (const ref of refsOf(colors)) p = recordResult(p, keyOf(ref), true, '2026-10-03');
-  assert.equal(currentTopic(topics, p), undefined);
-  for (const day of ['2026-10-04', '2026-10-05']) {
-    for (const ref of refsOf(colors).slice(0, 3)) p = recordResult(p, keyOf(ref), true, day);
-  }
-  assert.equal(currentTopic(topics, p)?.id, animals.id);
+  assert.equal(planSession(topics, p, '2026-10-03').fresh.length, 0);
+  assert.equal(planSession(topics, p, '2026-10-04').fresh.length, 3);
+});
+
+test('doingWell: ninguna palabra vista en la caja 0', () => {
+  let p = recordResult({}, 'colors/red', true, '2026-10-03');
+  assert.equal(doingWell(p), true);
+  p = recordResult(p, 'colors/blue', false, '2026-10-03');
+  assert.equal(doingWell(p), false);
 });
 
 test('si le cuesta, la sesión trae menos palabras nuevas', () => {
@@ -106,4 +124,20 @@ test('pickOptions prefiere distractores que ya conoce', () => {
     const options = pickOptions(red, colors, 2, new Set(['colors/red', 'colors/yellow']));
     assert.deepEqual(options.map((o) => o.word.id).sort(), ['red', 'yellow']);
   }
+});
+
+test('factsNaming: solo frases que nombran la palabra y ninguna otra del tema', () => {
+  const byId = (topicId: string, id: string) => topics.find((t) => t.id === topicId)!.words.find((w) => w.id === id)!;
+  const numbers = topics.find((t) => t.id === 'numbers')!;
+  assert.deepEqual(factsNaming(byId('colors', 'blue'), colors), [1, 2]);
+  assert.deepEqual(factsNaming(byId('numbers', 'three'), numbers), [2]); // "Three little fish.", no "One, two, three!"
+  assert.deepEqual(factsNaming(byId('numbers', 'one'), numbers), [1, 2]);
+  assert.deepEqual(factsNaming(byId('feelings', 'angry'), topics.find((t) => t.id === 'feelings')!), [1]);
+});
+
+test('pickOptions con dos objetivos', () => {
+  const [red, blue] = refsOf(colors);
+  const options = pickOptions([red, blue], colors, 4);
+  assert.equal(options.length, 4);
+  assert.ok(['red', 'blue'].every((id) => options.some((o) => o.word.id === id)));
 });

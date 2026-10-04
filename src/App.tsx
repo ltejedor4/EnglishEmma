@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { topics } from './content/index.ts';
 import type { Topic } from './content/types.ts';
 import { loadProgress, saveProgress } from './lib/progress.ts';
-import { planSession, recordResult, today } from './lib/review.ts';
+import { doingWell, planSession, recordResult, today } from './lib/review.ts';
 import type { SessionPlan } from './lib/review.ts';
 import { GoodNight } from './screens/GoodNight.tsx';
 import { Home } from './screens/Home.tsx';
@@ -22,8 +22,9 @@ export default function App() {
   const playedToday = progress.sessionDays.includes(day);
 
   function start() {
-    // Después de la sesión de la noche se puede seguir practicando: solo repaso, sin palabras nuevas.
-    const options = playedToday ? { maxReview: 6, maxNew: 0 } : undefined;
+    // Después de la sesión de la noche se puede seguir practicando. Si va bien, también con palabras
+    // nuevas (hasta el tope diario); si le está costando, solo repaso.
+    const options = playedToday ? { maxReview: 6, maxNew: doingWell(progress.words) ? 3 : 0 } : undefined;
     setScreen({ name: 'session', plan: planSession(topics, progress.words, day, options) });
   }
 

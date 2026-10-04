@@ -30,6 +30,9 @@ export const instructions: Line[] = [
   { id: 'find-the-pairs', text: 'Find the pairs!' },
   { id: 'simon-says', text: 'Simon says:' },
   { id: 'pop-the-balloons', text: 'Pop the balloons!' },
+  // "Find these two! … red … and … blue": se arma con los clips de cada palabra.
+  { id: 'find-these-two', text: 'Find these two!', mood: 'cheerful' },
+  { id: 'and', text: 'and...' },
 ];
 
 export const session: Line[] = [
