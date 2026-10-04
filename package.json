@@ -7,9 +7,11 @@
     "dev": "vite --host",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
+    "test": "node --test \"src/**/*.test.ts\"",
     "preview": "vite preview --host",
     "audio": "node scripts/generate-audio.ts",
-    "audio:dry": "node scripts/generate-audio.ts --dry-run"
+    "audio:dry": "node scripts/generate-audio.ts --dry-run",
+    "images": "node scripts/optimize-images.ts"
   },
   "dependencies": {
     "howler": "^2.2.4",
@@ -26,6 +28,7 @@
     "ffmpeg-static": "^5.3.0",
     "oxlint": "^1.86.0",
     "typescript": "~6.0.2",
-    "vite": "^8.3.2"
+    "vite": "^8.3.2",
+    "vite-plugin-pwa": "^2.0.0"
   }
 }

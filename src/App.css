@@ -1,35 +1,230 @@
-.home {
+.screen {
+  position: relative;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 32px;
+  gap: 24px;
+  padding: max(16px, env(safe-area-inset-top)) 16px max(16px, env(safe-area-inset-bottom));
 }
 
+.home {
+  gap: 40px;
+}
+
+.moon {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  font-size: 72px;
+}
+
+/* ---------- Buddy ---------- */
+
 .buddy {
-  font-size: min(30vw, 30vh);
+  display: grid;
+  place-items: center;
   line-height: 1;
+  flex-shrink: 0;
+}
+
+.buddy img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* ---------- Botones ---------- */
+
+.play,
+.next {
+  border: none;
+  border-radius: 50%;
+  background: var(--moon);
+  color: var(--night);
+  cursor: pointer;
+  box-shadow: 0 0 0 10px rgb(255 233 168 / 0.25);
 }
 
 .play {
   width: 128px;
   height: 128px;
-  border: none;
-  border-radius: 50%;
-  background: var(--moon);
-  color: var(--night);
   font-size: 56px;
   padding-left: 10px;
-  box-shadow: 0 0 0 10px rgb(255 233 168 / 0.25);
-  cursor: pointer;
+}
+
+.next {
+  width: 104px;
+  height: 104px;
+  font-size: 44px;
+  padding-left: 8px;
 }
 
 .play:active {
   transform: scale(0.94);
 }
 
-.hint {
-  font-size: 64px;
-  margin: 0;
+.speaker {
+  position: absolute;
+  top: max(24px, env(safe-area-inset-top));
+  right: 24px;
+  width: 88px;
+  height: 88px;
+  border: none;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.12);
+  font-size: 44px;
+  cursor: pointer;
+}
+
+/* ---------- Progreso de la sesión ---------- */
+
+.progress {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  translate: -50% 0;
+  width: min(50vw, 400px);
+  height: 14px;
+  border-radius: 7px;
+  background: rgb(255 255 255 / 0.12);
+  overflow: hidden;
+}
+
+.progress div {
+  height: 100%;
+  background: var(--moon);
+  border-radius: 7px;
+  transition: width 0.6s ease;
+}
+
+/* ---------- Juegos ---------- */
+
+.game {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  width: 100%;
+  height: 100%;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 28px;
+  max-width: 100%;
+}
+
+.card {
+  --size: min(30vw, 36vh, 240px);
+  width: var(--size);
+  height: var(--size);
+  display: grid;
+  place-items: center;
+  border: 6px solid transparent;
+  border-radius: 32px;
+  background: #fdf6e3;
+  font-size: calc(var(--size) * 0.6);
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 8px 0 rgb(0 0 0 / 0.25);
+}
+
+.card.big {
+  --size: min(70vw, 55vh, 380px);
+  position: relative;
+  padding-bottom: 12%;
+}
+
+.card .caption {
+  position: absolute;
+  bottom: 6%;
+  font-size: calc(var(--size) * 0.12);
+  font-weight: 700;
+  color: var(--night);
+}
+
+.card.hint {
+  border-color: var(--moon);
+  box-shadow: 0 0 0 10px rgb(255 233 168 / 0.45), 0 8px 0 rgb(0 0 0 / 0.25);
+}
+
+.card.right {
+  border-color: #8ee08e;
+}
+
+.stars {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.stars span {
+  position: absolute;
+  font-size: 48px;
+}
+
+/* ---------- Rompecabezas ---------- */
+
+.puzzle-screen {
+  --board-w: min(84vw, 62vh * 1.5, 720px);
+  gap: 16px;
+}
+
+.board {
+  position: relative;
+  width: var(--board-w);
+  aspect-ratio: 3 / 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 4px;
+  padding: 4px;
+  border-radius: 20px;
+  background: rgb(255 255 255 / 0.1);
+}
+
+.slot {
+  border-radius: 10px;
+  border: 3px dashed rgb(255 255 255 / 0.25);
+}
+
+.slot.filled {
+  border: none;
+}
+
+.slot.target {
+  border-color: var(--moon);
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+.tray {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  min-height: calc(var(--board-w) / 3);
+}
+
+.piece {
+  width: calc(var(--board-w) / 3 - 6px);
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  box-shadow: 0 10px 24px rgb(0 0 0 / 0.4);
+  cursor: grab;
+  touch-action: none;
+}
+
+@keyframes pulse {
+  50% {
+    background: rgb(255 233 168 / 0.18);
+  }
 }

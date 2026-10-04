@@ -38,7 +38,7 @@ Lo que ya le encanta de Duolingo y queremos conservar:
 | Lenguaje | TypeScript | Contenido (temas/palabras) tipado, menos errores |
 | Estilos | CSS propio o Tailwind | Botones enormes, colores suaves, animaciones simples |
 | Animaciones | `motion` (Framer Motion) | Fichas que vuelan, estrellas que aparecen, transiciones suaves |
-| Arrastrar | `@dnd-kit/core` | Colocar fichas del rompecabezas, Drag & Drop con el dedo |
+| Arrastrar | `drag` de `motion` | Colocar fichas del rompecabezas con el dedo, sin otra librería |
 | Audio | **Howler.js** con `.mp3` pregenerados | Suena igual en todos los dispositivos y funciona sin internet |
 | PWA | `vite-plugin-pwa` | Pantalla de inicio, pantalla completa, offline |
 | Progreso | `localStorage` en el dispositivo | Sin backend ni cuentas en la v1 |
@@ -193,16 +193,16 @@ EmmaIngles/
 ├── vite.config.ts            # incluye vite-plugin-pwa
 ├── scripts/
 │   └── generate-audio.ts     # TTS → mp3 (solo lo que falta) + ffmpeg
+├── assets/
+│   ├── audio-raw/            # originales de ElevenLabs (lo que costó créditos)
+│   └── images-src/           # PNG de ChatGPT → se convierten a WebP en src/assets/images
 ├── public/
 │   ├── audio/                # generado: audio/animals/dog.mp3 + manifest.json
-│   ├── images/
-│   │   ├── scenes/
-│   │   └── puzzles/
 │   └── icons/                # íconos de la PWA
 ├── src/
 │   ├── main.tsx
 │   ├── App.tsx
-│   ├── router.tsx            # Inicio / Mapa / Sesión / Rompecabezas / Padres
+│   ├── screens/              # Home, Session, PuzzleScreen, GoodNight (estado simple en App.tsx, sin router)
 │   ├── content/              # un archivo por tema + types.ts
 │   ├── games/
 │   │   ├── ListenTouch.tsx
@@ -212,12 +212,11 @@ EmmaIngles/
 │   │   ├── DragDrop.tsx
 │   │   └── Balloons.tsx
 │   ├── components/           # Buddy, BigButton, AudioButton, Puzzle, NightCalendar
-│   ├── hooks/
-│   │   ├── useAudio.ts       # Howler: precarga y reproducción
-│   │   └── useProgress.ts    # localStorage
 │   ├── lib/
-│   │   ├── review.ts         # repaso espaciado (lógica pura)
-│   │   └── session.ts        # arma la sesión de la noche
+│   │   ├── audio.ts          # Howler: precarga, secuencias, cortar al cambiar de paso
+│   │   ├── progress.ts       # localStorage
+│   │   ├── images.ts         # imágenes optimizadas, con emojis de respaldo
+│   │   └── review.ts         # repaso espaciado (lógica pura, con pruebas)
 │   └── styles/
 └── deploy/
     ├── Caddyfile
@@ -250,21 +249,21 @@ EmmaIngles/
 ## 11. Fases de desarrollo
 
 ### Fase 0 — Preparación (1 tarde)
-- [ ] `npm create vite@latest` (React + TS); instalar Howler, vite-plugin-pwa, motion, @dnd-kit/core
-- [ ] Repositorio Git
-- [ ] Elegir voz TTS (probar 2–3 servicios con las mismas frases y escucharlas con Emma)
-- [ ] `scripts/generate-audio.ts` + audios de **Colors** y **Animals**
-- [ ] Grabar con tu voz: "Hello Emma!", "Great job, Emma!", "Good night, Emma!"
+- [x] Proyecto React + TS + Vite con Howler, motion y vite-plugin-pwa
+- [x] Repositorio Git
+- [x] Voz elegida: **ElevenLabs** (`eleven_v4`, voz "Buddy")
+- [x] `scripts/generate-audio.ts` + audios de **los 10 temas** (289 clips, ~4 MB)
+- [ ] (Opcional) Grabar con tu voz: "Hello Emma!", "Great job, Emma!", "Good night, Emma!"
 
 ### Fase 1 — MVP jugable (1–2 fines de semana)
-- [ ] Pantalla de inicio con ▶️ + Buddy + saludo
-- [ ] Presentación de palabras del tema
-- [ ] Juego **Listen & Touch** (2 → 4 opciones)
-- [ ] Repaso espaciado básico (`review.ts`) y armado de la sesión nocturna
-- [ ] **Rompecabezas:** ficha al final de cada sesión, Emma la coloca
-- [ ] Cierre "Good night, Emma!" y estilo nocturno
-- [ ] Temas Colors y Animals
-- [ ] PWA instalable (por el `localStorage`)
+- [x] Pantalla de inicio con ▶️ + Buddy + saludo
+- [x] Presentación de palabras del tema
+- [x] Juego **Listen & Touch** (2 → 4 opciones)
+- [x] Repaso espaciado básico (`review.ts`) y armado de la sesión nocturna
+- [x] **Rompecabezas:** ficha al final de cada sesión, Emma la coloca
+- [x] Cierre "Good night, Emma!" y estilo nocturno
+- [x] Temas Colors y Animals (el contenido y los audios de los 10 temas ya están)
+- [x] PWA instalable y offline (precarga app + audios)
 - [ ] Desplegar en el VPS y probar en la tablet **con Emma**
 
 ### Fase 2 — Más juegos y contexto
@@ -272,7 +271,7 @@ EmmaIngles/
 - [ ] Rompecabezas completo que cobra vida + álbum
 - [ ] Calendario de noches (racha)
 - [ ] Mapa de temas con desbloqueo por palabras aprendidas
-- [ ] Modo offline completo
+- [x] Modo offline completo
 - [ ] Temas My body, Food, Numbers
 
 ### Fase 3 — Zona de padres y pulido
