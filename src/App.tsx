@@ -8,7 +8,6 @@ import { GoodNight } from './screens/GoodNight.tsx';
 import { Home } from './screens/Home.tsx';
 import { PUZZLE_PIECES, PuzzleScreen } from './screens/PuzzleScreen.tsx';
 import { Session } from './screens/Session.tsx';
-import './App.css';
 
 /** Con ?libre en la URL se puede jugar más de una sesión por día (para probar). */
 const FREE_PLAY = new URLSearchParams(location.search).has('libre');

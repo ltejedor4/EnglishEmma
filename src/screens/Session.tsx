@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { topics } from '../content/index.ts';
 import { Buddy } from '../components/Buddy.tsx';
+import { GameArea, Screen } from '../components/Screen.tsx';
 import type { Pose } from '../components/Buddy.tsx';
 import { ListenTouch } from '../games/ListenTouch.tsx';
 import { Presentation } from '../games/Presentation.tsx';
@@ -87,9 +88,9 @@ export function Session({ plan, progress, onFinish }: Props) {
 
   const step = steps[index];
   return (
-    <main className="screen">
-      <div className="progress" aria-hidden>
-        <div style={{ width: `${(index / steps.length) * 100}%` }} />
+    <Screen>
+      <div className="absolute top-4 left-1/2 h-3.5 w-[min(50vw,400px)] -translate-x-1/2 overflow-hidden rounded-full bg-white/12" aria-hidden>
+        <div className="h-full rounded-full bg-moon transition-[width] duration-500" style={{ width: `${(index / steps.length) * 100}%` }} />
       </div>
       {step.kind === 'say' && <SayStep key={index} step={step} onDone={next} />}
       {step.kind === 'present' && <Presentation key={index} target={step.target} onDone={next} />}
@@ -101,7 +102,7 @@ export function Session({ plan, progress, onFinish }: Props) {
           onDone={(firstTry) => answered(step.target, firstTry)}
         />
       )}
-    </main>
+    </Screen>
   );
 }
 
@@ -119,8 +120,8 @@ function SayStep({ step, onDone }: { step: Extract<Step, { kind: 'say' }>; onDon
     };
   }, [step.keys]);
   return (
-    <div className="game">
+    <GameArea>
       <Buddy pose={step.pose} size={220} />
-    </div>
+    </GameArea>
   );
 }

@@ -3,6 +3,7 @@ import type { CSSProperties } from 'react';
 import { motion } from 'motion/react';
 import { Buddy } from '../components/Buddy.tsx';
 import { NextButton } from '../components/NextButton.tsx';
+import { Screen } from '../components/Screen.tsx';
 import { Stars } from '../components/Stars.tsx';
 import type { Topic } from '../content/types.ts';
 import { randomCelebration, say } from '../lib/audio.ts';
@@ -59,26 +60,30 @@ export function PuzzleScreen({ topic, placedBefore, onDone }: Props) {
   }
 
   return (
-    <main className="screen puzzle-screen">
+    <Screen className="gap-4 [--board-w:min(84vw,calc(100dvh-200px),720px)]">
       <Buddy pose={placed ? 'cheer' : 'puzzle'} size={110} />
-      <div className="board">
+      <div data-board className="relative grid aspect-3/2 w-(--board-w) grid-cols-3 grid-rows-2 gap-1 rounded-[20px] bg-white/10 p-1">
         {Array.from({ length: PUZZLE_PIECES }, (_, i) => {
           const filled = i < target || (i === target && placed);
           return (
             <div
               key={i}
               ref={i === target ? slotRef : undefined}
-              className={`slot ${filled ? 'filled' : ''} ${i === target && !placed ? 'target' : ''}`}
+              data-slot={filled ? 'filled' : i === target ? 'target' : 'empty'}
+              className={`rounded-[10px] ${
+                filled ? '' : i === target ? 'animate-glow border-3 border-dashed border-moon' : 'border-3 border-dashed border-white/25'
+              }`}
               style={filled ? pieceStyle(src, i) : undefined}
             />
           );
         })}
         {placed && finished && <Stars count={12} />}
       </div>
-      <div className="tray">
+      <div className="flex min-h-[calc(var(--board-w)/3)] items-center justify-center gap-6">
         {!placed && (
           <motion.div
-            className="piece"
+            data-piece
+            className="aspect-square w-[calc(var(--board-w)/3-6px)] cursor-grab touch-none rounded-[10px] shadow-[0_10px_24px_rgb(0_0_0/0.4)]"
             style={pieceStyle(src, target)}
             initial={{ y: -400, rotate: -30, scale: 0.4 }}
             animate={{ y: 0, rotate: 0, scale: 1 }}
@@ -91,6 +96,6 @@ export function PuzzleScreen({ topic, placedBefore, onDone }: Props) {
         )}
         {ready && <NextButton onClick={onDone} />}
       </div>
-    </main>
+    </Screen>
   );
 }

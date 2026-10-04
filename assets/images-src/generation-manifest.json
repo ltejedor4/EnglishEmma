@@ -1,0 +1,226 @@
+{
+  "generator": "built-in imagegen",
+  "reference": "D:\\Proyectos\\EmmaIngles\\assets\\images-src\\buddy-reference.png",
+  "images": [
+    {
+      "name": "buddy-hello",
+      "file": "buddy-hello.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-ac07a725-8ed2-4857-8e04-3e442a75cb45.png",
+      "prompt": "Using the attached character reference, draw Buddy the puppy exactly as designed (same cream golden fur, same LEFT-eye brown patch, same brown floppy ears, same blue collar with round yellow star tag), full body, centered, filling most of a square 1024x1024 image, waving one paw hello with a big happy smile. Reference is for identity and illustration style only: render a SINGLE Buddy, not a reference sheet. Transparent background, PNG, no shadow on the ground, nothing else in the image. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Simple, uncluttered composition with big, easy-to-recognize objects. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image.",
+      "targetSize": [
+        1024,
+        1024
+      ],
+      "transparent": true
+    },
+    {
+      "name": "buddy-listen",
+      "file": "buddy-listen.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-1feeddfb-0cd4-4f0d-b5d1-448d92504169.png",
+      "prompt": "Using the attached character reference, draw Buddy the puppy exactly as designed (same cream golden fur, same LEFT-eye brown patch, same brown floppy ears, same blue collar with round yellow star tag), full body, centered, filling most of a square 1024x1024 image, sitting, tilting his head and holding one paw next to his ear, as if listening carefully. Reference is for identity and illustration style only: render a SINGLE Buddy, not a reference sheet. Transparent background, PNG, no shadow on the ground, nothing else in the image. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Simple, uncluttered composition with big, easy-to-recognize objects. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image.",
+      "targetSize": [
+        1024,
+        1024
+      ],
+      "transparent": true
+    },
+    {
+      "name": "buddy-point",
+      "file": "buddy-point.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-28f1098c-d6ec-48c2-b516-8e02ef785edb.png",
+      "prompt": "Using the attached character reference, draw Buddy the puppy exactly as designed (same colors, same LEFT-eye patch, same blue collar with round yellow star tag), full body, centered, filling most of a square 1024x1024 image, standing and pointing forward with one paw, gentle encouraging smile. Reference is for identity and illustration style only: render a SINGLE Buddy. Transparent background, PNG, no shadow on the ground, nothing else in the image. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Simple, uncluttered composition with big, easy-to-recognize objects. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image.",
+      "targetSize": [
+        1024,
+        1024
+      ],
+      "transparent": true
+    },
+    {
+      "name": "buddy-cheer",
+      "file": "buddy-cheer.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-e3fbb65d-0ace-4e02-b5b1-55c284a973dc.png",
+      "prompt": "Using the attached character reference, draw Buddy the puppy exactly as designed (same colors, same LEFT-eye patch, same blue collar with round yellow star tag), full body, centered, filling most of a square 1024x1024 image, jumping with joy, both front paws up in the air, eyes closed with happiness. Reference is for identity and illustration style only: render a SINGLE Buddy. Transparent background, PNG, no shadow on the ground, nothing else in the image. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Simple, uncluttered composition with big, easy-to-recognize objects. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image.",
+      "targetSize": [
+        1024,
+        1024
+      ],
+      "transparent": true
+    },
+    {
+      "name": "buddy-puzzle",
+      "file": "buddy-puzzle.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-51a7b046-c255-475c-ada8-ff6eb358a3bb.png",
+      "prompt": "Using the attached character reference, draw Buddy the puppy exactly as designed (same colors, same LEFT-eye patch, same blue collar with round yellow star tag), full body, centered, filling most of a square 1024x1024 image, proudly holding up a big shiny golden jigsaw puzzle piece with both paws. A SINGLE Buddy with one large gold jigsaw piece. Transparent background, PNG, no shadow on the ground, nothing else in the image. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Simple, uncluttered composition with big, easy-to-recognize objects. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image.",
+      "targetSize": [
+        1024,
+        1024
+      ],
+      "transparent": true
+    },
+    {
+      "name": "buddy-sleepy",
+      "file": "buddy-sleepy.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-6ffaa0d4-d65b-4dde-8f79-dc18af081e6c.png",
+      "prompt": "Using the attached character reference, draw Buddy the puppy exactly as designed (same colors, same LEFT-eye patch, same blue collar with round yellow star tag), full body, centered, filling most of a square 1024x1024 image, sitting and yawning sleepily, eyes half closed, wearing a small blue night cap with a star. A SINGLE Buddy. Transparent background, PNG, no shadow on the ground, nothing else in the image. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Simple, uncluttered composition with big, easy-to-recognize objects. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image.",
+      "targetSize": [
+        1024,
+        1024
+      ],
+      "transparent": true
+    },
+    {
+      "name": "buddy-sleeping",
+      "file": "buddy-sleeping.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-fd81c283-74dc-4376-b709-3ca366bf3dd3.png",
+      "prompt": "Using the attached character reference, draw Buddy the puppy exactly as designed (same colors, same LEFT-eye patch, same blue collar with round yellow star tag), full body, centered, filling most of a square 1024x1024 image, curled up asleep on a small round pillow, peaceful smile. A SINGLE Buddy on one small round pillow. Transparent background, PNG, no shadow on the ground, nothing else in the image. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Simple, uncluttered composition with big, easy-to-recognize objects. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image.",
+      "targetSize": [
+        1024,
+        1024
+      ],
+      "transparent": true
+    },
+    {
+      "name": "puzzle-colors",
+      "file": "puzzle-colors.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-a6a8d798-9b97-4bea-a495-e76e8a038a40.png",
+      "prompt": "Using the attached character reference for Buddy the puppy, create a horizontal 1536x1024 scene for a children's game: a sunny garden with a rainbow in a bright blue sky. Every object in this list must appear exactly once, be complete, large and clearly recognizable, not overlapping with anything else, and well away from the edges of the image: a red apple, a red fire truck, a yellow sun, a yellow banana, a green tree, a green frog, a pink flower, a pink pig, an orange carrot, an orange fruit. Exactly ten listed objects. Keep rainbow high and main objects separate on the lawn. Buddy appears small in a corner, happily watching. Calm, simple background with few extra details so the main objects stand out. Use attached image only for Buddy identity and illustration style. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Simple, uncluttered composition with big, easy-to-recognize objects. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image.",
+      "targetSize": [
+        1536,
+        1024
+      ],
+      "transparent": false
+    },
+    {
+      "name": "puzzle-animals",
+      "file": "puzzle-animals.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-fd690125-cfb4-45d9-871e-eae81677fc82.png",
+      "prompt": "Using the attached character reference for Buddy the puppy, create a horizontal 1536x1024 scene for a children's game: a friendly farm with a small pond. Every object in this list must appear exactly once, be complete, large and clearly recognizable, not overlapping with anything else, and well away from the edges of the image: a dog, a cat, a fish jumping out of the pond, a bird on a fence, a cow, a gentle smiling lion. The listed dog is a distinct puppy separate from small Buddy, the mascot. Exactly one of each listed animal plus Buddy. Buddy appears small in a corner, happily watching. Calm, simple background with few extra details so the main objects stand out. Use attached image only for Buddy identity and illustration style. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Simple, uncluttered composition with big, easy-to-recognize objects. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image.\nRevision: Edit this farm scene. Keep the same animals, friendly children's book style, colors and simple farm/pond setting. Fix layout only: reposition and if necessary modestly reduce the animals to ensure each full body has a clear visible gap from every other animal, especially the cow and lion, and Buddy and the separate spotted dog. All six target animals (one spotted dog with red collar, one cat, one jumping fish, one bird on fence, one cow, one smiling lion) plus small Buddy in bottom left corner must be fully visible and comfortably inside image edges. Buddy must match the supplied character reference: cream/golden puppy, brown floppy ears, distinct light-brown patch around HIS LEFT eye (viewer right), blue collar and round yellow star tag. Preserve horizontal 1536x1024 composition. No text, labels, numbers or logos.",
+      "targetSize": [
+        1536,
+        1024
+      ],
+      "transparent": false
+    },
+    {
+      "name": "puzzle-body",
+      "file": "puzzle-body.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-fb98d49c-cff9-4aa9-b79f-6b982bcc4975.png",
+      "prompt": "Using the attached character reference for Buddy the puppy, create a horizontal 1536x1024 scene for a children's game: a sunny park; a cheerful cartoon little girl about 5 years old stands in the center, full body, facing the viewer, waving. Clearly show her head, her two eyes, her nose, her mouth, her two hands (open, clearly visible), her two feet (in small sneakers). The girl must be big, taking most of the height of the image, so each body part is easy to touch. These parts belong naturally to her body, not detached objects. Both open hands visible, wave one. Buddy appears small in a corner, happily watching. Calm, simple background with few extra details so the main objects stand out. Use attached image only for Buddy identity and illustration style. Keep entire girl safely inside frame, no objects obscuring her body. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Simple, uncluttered composition with big, easy-to-recognize objects. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image.",
+      "targetSize": [
+        1536,
+        1024
+      ],
+      "transparent": false
+    },
+    {
+      "name": "puzzle-food",
+      "file": "puzzle-food.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-644b9e39-665d-42fa-8cde-e5f8503b1420.png",
+      "prompt": "Using the attached character reference for Buddy the puppy, create a horizontal 1536x1024 scene for a children's game: a cozy kitchen table seen from the front. Every object in this list must appear exactly once, be complete, large and clearly recognizable, not overlapping with anything else, and well away from the edges of the image: a red apple, a yellow banana, a glass of milk, a loaf of bread, a white egg in an egg cup, a glass of water. Exactly six food objects on a simple table, separated by generous gaps. Milk is opaque white, water is clear pale blue. Buddy appears small in a corner, happily watching. Calm, simple background with few extra details so the main objects stand out. Use attached image only for Buddy identity and illustration style. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Simple, uncluttered composition with big, easy-to-recognize objects. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image.\nRevision: Edit this image with one targeted layout correction: the water glass at right overlaps the bread behind it. Move the loaf of bread upward and slightly left and move the water glass downward and if needed slightly left so there is a clear band of empty tabletop between the COMPLETE loaf and the COMPLETE water glass. Every food item must have a visible gap from every other food item. Retain exactly one red apple, one yellow banana, one glass of milk, one loaf of bread, one egg in its egg cup, one glass of clear water. Preserve all designs, Buddy, warm cozy kitchen, colors, style and horizontal 1536x1024 framing. No text, numbers or logos.",
+      "targetSize": [
+        1536,
+        1024
+      ],
+      "transparent": false
+    },
+    {
+      "name": "puzzle-numbers",
+      "file": "puzzle-numbers.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-8f194a90-47ad-40c9-9719-329fb712cfc6.png",
+      "prompt": "Using the attached character reference for Buddy the puppy, create a horizontal 1536x1024 scene for a children's game: a calm meadow under a light blue sky. Every object in this list must appear exactly once, be complete, large and clearly recognizable, not overlapping with anything else, and well away from the edges of the image: one big sun, two birds, three butterflies, four flowers. Count carefully: exactly one sun, exactly two birds, exactly three butterflies, exactly four flowers, spaced so they are easy to count. No additional sun, birds, butterflies or flowers anywhere. Arrange groups clearly: one sun in sky, two separate birds below it, three separate butterflies across center, exactly four single flowers in foreground, no clusters and no flower decorations. Buddy appears small in a corner, happily watching. Calm, simple background with few extra details so the main objects stand out. Use attached image only for Buddy identity and illustration style. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Simple, uncluttered composition with big, easy-to-recognize objects. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image.",
+      "targetSize": [
+        1536,
+        1024
+      ],
+      "transparent": false
+    },
+    {
+      "name": "puzzle-toys",
+      "file": "puzzle-toys.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-fd6c2026-2610-4c42-a503-5ae889f29a70.png",
+      "prompt": "Using the attached character reference for Buddy the puppy, create a horizontal 1536x1024 scene for a children's game: a tidy, colorful playroom with a soft rug. Every object in this list must appear exactly once, be complete, large and clearly recognizable, not overlapping with anything else, and well away from the edges of the image: a ball, a rag doll, a small red toy car, a teddy bear, a stack of colorful toy blocks, a wooden toy train. Exactly six toy groups, all clearly distinct and separated. Arrange toys with generous gaps in two staggered rows on the rug. Buddy appears small in a corner, happily watching. Calm, simple background with few extra details so the main objects stand out. Use attached image only for Buddy identity and illustration style. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Simple, uncluttered composition with big, easy-to-recognize objects. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image.",
+      "targetSize": [
+        1536,
+        1024
+      ],
+      "transparent": false
+    },
+    {
+      "name": "puzzle-family",
+      "file": "puzzle-family.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-85dcb907-334b-4677-bf5c-dd47a862155a.png",
+      "prompt": "Using the attached character reference for Buddy the puppy, create a horizontal 1536x1024 scene for a children's game: a happy family in a sunny living room, everyone standing in a row and smiling. Every person in this list must appear exactly once, be complete, large and clearly recognizable, not overlapping with anyone else, and well away from the edges of the image: a mom, a dad, a big sister about 5 years old, a little sister about 3 years old, a grandma, a grandpa. Exactly six full-body family members standing in a well separated row. Recognizable ages, girls of different heights, grandparents with gray hair. Buddy appears small in a corner, happily watching, separate from their feet. Calm, simple background with few extra details so the main people stand out. Use attached image only for Buddy identity and illustration style. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Simple, uncluttered composition with big, easy-to-recognize objects. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image.\nRevision: Edit this family illustration to fix spacing only. Keep the SAME six family members, clothing, faces, ages, friendly expressions, Buddy identity, sunny living room and style. Move or slightly reduce the figures so they stand full body in a single row with clearly visible background gaps separating every person's entire silhouette, including hair, arms, and clothes. NO person may overlap any other. Leave a dedicated separate small area for Buddy at lower right, with clear empty space between Buddy and grandma, so both grandma's shoes are fully visible. All figures must remain entirely inside the horizontal 1536x1024 image. Exactly grandfather, father, big sister about five, little sister about three, mother, grandmother, plus Buddy. No text, letters, numbers, logos.",
+      "targetSize": [
+        1536,
+        1024
+      ],
+      "transparent": false
+    },
+    {
+      "name": "puzzle-actions",
+      "file": "puzzle-actions.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-1e4f0e7a-3356-465f-96a8-226b9695498e.png",
+      "prompt": "Using the attached character reference for Buddy the puppy, create a horizontal 1536x1024 scene for a children's game: a playground on a sunny day with several cheerful children. Every person/action in this list must appear exactly once, be complete, large and clearly recognizable, not overlapping with anything else, and well away from the edges of the image: a child jumping, a child running, a child sitting on a bench, a child clapping, a child dancing, a child sleeping on a picnic blanket. Exactly six children, each performing one different action, no overlap. Make jumping airborne, running a stride, clapping both palms together, dancing raised arms, sleeping eyes closed lying on a blanket. Use a spacious layout of two rows of three children within one unified playground scene, each in their own distinct area separated by empty grass, no grid lines. Avoid unnecessary equipment or decorations. Buddy appears small in a corner, happily watching, separate from all children. Use attached image only for Buddy identity and illustration style. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Simple, uncluttered composition with big, easy-to-recognize objects. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image.",
+      "targetSize": [
+        1536,
+        1024
+      ],
+      "transparent": false
+    },
+    {
+      "name": "puzzle-clothes",
+      "file": "puzzle-clothes.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-c2f35e9c-c975-40d6-9c5e-4b621976165a.png",
+      "prompt": "Using the attached character reference for Buddy the puppy, create a horizontal 1536x1024 scene for a children's game: a bright bedroom with a clothesline between two hooks. Every object in this list must appear exactly once, be complete, large and clearly recognizable, not overlapping with anything else, and well away from the edges of the image: a blue shirt, a pair of pink shoes on the floor, a sun hat, a pair of yellow socks hanging, blue pants hanging, a jacket on a hook. Exactly six garment groups. Both shoes and both socks must be complete and visible. No other clothes. Leave wide visible empty gaps between hanging garments, each item entirely visible; sun hat separately on small stool. Buddy appears small in a corner, happily watching. Calm, simple background with few extra details so the main objects stand out. Use attached image only for Buddy identity and illustration style. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Simple, uncluttered composition with big, easy-to-recognize objects. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image.",
+      "targetSize": [
+        1536,
+        1024
+      ],
+      "transparent": false
+    },
+    {
+      "name": "puzzle-feelings",
+      "file": "puzzle-feelings.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-ca9ab7a0-773b-4833-a300-fe7ab8a12e5a.png",
+      "prompt": "Using the attached character reference for Buddy the puppy, create a horizontal 1536x1024 scene for a children's game: a sunny park bench scene with six cute round cartoon children's faces, each one big and clearly expressing a feeling. Every face in this list must appear exactly once, be complete, large and clearly recognizable, not overlapping with anything else, and well away from the edges of the image: a happy face, a sad face with a small tear, an angry face with red cheeks, a tired yawning face, a scared face, a surprised face with round open mouth. Exactly six large distinct children's faces, well spaced in a balanced composition. Make scared worried with eyebrows raised inward and surprised round O mouth. Angry stays cute and mild. No other people. Six large round face portraits floating in two rows of three, within a softly suggested park bench setting, no frames or labels. Buddy appears small in a corner, happily watching, clearly smaller than faces. Calm, simple background with few extra details so the main faces stand out. Use attached image only for Buddy identity and illustration style. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Simple, uncluttered composition with big, easy-to-recognize objects. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image.",
+      "targetSize": [
+        1536,
+        1024
+      ],
+      "transparent": false
+    },
+    {
+      "name": "bg-home",
+      "file": "bg-home.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-1f0a062b-dc95-421f-8076-da0c2f986994.png",
+      "prompt": "A calm, cozy night background for a children's game home screen: a soft deep-blue night sky with a few gentle twinkling stars, a big friendly smiling crescent moon in the upper right, soft rolling hills at the bottom with a tiny cozy house with warm lit windows. The center of the image must be mostly empty, because buttons and a character will be placed on top. Peaceful bedtime mood, low contrast, no bright flashes. Horizontal 1536x1024. Do not draw Buddy or any foreground character, buttons or interface. Reference is for illustration style only. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Simple, uncluttered composition with big, easy-to-recognize objects. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image.",
+      "targetSize": [
+        1536,
+        1024
+      ],
+      "transparent": false
+    },
+    {
+      "name": "bg-map",
+      "file": "bg-map.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-030f1a8d-eb01-4919-b032-9d768225ab0d.png",
+      "prompt": "A whimsical map for a children's game seen from above, at dusk: a gentle winding dotted path connecting EXACTLY TEN small round islands floating on a calm soft-blue sea. Each island is empty and flat on top (game icons will be placed there), with small decorations around it: palm trees, flowers, little bridges between islands. Calm and magical evening mood with soft warm light. Horizontal 1536x1024. Count carefully: exactly ten distinct circular flat topped islands, spaced apart, connected sequentially by one winding dotted path; no additional land masses. Keep all islands fully inside frame. No game icons. Reference is for illustration style only; no Buddy character. Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Simple, uncluttered composition with big, easy-to-recognize objects. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image.\nRevision: Edit this map. Keep the same illustration style, dusk sunset colors, calm sea, circular empty flat-topped islands and decorations. The current map has EIGHT islands; ADD EXACTLY TWO MORE islands in the large empty center, separated from one another and every existing island. Final image must contain EXACTLY TEN ISLANDS total, no more no fewer. Reconnect the dotted route so ALL TEN islands are visited by a single continuous winding sequential dotted path; complete the currently missing connection on the left. Each island's top must stay empty for game icons and all islands must remain fully visible. No text, numbers, letters or logos. Horizontal 1536x1024.\nRevision: Precise edit of this map, preserve everything except specified changes. This image currently contains ELEVEN islands (four at top, four at middle, three at bottom). REMOVE the BOTTOM CENTER island entirely, including its palm tree and flowers; replace it with calm sea. Retain the bottom-left and bottom-right islands, connect those two directly by a curved dotted route across the bottom sea. Also REMOVE the short vertical dotted connection between upper-left and middle-left islands. REMOVE the diagonal dotted connection between middle-right and bottom-right islands. Keep all remaining connections. Final route must be a SINGLE non-branching path visiting exactly TEN remaining islands, in this sequence: upper-left, second top, third top, upper-right, middle-right, center-right, center-left, middle-left, bottom-left, bottom-right. No new islands, no letters, labels, numbers or logos. Same horizontal 1536x1024 style.",
+      "targetSize": [
+        1536,
+        1024
+      ],
+      "transparent": false
+    },
+    {
+      "name": "icon",
+      "file": "icon.png",
+      "source": "C:\\Users\\Asus-PC\\.codex\\generated_images\\01a10403-d1d0-7a80-8eb6-274a3493d7ce\\exec-e07afdfa-5dd8-49fd-8f7e-a087b46551b7.png",
+      "prompt": "An app icon: the head of Buddy the puppy from the attached reference, front view, big happy smile, centered and filling about 70% of the image, on a solid warm yellow background. No border, no rounded corners (the system adds them). Square 1024x1024. Single head, not full body, no reference sheet. Same light-golden fur, brown floppy ears and a light-brown patch around HIS LEFT eye (viewer-right). Style: children's picture book illustration for a 5-year-old. Soft rounded shapes, thick smooth dark-brown outlines, flat colors with gentle soft shading, warm cheerful pastel palette with clear saturated main colors. Simple, uncluttered composition with big, easy-to-recognize objects. Friendly and cute, never scary. Absolutely no text, letters, numbers or logos anywhere in the image.",
+      "targetSize": [
+        1024,
+        1024
+      ],
+      "transparent": false
+    }
+  ]
+}

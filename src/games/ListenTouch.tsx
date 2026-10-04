@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { Buddy } from '../components/Buddy.tsx';
+import { cardClass, cardHintClass, cardSize } from '../components/cardStyles.ts';
+import { GameArea } from '../components/Screen.tsx';
 import { SpeakerButton } from '../components/SpeakerButton.tsx';
 import { Stars } from '../components/Stars.tsx';
 import { randomCelebration, say } from '../lib/audio.ts';
@@ -41,16 +43,18 @@ export function ListenTouch({ target, options, onDone }: Props) {
   }
 
   return (
-    <div className="game">
+    <GameArea>
       <SpeakerButton onClick={() => !solved && say(ask)} />
       <Buddy pose={solved ? 'cheer' : missed ? 'point' : 'listen'} size={110} />
-      <div className="options">
+      <div className="flex max-w-full flex-wrap justify-center gap-7" data-options>
         {options.map((ref) => {
           const correct = ref.word.id === target.word.id;
           return (
             <motion.button
               key={ref.word.id}
-              className={`card ${missed && correct && !solved ? 'hint' : ''} ${solved && correct ? 'right' : ''}`}
+              className={`${cardClass} ${missed && correct && !solved ? cardHintClass : ''} ${solved && correct ? 'border-success' : ''}`}
+              style={cardSize('min(30vw, 36vh, 240px)')}
+              data-card={solved && correct ? 'right' : ''}
               animate={
                 shaking === ref.word.id
                   ? { x: [0, -14, 14, -10, 10, 0] }
@@ -65,6 +69,6 @@ export function ListenTouch({ target, options, onDone }: Props) {
         })}
       </div>
       {solved && <Stars />}
-    </div>
+    </GameArea>
   );
 }

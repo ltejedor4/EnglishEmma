@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
+import { cardClass, cardSize } from '../components/cardStyles.ts';
 import { NextButton } from '../components/NextButton.tsx';
+import { GameArea } from '../components/Screen.tsx';
 import { say } from '../lib/audio.ts';
 import type { WordRef } from '../lib/review.ts';
 
@@ -18,9 +20,10 @@ export function Presentation({ target, onDone }: { target: WordRef; onDone: () =
   }, [base]);
 
   return (
-    <div className="game">
+    <GameArea>
       <motion.button
-        className="card big"
+        className={`${cardClass} pb-[12%]`}
+        style={cardSize('min(70vw, 55vh, 380px)')}
         initial={{ scale: 0.3, opacity: 0, rotate: -10 }}
         animate={{ scale: 1, opacity: 1, rotate: 0 }}
         whileTap={{ scale: 0.92 }}
@@ -28,9 +31,9 @@ export function Presentation({ target, onDone }: { target: WordRef; onDone: () =
         onClick={() => say(base)}
       >
         {target.word.image}
-        <span className="caption">{target.word.say.replace(/\.$/, '')}</span>
+        <span className="absolute bottom-[6%] text-[calc(var(--size)*0.12)] font-bold text-night">{target.word.say.replace(/\.$/, '')}</span>
       </motion.button>
       {ready && <NextButton onClick={onDone} />}
-    </div>
+    </GameArea>
   );
 }

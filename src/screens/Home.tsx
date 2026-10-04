@@ -1,4 +1,5 @@
 import { Buddy } from '../components/Buddy.tsx';
+import { Moon, Screen } from '../components/Screen.tsx';
 import { say } from '../lib/audio.ts';
 
 interface Props {
@@ -10,19 +11,19 @@ interface Props {
 export function Home({ playedToday, onStart }: Props) {
   if (playedToday) {
     return (
-      <main className="screen home">
-        <div className="moon" aria-hidden>🌙</div>
+      <Screen className="gap-10">
+        <Moon />
         <Buddy pose="sleeping" size={220} onClick={() => say('common/see-you-tomorrow')} />
-      </main>
+      </Screen>
     );
   }
   // El primer toque (▶) también desbloquea el audio en tablets y celulares.
   return (
-    <main className="screen home">
+    <Screen className="gap-10">
       <Buddy pose="hello" size={220} />
-      <button className="play" onClick={onStart} aria-label="Play">
+      <button className="moon-button size-32 pl-2.5 text-[56px] active:scale-95" onClick={onStart} aria-label="Play">
         ▶
       </button>
-    </main>
+    </Screen>
   );
 }

@@ -1,28 +1,43 @@
-:root {
-  --night: #1e2a4a;
-  --night-soft: #2c3b63;
-  --moon: #ffe9a8;
-  --text: #fdf6e3;
-  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
-  color: var(--text);
-  background: var(--night);
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
+@import 'tailwindcss';
+
+@theme {
+  --color-night: #1e2a4a;
+  --color-night-soft: #2c3b63;
+  --color-moon: #ffe9a8;
+  --color-cream: #fdf6e3;
+  --color-success: #8ee08e;
+
+  --font-sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+
+  --animate-glow: glow 1.4s ease-in-out infinite;
+  @keyframes glow {
+    50% {
+      background-color: rgb(255 233 168 / 0.18);
+    }
+  }
 }
 
-* {
-  box-sizing: border-box;
+@layer base {
+  html,
+  body,
+  #root {
+    @apply m-0 h-full overflow-hidden;
+    touch-action: manipulation;
+  }
+
+  body {
+    @apply font-sans text-cream select-none;
+    background: radial-gradient(circle at 75% 15%, var(--color-night-soft), var(--color-night) 70%);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button {
+    @apply cursor-pointer;
+  }
 }
 
-html,
-body,
-#root {
-  margin: 0;
-  height: 100%;
-  overflow: hidden;
-  touch-action: manipulation;
-}
-
-body {
-  background: radial-gradient(circle at 75% 15%, var(--night-soft), var(--night) 70%);
+/* Botón redondo color luna (▶ de inicio y de "siguiente"). */
+@utility moon-button {
+  @apply grid place-items-center rounded-full border-none bg-moon text-night;
+  box-shadow: 0 0 0 10px rgb(255 233 168 / 0.25);
 }
