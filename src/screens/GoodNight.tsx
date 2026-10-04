@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-import { motion } from 'motion/react';
 import { Buddy } from '../components/Buddy.tsx';
-import { Screen } from '../components/Screen.tsx';
+import { Moon, Screen } from '../components/Screen.tsx';
 import { say } from '../lib/audio.ts';
 
 /** Cierre de la sesión: Buddy bosteza, "Good night, Emma!" y se duerme. */
@@ -17,16 +16,8 @@ export function GoodNight() {
   }, []);
 
   return (
-    <Screen className="gap-10">
-      <motion.div
-        className="absolute top-6 right-8 text-7xl"
-        aria-hidden
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 2 }}
-      >
-        🌙
-      </motion.div>
+    <Screen className="gap-10" background="bg-home">
+      <Moon />
       <Buddy pose={asleep ? 'sleeping' : 'sleepy'} size={220} onClick={() => say('common/see-you-tomorrow')} />
     </Screen>
   );

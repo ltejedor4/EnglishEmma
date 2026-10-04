@@ -11,7 +11,7 @@ interface Props {
 export function Home({ playedToday, onStart }: Props) {
   if (playedToday) {
     return (
-      <Screen className="gap-10">
+      <Screen className="gap-10" background="bg-home">
         <Moon />
         <Buddy pose="sleeping" size={220} onClick={() => say('common/see-you-tomorrow')} />
       </Screen>
@@ -19,7 +19,7 @@ export function Home({ playedToday, onStart }: Props) {
   }
   // El primer toque (▶) también desbloquea el audio en tablets y celulares.
   return (
-    <Screen className="gap-10">
+    <Screen className="gap-10" background="bg-home">
       <Buddy pose="hello" size={220} />
       <button className="moon-button size-32 pl-2.5 text-[56px] active:scale-95" onClick={onStart} aria-label="Play">
         ▶

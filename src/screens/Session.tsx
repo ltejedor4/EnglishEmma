@@ -19,8 +19,8 @@ const topicOf = (ref: WordRef) => topics.find((t) => t.id === ref.topicId)!;
 /** Repaso → palabras nuevas (presentación + dos rondas de Listen & Touch, 2 y luego 3 opciones). */
 function buildSteps(plan: SessionPlan, progress: WordProgress): Step[] {
   const steps: Step[] = [{ kind: 'say', keys: ['common/hello-emma', 'common/lets-play'], pose: 'hello' }];
-  // Palabras que ya vio (antes o en esta sesión): preferidas como distractores.
-  const known = new Set([...Object.keys(progress), ...plan.fresh.map(keyOf)]);
+  // Palabras que ya vio: preferidas como distractores. Las nuevas cuentan recién después de presentarlas.
+  const known = new Set(Object.keys(progress));
   const touch = (target: WordRef, count: number): Step => ({
     kind: 'touch',
     target,
@@ -37,7 +37,10 @@ function buildSteps(plan: SessionPlan, progress: WordProgress): Step[] {
 
   if (plan.fresh.length) {
     steps.push({ kind: 'say', keys: ['common/new-words'], pose: 'cheer' });
-    for (const target of plan.fresh) steps.push({ kind: 'present', target });
+    for (const target of plan.fresh) {
+      steps.push({ kind: 'present', target });
+      known.add(keyOf(target));
+    }
     steps.push({ kind: 'say', keys: ['common/lets-play-a-game'], pose: 'hello' });
     let last: WordRef | undefined;
     for (const count of [2, 3]) {
