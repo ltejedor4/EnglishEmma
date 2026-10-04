@@ -1,9 +1,11 @@
 import { Howl, Howler } from 'howler';
-import { celebrations } from '../content/index.ts';
+import { celebrations, gentleRetry, greetings, session } from '../content/index.ts';
 
 const cache = new Map<string, Howl>();
 /** Cada stopAll() invalida las secuencias en curso, para que no sigan sonando al cambiar de pantalla. */
 let generation = 0;
+/** Sonidos pedidos y aún no terminados, incluidos los que esperan a que su archivo cargue. */
+const active = new Set<{ howl: Howl; id: number }>();
 
 /** Ruta de un clip generado por scripts/generate-audio.ts, p. ej. "animals/dog-ask". */
 function load(key: string): Howl {
@@ -19,17 +21,29 @@ export function preload(keys: string[]) {
   keys.forEach(load);
 }
 
+// Las frases de Buddy que suenan en cualquier sesión, listas desde el principio.
+preload([...greetings, ...celebrations, ...gentleRetry, ...session].map((line) => `common/${line.id}`));
+
 export function stopAll() {
   generation++;
+  for (const sound of active) sound.howl.stop(sound.id);
+  active.clear();
   Howler.stop();
 }
 
 /** Reproduce un clip y resuelve cuando termina, se detiene o falla (para no bloquear el juego). */
-function playOne(key: string): Promise<void> {
+function playOne(key: string, mine: number): Promise<void> {
   return new Promise((resolve) => {
     const howl = load(key);
     const id = howl.play();
-    const done = () => resolve();
+    const sound = { howl, id };
+    active.add(sound);
+    const done = () => {
+      active.delete(sound);
+      resolve();
+    };
+    // Si mientras cargaba el archivo se pidió otra cosa, este sonido ya no tiene que sonar.
+    howl.once('play', () => generation !== mine && howl.stop(id), id);
     howl.once('end', done, id);
     howl.once('stop', done, id);
     howl.once('playerror', done, id);
@@ -43,7 +57,7 @@ export async function say(...keys: string[]): Promise<boolean> {
   const mine = generation;
   for (const key of keys) {
     if (generation !== mine) return false;
-    await playOne(key);
+    await playOne(key, mine);
   }
   return generation === mine;
 }
