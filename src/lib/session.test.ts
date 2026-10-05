@@ -45,7 +45,7 @@ function secondNight() {
   return { p, plan: planSession(topics, p, '2026-10-04') };
 }
 
-// Etapa A (sin "Say it!"): 22–34. Con Say it! (etapa B) la meta sube a 25–34.
+// Con "Say it!": 25–36 interacciones (≈5–7 min). Sin hablar (apagado por los padres), algo menos.
 test('la lección completa tiene dos juegos distintos y dura lo suficiente', () => {
   const { p, plan } = secondNight();
   for (let seed = 0; seed < 6; seed++) {
@@ -54,7 +54,7 @@ test('la lección completa tiene dos juegos distintos y dura lo suficiente', () 
     assert.equal(games.length, 2, `seed ${seed}: ${games}`);
     assert.notEqual(games[0], games[1]);
     const n = interactions(steps);
-    assert.ok(n >= 22 && n <= 34, `seed ${seed}: ${n} interacciones`);
+    assert.ok(n >= 25 && n <= 36, `seed ${seed}: ${n} interacciones`);
     assertValid(steps, `seed ${seed}`);
   }
 });
@@ -140,4 +140,33 @@ test('un juego elegido en la zona de padres sale dos veces (una en la práctica)
     assert.deepEqual(gamesIn(buildSteps(plan, p, { mode: game, practice: true })), [game]);
     assertValid(buildSteps(plan, p, { mode: game }), game);
   }
+});
+
+test('Say it! va entre los dos juegos, con hasta 4 palabras y las nuevas primero', () => {
+  const { p, plan } = secondNight();
+  const steps = buildSteps(plan, p, { seed: 0 });
+  const kinds = steps.map((s) => s.kind).filter((k) => ['memory', 'balloons', 'feed', 'speak'].includes(k));
+  assert.deepEqual(kinds, ['memory', 'speak', 'balloons']);
+  const speakStep = steps.find((s) => s.kind === 'speak');
+  assert.ok(speakStep && speakStep.kind === 'speak');
+  assert.equal(speakStep.targets.length, 4);
+  assert.deepEqual(speakStep.targets.slice(0, 3).map(keyOf), plan.fresh.map(keyOf));
+});
+
+test('sin hablar si los padres lo apagan; en la práctica va después del único juego', () => {
+  const { p, plan } = secondNight();
+  assert.equal(buildSteps(plan, p, { speak: false }).filter((s) => s.kind === 'speak').length, 0);
+  const practice = buildSteps(plan, p, { practice: true, seed: 2 }).map((s) => s.kind).filter((k) => ['memory', 'balloons', 'feed', 'speak'].includes(k));
+  assert.equal(practice.length, 2);
+  assert.equal(practice[1], 'speak');
+});
+
+test('modo "solo hablar" de la zona de padres: hasta 6 palabras y sin juegos', () => {
+  const { p, plan } = secondNight();
+  const steps = buildSteps(plan, p, { mode: 'speak' });
+  assert.equal(gamesIn(steps).length, 0);
+  const speakSteps = steps.filter((s) => s.kind === 'speak');
+  assert.equal(speakSteps.length, 1);
+  assert.ok(speakSteps[0].kind === 'speak' && speakSteps[0].targets.length === 6);
+  assertValid(steps, 'speak');
 });

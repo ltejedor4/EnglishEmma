@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { topics } from './content/index.ts';
 import type { Topic } from './content/types.ts';
 import type { LessonMode } from './lib/lesson.ts';
-import { EMPTY_PROGRESS, loadProgress, saveProgress } from './lib/progress.ts';
-import type { Progress } from './lib/progress.ts';
-import { doingWell, planSession, planTopicSession, recordResult, resetTopic, today } from './lib/review.ts';
+import { EMPTY_PROGRESS, loadProgress, recordSpoken, saveProgress } from './lib/progress.ts';
+import type { Progress, Settings } from './lib/progress.ts';
+import { doingWell, keyOf, planSession, planTopicSession, recordResult, refsOf, resetTopic, today } from './lib/review.ts';
 import type { SessionPlan } from './lib/review.ts';
 import { Home } from './screens/Home.tsx';
 import { ParentGate } from './screens/ParentGate.tsx';
@@ -48,17 +48,22 @@ export default function App() {
   /** Zona de padres: un tema vuelve a estar como nuevo (las fichas del rompecabezas no se tocan). */
   function resetTopicProgress(topicId: string) {
     const topic = topics.find((t) => t.id === topicId);
-    if (topic) update({ ...progress, words: resetTopic(progress.words, topic) });
+    if (!topic) return;
+    const keys = new Set(refsOf(topic).map(keyOf));
+    const spoken = Object.fromEntries(Object.entries(progress.spoken).filter(([key]) => !keys.has(key)));
+    update({ ...progress, words: resetTopic(progress.words, topic), spoken });
   }
 
-  function finish(results: Record<string, boolean>) {
+  function finish(results: Record<string, boolean>, spoken: string[]) {
     let words = progress.words;
     for (const [key, firstTry] of Object.entries(results)) words = recordResult(words, key, firstTry, day);
 
     // Una ficha por noche, como en Duolingo; repetir la sesión el mismo día no da otra.
     const earnsPiece = !playedToday;
     const next = {
+      ...progress,
       words,
+      spoken: recordSpoken(progress.spoken, spoken, day),
       sessionDays: earnsPiece ? [...progress.sessionDays, day] : progress.sessionDays,
       pieces: progress.pieces + (earnsPiece ? 1 : 0),
     };
@@ -89,11 +94,12 @@ export default function App() {
     case 'parents':
       return (
         <ParentZone
-          progress={progress.words}
+          progress={progress}
           playedToday={playedToday}
           onStart={startLesson}
+          onSettings={(settings: Settings) => update({ ...progress, settings, speechIssue: undefined })}
           onResetTopic={resetTopicProgress}
-          onResetAll={() => update(EMPTY_PROGRESS)}
+          onResetAll={() => update({ ...EMPTY_PROGRESS, settings: progress.settings })}
           onClose={home}
         />
       );
@@ -105,6 +111,8 @@ export default function App() {
           mode={screen.mode}
           seed={progress.sessionDays.length}
           practice={screen.practice}
+          speech={progress.settings.speech}
+          onSpeechIssue={(reason) => update({ ...progress, speechIssue: reason })}
           onFinish={finish}
         />
       );

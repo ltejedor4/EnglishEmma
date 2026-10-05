@@ -7,6 +7,8 @@ import { Balloons } from '../games/Balloons.tsx';
 import { FeedBuddy } from '../games/FeedBuddy.tsx';
 import { Memory } from '../games/Memory.tsx';
 import { Presentation } from '../games/Presentation.tsx';
+import { SayIt } from '../games/SayIt.tsx';
+import type { SpeechMode } from '../lib/speech.ts';
 import { preload, say } from '../lib/audio.ts';
 import { keyOf } from '../lib/review.ts';
 import { audioKeys, buildSteps } from '../lib/session.ts';
@@ -22,24 +24,29 @@ interface Props {
   seed?: number;
   /** Práctica libre: un solo juego. */
   practice?: boolean;
-  /** Por palabra: true si la acertó a la primera en todas sus rondas. */
-  onFinish: (results: Record<string, boolean>) => void;
+  /** Modo de "Your turn! Say it!" (zona de padres); 'off' no lo incluye. */
+  speech?: SpeechMode;
+  onSpeechIssue?: (reason: string) => void;
+  /** Por palabra: true si la acertó a la primera en todas sus rondas; y las que dijo bien en voz alta. */
+  onFinish: (results: Record<string, boolean>, spoken: string[]) => void;
 }
 
-export function Session({ plan, progress, mode = 'mix', seed = 0, practice = false, onFinish }: Props) {
+export function Session({ plan, progress, mode = 'mix', seed = 0, practice = false, speech = 'auto', onSpeechIssue, onFinish }: Props) {
+  const speak = speech !== 'off';
   const steps = useMemo(
-    () => buildSteps(plan, progress, { mode, seed, practice }),
-    [plan, progress, mode, seed, practice],
+    () => buildSteps(plan, progress, { mode, seed, practice, speak }),
+    [plan, progress, mode, seed, practice, speak],
   );
   const [index, setIndex] = useState(0);
   const results = useRef<Record<string, boolean>>({});
+  const spoken = useRef<string[]>([]);
 
   useEffect(() => {
     preload([...audioKeys(steps), 'common/try-again']);
   }, [steps]);
 
   function next() {
-    if (index + 1 >= steps.length) onFinish(results.current);
+    if (index + 1 >= steps.length) onFinish(results.current, spoken.current);
     else setIndex(index + 1);
   }
 
@@ -66,6 +73,18 @@ export function Session({ plan, progress, mode = 'mix', seed = 0, practice = fal
       {step.kind === 'memory' && <Memory key={index} words={step.words} onDone={answered} />}
       {step.kind === 'balloons' && <Balloons key={index} rounds={step.rounds} onDone={answered} />}
       {step.kind === 'feed' && <FeedBuddy key={index} rounds={step.rounds} onDone={answered} />}
+      {step.kind === 'speak' && (
+        <SayIt
+          key={index}
+          targets={step.targets}
+          mode={speech}
+          onIssue={onSpeechIssue}
+          onDone={(said) => {
+            spoken.current.push(...said);
+            next();
+          }}
+        />
+      )}
     </Screen>
   );
 }

@@ -11,6 +11,11 @@ export interface Word {
   ask: string;
   /** Frases de contexto para la presentación y las escenas. */
   facts: string[];
+  /**
+   * Lo que el reconocedor de voz suele entender cuando la dice (homófonos, acento):
+   * "Your turn! Say it!" también las acepta. Ej.: two → ['to', 'too'].
+   */
+  sounds?: string[];
 }
 
 export interface Topic {

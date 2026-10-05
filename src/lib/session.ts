@@ -20,7 +20,8 @@ export type Step =
   | { kind: 'touch'; targets: WordRef[]; options: WordRef[]; prompt: string[] }
   | { kind: 'memory'; words: WordRef[] }
   | { kind: 'balloons'; rounds: GameRound[] }
-  | { kind: 'feed'; rounds: GameRound[] };
+  | { kind: 'feed'; rounds: GameRound[] }
+  | { kind: 'speak'; targets: WordRef[] };
 
 /** Rondas de Listen & Touch mínimas en los modos de un solo tipo de pregunta (ask / fact / pair). */
 export const MIN_ROUNDS = 8;
@@ -46,6 +47,8 @@ export interface LessonOptions {
   seed?: number;
   /** Práctica libre: un solo juego. */
   practice?: boolean;
+  /** Incluir "Your turn! Say it!" (los padres pueden apagarlo). */
+  speak?: boolean;
 }
 
 /** Los juegos de hoy: dos distintos que rotan cada noche; en la práctica, uno (el que no tocó primero). */
@@ -58,17 +61,18 @@ export function gamesFor(seed: number, practice: boolean): GameKind[] {
 /**
  * Arma la lección. En "mix" (la de la noche, 5–7 min):
  *   saludo → repaso (Listen & Touch) → palabras nuevas (presentación + pregunta directa)
- *   → juego 1 → juego 2 → cierre (4 Listen & Touch).
+ *   → juego 1 → Your turn! Say it! → juego 2 → cierre (4 Listen & Touch).
+ * En "speak" (zona de padres): palabras nuevas → Say it! con hasta 6 palabras → cierre.
  * En "ask" / "fact" / "pair" (elegidos en la zona de padres): solo Listen & Touch con esa forma de preguntar.
  * Listen & Touch mezcla tres formas: ask ("Where is the dog?"), fact ("The sky is blue." → azul) y
  * pair ("Find these two! red… and… blue"). Ninguna palabra sale dos veces seguidas ni más de
  * MAX_ROUNDS_PER_WORD veces en Listen & Touch.
  */
 export function buildSteps(plan: SessionPlan, progress: WordProgress, options: LessonOptions = {}): Step[] {
-  const { mode = 'mix', seed = 0, practice = false } = options;
+  const { mode = 'mix', seed = 0, practice = false, speak = true } = options;
   // Lección completa (con juegos): la mezcla, o un juego elegido en la zona de padres (ese juego dos veces).
   const chosenGame = (GAMES as string[]).includes(mode) ? (mode as GameKind) : undefined;
-  const fullLesson = mode === 'mix' || !!chosenGame;
+  const fullLesson = mode === 'mix' || mode === 'speak' || !!chosenGame;
   const steps: Step[] = [{ kind: 'say', keys: ['common/hello-emma', 'common/lets-play'], pose: 'hello' }];
   // Palabras que ya vio: preferidas como distractores. Las nuevas cuentan recién después de presentarlas.
   const known = new Set(Object.keys(progress));
@@ -162,16 +166,22 @@ export function buildSteps(plan: SessionPlan, progress: WordProgress, options: L
 
   // --- Juegos (solo en la lección completa) ---
   if (fullLesson && pool.length >= 2) {
-    const games = chosenGame ? (practice ? [chosenGame] : [chosenGame, chosenGame]) : gamesFor(seed, practice);
-    for (const game of games) {
+    const games = chosenGame
+      ? practice ? [chosenGame] : [chosenGame, chosenGame]
+      : mode === 'speak' ? [] : gamesFor(seed, practice);
+    // Las nuevas primero (son las que más necesita oír y decir), luego las demás al azar.
+    const ordered = () => [...plan.fresh, ...shuffle(pool.filter((ref) => !plan.fresh.includes(ref)))];
+    if (mode === 'speak' && speak) steps.push({ kind: 'speak', targets: ordered().slice(0, 6) });
+    for (const [i, game] of games.entries()) {
+      // Hablar va entre el primer y el segundo juego (o después del único, en la práctica).
+      if (i === 1 && speak && !chosenGame) steps.push({ kind: 'speak', targets: ordered().slice(0, 4) });
       steps.push({ kind: 'say', keys: ['common/lets-play-a-game'], pose: 'cheer' });
-      // Las nuevas primero (son las que más necesita oír), luego al azar.
-      const ordered = [...plan.fresh, ...shuffle(pool.filter((ref) => !plan.fresh.includes(ref)))];
+      const words = ordered();
       if (game === 'memory') {
-        steps.push({ kind: 'memory', words: ordered.slice(0, 3) });
+        steps.push({ kind: 'memory', words: words.slice(0, 3) });
       } else {
         // 5 rondas por juego (o tantas como palabras distintas haya, sin repetir objetivo).
-        const targets = shuffle(ordered.slice(0, 5));
+        const targets = shuffle(words.slice(0, 5));
         const count = game === 'balloons' ? 4 : 3;
         steps.push({
           kind: game,
@@ -179,6 +189,7 @@ export function buildSteps(plan: SessionPlan, progress: WordProgress, options: L
         });
       }
     }
+    if (games.length === 1 && speak && !chosenGame) steps.push({ kind: 'speak', targets: ordered().slice(0, 4) });
   }
 
   // --- Cierre / rondas extra de Listen & Touch ---
@@ -208,6 +219,7 @@ export function interactions(steps: Step[]): number {
     if (s.kind === 'touch' || s.kind === 'present') return sum + 1;
     if (s.kind === 'memory') return sum + s.words.length * 2 + 2; // pares + algún error de memoria
     if (s.kind === 'balloons' || s.kind === 'feed') return sum + s.rounds.length;
+    if (s.kind === 'speak') return sum + s.targets.length;
     return sum;
   }, 0);
 }
@@ -217,7 +229,7 @@ export function audioKeys(steps: Step[]): string[] {
   return steps.flatMap((step) => {
     if (step.kind === 'say') return step.keys;
     if (step.kind === 'present') return [clipOf(step.target), `${clipOf(step.target)}-fact-1`];
-    if (step.kind === 'memory') return step.words.map(clipOf);
+    if (step.kind === 'memory' || step.kind === 'speak') return (step.kind === 'memory' ? step.words : step.targets).map(clipOf);
     if (step.kind === 'balloons' || step.kind === 'feed') return step.rounds.flatMap((r) => r.options.map(clipOf));
     return [...step.prompt, ...step.targets.map(clipOf)];
   });

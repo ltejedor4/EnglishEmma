@@ -157,14 +157,14 @@ Todos reutilizan el mismo contenido de cada tema, con la ilustración de la tarj
 | Juego | Cómo se juega | Estado |
 |---|---|---|
 | **Listen & Touch** | "Where is the dog?" / "The sky is blue." / "Find these two! red… and… blue" → tocar la(s) tarjeta(s). 2 → 4 opciones | ✅ hecho |
-| **Memory** | 3 pares de cartas boca abajo (`card-back`); al voltear, cada carta *dice* su palabra; emparejar | Etapa A |
-| **Pop the Balloons** | Suben globos (de colores en *Colors*, con la tarjeta colgando en los demás temas); "Pop… red!" → reventar el correcto; si se escapa, vuelve a subir | Etapa A |
-| **Feed Buddy** | Buddy tiene hambre: "Give me… apple!" → arrastrar la tarjeta hasta él (el mismo arrastre del rompecabezas) | Etapa A |
-| **Your turn! Say it!** 🎤 | Buddy dice la palabra y Emma la dice en voz alta (ver sección 7b) | Etapa B |
+| **Memory** | 3 pares de cartas boca abajo (`card-back`); al voltear, cada carta *dice* su palabra; emparejar | ✅ hecho |
+| **Pop the Balloons** | Suben globos (de colores en *Colors*, con la tarjeta colgando en los demás temas); "Pop… red!" → reventar el correcto; si se escapa, vuelve a subir | ✅ hecho |
+| **Feed Buddy** | Buddy tiene hambre: "Give me… apple!" → arrastrar la tarjeta hasta él (el mismo arrastre del rompecabezas) o tocarla | ✅ hecho |
+| **Your turn! Say it!** 🎤 | Buddy dice la palabra y Emma la dice en voz alta (ver sección 7b) | ✅ hecho |
 | Find it in the scene | Buscar el objeto dentro de la escena del rompecabezas del tema | siguiente |
 | Simon Says | "Touch your nose!": Emma lo hace de verdad y toca ✅. Ideal para *My body* y *Actions* | siguiente |
 
-**Errores sin castigo en todos los juegos:** la tarjeta se mueve suavemente, "Look, here it is!" y la correcta brilla.
+**Errores sin castigo en todos los juegos:** la tarjeta se mueve suavemente y Buddy dice "Let's try again!", sin mostrar la respuesta (solo en Pop the Balloons brilla el globo correcto, porque se mueven).
 
 ### Flujo de la lección de la noche (5–7 min, ≈25–30 interacciones)
 
@@ -296,20 +296,21 @@ Detalle paso a paso en [docs/DESPLIEGUE.md](docs/DESPLIEGUE.md).
 
 ### Fase 2 — Lecciones de 5–7 min y hablar
 **Etapa A — más juegos**
-- [ ] Lección armada por actividades (repaso → nuevas → juego 1 → Say it! → juego 2 → cierre), con rotación de juegos
-- [ ] Memory
-- [ ] Pop the Balloons
-- [ ] Feed Buddy (arrastrar hasta Buddy)
-- [ ] Frases nuevas de Buddy (pop, give me, your turn, try again…)
+- [x] Lección armada por actividades (repaso → nuevas → juego 1 → Say it! → juego 2 → cierre), con rotación de juegos
+- [x] Memory
+- [x] Pop the Balloons
+- [x] Feed Buddy (arrastrar hasta Buddy)
+- [x] Frases nuevas de Buddy (pop, give me, your turn, try again…)
 
 **Etapa B — hablar**
-- [ ] Your turn! Say it! con reconocimiento automático y generoso
-- [ ] Respaldo "grabar y escucharse"
-- [ ] Ajuste de hablar en la zona de padres + "dijo en voz alta" en el progreso
+- [x] Your turn! Say it! con reconocimiento automático y generoso
+- [x] Respaldo "grabar y escucharse"
+- [x] Ajuste de hablar en la zona de padres + "dijo en voz alta" en el progreso
 
 **Etapa C — pulido**
-- [ ] Modos de un solo juego en la zona de padres (Memory, Balloons, Feed Buddy, Say it!)
-- [ ] Imágenes nuevas (`docs/IMAGENES-3.md`): Buddy con hambre, Buddy con micrófono, botón 🎤
+- [x] Modos de un solo juego en la zona de padres (Memory, Balloons, Feed Buddy, Say it!)
+- [x] Buddy con hambre y Buddy con micrófono (Codex)
+- [ ] Botón 🎤 ilustrado (por ahora emoji)
 - [x] Tarjetas ilustradas de las 63 palabras con su nombre escrito
 - [x] Modo offline completo
 - [x] Temas My body, Food, Numbers (contenido, audio e imágenes de los 10 temas)
