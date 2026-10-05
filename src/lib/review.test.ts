@@ -186,3 +186,10 @@ test('resetTopic borra solo las palabras de ese tema', () => {
   assert.deepEqual(Object.keys(after), ['animals/dog']);
   assert.deepEqual(planSession(topics, resetTopic(after, animals), '2026-10-04').fresh.map((r) => r.word.id), ['red', 'blue', 'yellow']);
 });
+
+test('el tema Hello! está completo: cada palabra con pregunta y frases que la nombran', () => {
+  const hello = topics.find((t) => t.id === 'hello')!;
+  assert.equal(hello.words.length, 6);
+  for (const word of hello.words) assert.ok(factsNaming(word, hello).length >= 1, `${word.id} sin frase que la nombre`);
+  assert.ok((hello.questions ?? []).length >= 5);
+});

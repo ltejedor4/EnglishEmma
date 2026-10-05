@@ -52,6 +52,11 @@ function collectClips(): Clip[] {
       clips.push({ key: `${topic.id}/${word.id}-ask`, text: word.ask });
       word.facts.forEach((fact, i) => clips.push({ key: `${topic.id}/${word.id}-fact-${i + 1}`, text: fact }));
     }
+    // Preguntas para conversar: la pregunta de Buddy y la respuesta modelo que le enseña.
+    for (const q of topic.questions ?? []) {
+      clips.push({ key: `${topic.id}/q-${q.id}-ask`, text: q.ask });
+      clips.push({ key: `${topic.id}/q-${q.id}-answer`, text: q.answer });
+    }
   }
   for (const line of [...greetings, ...celebrations, ...gentleRetry, ...instructions, ...session, ...speaking]) {
     clips.push({ key: `common/${line.id}`, text: (line.mood ? MOOD_TAGS[line.mood] : '') + line.text });

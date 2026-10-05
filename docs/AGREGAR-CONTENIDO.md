@@ -56,8 +56,25 @@ npm run images:generate -- word-animals-dog --dry-run   # ver el pedido sin gene
 - Codex corre limitado a esta carpeta y se le pide tocar solo el archivo pedido. El script verifica con git que no haya cambiado nada más y avisa si pasa.
 - Cada imagen tarda 1–2 minutos y consume del cupo del plan de ChatGPT.
 
+## Agregar una pregunta para conversar
+
+En `questions` de un tema (por ejemplo `src/content/hello.ts`):
+
+```ts
+{
+  id: 'pet',
+  image: '🐾',
+  ask: 'Do you have a pet?',
+  answer: 'Yes, I have a dog.',
+  accepts: { kind: 'yesno' },          // o { kind: 'words', words: ['dog'] } · { kind: 'number' } · { kind: 'topic', topicId: 'colors' }
+  picture: 'a cute puppy and a kitten sitting together',   // para su ilustración (o imageName: 'word-animals-dog')
+},
+```
+
+Después: `npm run audio` (pregunta y respuesta modelo) y `npm run images:generate -- --missing` (ilustración `q-<tema>-<id>`). Aparece sola en "Your turn! Say it!".
+
 ## Agregar un tema nuevo
 
-1. Crear `src/content/<tema>.ts` (copiar uno existente) y sumarlo a `src/content/index.ts`.
+1. Crear `src/content/<tema>.ts` (copiar uno existente) y sumarlo a `src/content/index.ts`: en `topics` donde corresponda en el orden de avance, y en `puzzleTopics` **al final** (así no cambia el rompecabezas que Emma está armando).
 2. Pedir su escena/rompecabezas: `npm run images:generate -- puzzle-<tema> --prompt "..."` (ver la plantilla en `docs/IMAGENES.md`). Conviene generarla **antes** que las tarjetas, porque las tarjetas la usan como referencia.
 3. Seguir los pasos de "Agregar una palabra".

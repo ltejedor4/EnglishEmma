@@ -186,6 +186,26 @@ Hasta ahora una lección duraba **menos de 2 minutos** (solo Listen & Touch). La
 
 ---
 
+## 7a. Saludos y conversación: tema *Hello!* 👋
+
+- **Tarjetas de saludos** (todos los juegos): hello, goodbye, good morning, good night, thank you, please — Buddy haciendo cada gesto.
+- **Preguntas personales** en "Your turn! Say it!": Buddy pregunta y Emma responde con la frase completa. Si no responde o no se le entiende, Buddy le enseña la frase modelo ("My name is Emma. Your turn!") y le da otra oportunidad.
+
+| Pregunta | Respuesta modelo | Se acepta |
+|---|---|---|
+| What's your name? | My name is Emma. | "Emma" |
+| How old are you? | I am five. | cualquier número |
+| Where are you from? | I am from Colombia. | "Colombia" |
+| How are you? | I am happy! | cualquier emoción, fine, good… |
+| What's your favorite color? | My favorite color is pink. | cualquier color |
+| Do you like apples? / dogs? | Yes, I do! | sí o no |
+
+- **Dónde aparecen:** una pregunta en cada lección (rotan noche a noche); tres en las lecciones del tema *Hello!* y en "solo hablar".
+- En el orden de avance, *Hello!* va después de *Animals*. El orden de los rompecabezas es aparte (`puzzleTopics`): los temas nuevos van al final, así no cambia el rompecabezas que está armando.
+- Las preguntas viven en `src/content/hello.ts` (`questions`), con su audio (`q-<id>-ask` / `q-<id>-answer`) e ilustración (`q-hello-<id>`).
+
+---
+
 ## 7b. Hablar: "Your turn! Say it!" 🎤
 
 Lo que más le gusta de Duolingo. Va **después** de que conoce la palabra (escuchar antes que hablar).

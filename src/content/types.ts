@@ -29,6 +29,34 @@ export interface Topic {
   words: Word[];
   /** Frases para papá/mamá en la zona de padres (solo texto, no se genera audio). */
   homeMission: string[];
+  /** Preguntas para conversar en "Your turn! Say it!" (ej. "What's your name?"). */
+  questions?: Question[];
+}
+
+/** Qué respuesta se acepta (siempre generoso). */
+export type Accepts =
+  /** Que diga alguna de estas palabras (o algo parecido): ['emma'] */
+  | { kind: 'words'; words: string[] }
+  /** Cualquier número (en palabras o cifras): "How old are you?" */
+  | { kind: 'number' }
+  /** Cualquier palabra de un tema, más algunas extra: colores, emociones ("fine", "good"…) */
+  | { kind: 'topic'; topicId: string; extra?: string[] }
+  /** Sí o no */
+  | { kind: 'yesno' };
+
+export interface Question {
+  id: string;
+  /** Emoji de respaldo mientras no exista la ilustración q-<tema>-<id>.webp */
+  image: string;
+  /** Usar la ilustración de otra tarjeta (ej. 'word-food-apple' para "Do you like apples?"). */
+  imageName?: string;
+  /** Lo que pregunta Buddy: "What's your name?" */
+  ask: string;
+  /** La respuesta modelo que Buddy le enseña: "My name is Emma." */
+  answer: string;
+  accepts: Accepts;
+  /** Cómo dibujar su ilustración (scripts/generate-images.ts). */
+  picture?: string;
 }
 
 export interface Line {

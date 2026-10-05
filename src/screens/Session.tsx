@@ -77,6 +77,7 @@ export function Session({ plan, progress, mode = 'mix', seed = 0, practice = fal
         <SayIt
           key={index}
           targets={step.targets}
+          questions={step.questions}
           mode={speech}
           onIssue={onSpeechIssue}
           onDone={(said) => {

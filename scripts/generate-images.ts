@@ -14,7 +14,7 @@
 import { execFileSync, spawnSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { topics } from '../src/content/index.ts';
+import { questions, topics } from '../src/content/index.ts';
 import type { Topic, Word } from '../src/content/types.ts';
 
 const ROOT = join(import.meta.dirname, '..');
@@ -54,6 +54,7 @@ function wordSpec(topic: Topic, word: Word): Spec {
       };
     }
     case 'actions':
+    case 'hello':
       return { name, refs: [BUDDY_REF], prompt: `${BUDDY}, ${picture ?? `doing the action "${label}" in a clear, easy to recognize way`}.` };
     case 'feelings':
       return { name, refs: [BUDDY_REF], prompt: `The head of ${BUDDY}, ${picture ?? `clearly feeling ${label}, with a big expressive face`}.` };
@@ -81,7 +82,16 @@ function poses(): string[] {
 function allSpecs(): Spec[] {
   const words = topics.flatMap((topic) => topic.words.map((word) => wordSpec(topic, word)));
   const buddy = poses().map((pose) => ({ name: `buddy-${pose}`, refs: [BUDDY_REF], prompt: `${BUDDY}, full body, pose: ${pose}.` }));
-  return [...words, ...buddy];
+  // Ilustración de cada pregunta para conversar (las que usan la tarjeta de una palabra no necesitan una propia).
+  const asks = questions
+    .filter(({ question }) => !question.imageName)
+    .map(({ topicId, question }) => ({
+      name: `q-${topicId}-${question.id}`,
+      // La niña de "What's your name?" se parece a la de la escena de My body.
+      refs: question.id === 'name' && existsSync(join(SRC, 'puzzle-body.png')) ? ['puzzle-body.png'] : [BUDDY_REF],
+      prompt: question.picture ?? question.image,
+    }));
+  return [...words, ...buddy, ...asks];
 }
 
 const exists = (name: string) => existsSync(join(SRC, `${name}.png`));
@@ -117,7 +127,8 @@ function generate(spec: Spec, dryRun: boolean) {
   }
   console.log(`→ ${spec.name}…`);
   const before = gitStatus();
-  const run = spawnSync(codexBin(), [...args, instructions], { cwd: ROOT, encoding: 'utf8', timeout: 10 * 60_000 });
+  // El pedido va por stdin ('-'): `-i` acepta varios archivos y se "comería" el texto como si fuera otra imagen.
+  const run = spawnSync(codexBin(), [...args, '-'], { cwd: ROOT, encoding: 'utf8', input: instructions, timeout: 10 * 60_000 });
   const ok = run.status === 0 && exists(spec.name);
   const unexpected = gitStatus()
     .split('\n')

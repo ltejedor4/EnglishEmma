@@ -1,5 +1,6 @@
 import type { Pose } from './pose.ts';
-import { topics } from '../content/index.ts';
+import { questions as allQuestions, topics } from '../content/index.ts';
+import type { QuestionRef } from '../content/index.ts';
 import type { LessonMode } from './lesson.ts';
 import { factsNaming, keyOf, pickOptions, shuffle } from './review.ts';
 import type { SessionPlan, WordProgress, WordRef } from './review.ts';
@@ -21,7 +22,8 @@ export type Step =
   | { kind: 'memory'; words: WordRef[] }
   | { kind: 'balloons'; rounds: GameRound[] }
   | { kind: 'feed'; rounds: GameRound[] }
-  | { kind: 'speak'; targets: WordRef[] };
+  /** "Your turn! Say it!": palabras para decir y preguntas para responder ("How old are you?"). */
+  | { kind: 'speak'; targets: WordRef[]; questions: QuestionRef[] };
 
 /** Rondas de Listen & Touch mínimas en los modos de un solo tipo de pregunta (ask / fact / pair). */
 export const MIN_ROUNDS = 8;
@@ -33,6 +35,19 @@ export const MAX_ROUNDS_PER_WORD = 3;
 const MIN_POOL = 3;
 
 const topicOf = (ref: WordRef) => topics.find((t) => t.id === ref.topicId)!;
+
+/**
+ * Preguntas para conversar en esta lección: van rotando noche a noche. Una por lección; tres si la
+ * lección es del tema de saludos (o es solo de hablar).
+ */
+export function questionsFor(plan: SessionPlan, seed: number, many: boolean): QuestionRef[] {
+  if (!allQuestions.length) return [];
+  const greetings = [...plan.fresh, ...plan.review].some((ref) => topicOf(ref).questions?.length);
+  const count = Math.min(many || greetings ? 3 : 1, allQuestions.length);
+  const n = allQuestions.length;
+  const start = (((seed * 3) % n) + n) % n;
+  return Array.from({ length: count }, (_, i) => allQuestions[(start + i) % n]);
+}
 export const clipOf = (ref: WordRef) => `${ref.topicId}/${ref.word.id}`;
 
 function refOfKey(key: string): WordRef | undefined {
@@ -171,10 +186,15 @@ export function buildSteps(plan: SessionPlan, progress: WordProgress, options: L
       : mode === 'speak' ? [] : gamesFor(seed, practice);
     // Las nuevas primero (son las que más necesita oír y decir), luego las demás al azar.
     const ordered = () => [...plan.fresh, ...shuffle(pool.filter((ref) => !plan.fresh.includes(ref)))];
-    if (mode === 'speak' && speak) steps.push({ kind: 'speak', targets: ordered().slice(0, 6) });
+    // En la lección: 3 palabras + 1 pregunta (en el tema de saludos, 2 palabras + 3 preguntas).
+    const speakStep = (): Step => {
+      const qs = questionsFor(plan, seed, false);
+      return { kind: 'speak', targets: ordered().slice(0, qs.length > 1 ? 2 : 3), questions: qs };
+    };
+    if (mode === 'speak' && speak) steps.push({ kind: 'speak', targets: ordered().slice(0, 5), questions: questionsFor(plan, seed, true) });
     for (const [i, game] of games.entries()) {
       // Hablar va entre el primer y el segundo juego (o después del único, en la práctica).
-      if (i === 1 && speak && !chosenGame) steps.push({ kind: 'speak', targets: ordered().slice(0, 4) });
+      if (i === 1 && speak && !chosenGame) steps.push(speakStep());
       steps.push({ kind: 'say', keys: ['common/lets-play-a-game'], pose: 'cheer' });
       const words = ordered();
       if (game === 'memory') {
@@ -189,7 +209,7 @@ export function buildSteps(plan: SessionPlan, progress: WordProgress, options: L
         });
       }
     }
-    if (games.length === 1 && speak && !chosenGame) steps.push({ kind: 'speak', targets: ordered().slice(0, 4) });
+    if (games.length === 1 && speak && !chosenGame) steps.push(speakStep());
   }
 
   // --- Cierre / rondas extra de Listen & Touch ---
@@ -219,7 +239,7 @@ export function interactions(steps: Step[]): number {
     if (s.kind === 'touch' || s.kind === 'present') return sum + 1;
     if (s.kind === 'memory') return sum + s.words.length * 2 + 2; // pares + algún error de memoria
     if (s.kind === 'balloons' || s.kind === 'feed') return sum + s.rounds.length;
-    if (s.kind === 'speak') return sum + s.targets.length;
+    if (s.kind === 'speak') return sum + s.targets.length + s.questions.length;
     return sum;
   }, 0);
 }
@@ -229,7 +249,13 @@ export function audioKeys(steps: Step[]): string[] {
   return steps.flatMap((step) => {
     if (step.kind === 'say') return step.keys;
     if (step.kind === 'present') return [clipOf(step.target), `${clipOf(step.target)}-fact-1`];
-    if (step.kind === 'memory' || step.kind === 'speak') return (step.kind === 'memory' ? step.words : step.targets).map(clipOf);
+    if (step.kind === 'memory') return step.words.map(clipOf);
+    if (step.kind === 'speak') {
+      return [
+        ...step.targets.map(clipOf),
+        ...step.questions.flatMap(({ topicId, question }) => [`${topicId}/q-${question.id}-ask`, `${topicId}/q-${question.id}-answer`]),
+      ];
+    }
     if (step.kind === 'balloons' || step.kind === 'feed') return step.rounds.flatMap((r) => r.options.map(clipOf));
     return [...step.prompt, ...step.targets.map(clipOf)];
   });

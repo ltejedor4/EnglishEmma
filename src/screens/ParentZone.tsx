@@ -58,6 +58,7 @@ export function ParentZone({ progress, playedToday, onStart, onSettings, onReset
               const seen = refs.filter((ref) => words[keyOf(ref)]).length;
               const learned = refs.filter((ref) => isLearned(words[keyOf(ref)])).length;
               const said = refs.filter((ref) => progress.spoken[keyOf(ref)]?.length).length;
+              const answered = (t.questions ?? []).filter((q) => progress.spoken[`${t.id}/q-${q.id}`]?.length).length;
               const icon = image(`topic-${t.id}`);
               return (
                 <div key={t.id} className="relative">
@@ -71,6 +72,7 @@ export function ParentZone({ progress, playedToday, onStart, onSettings, onReset
                       <span className="block font-semibold">{t.title}</span>
                       <span className="text-sm text-cream/70">
                         {seen ? `Vio ${seen} de ${refs.length} · aprendió ${learned}${said ? ` · dijo ${said}` : ''}` : 'Todavía no empezó'}
+                        {answered > 0 && ` · respondió ${answered} de ${t.questions!.length} preguntas`}
                       </span>
                     </span>
                   </button>

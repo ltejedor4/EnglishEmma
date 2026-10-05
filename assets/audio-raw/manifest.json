@@ -1202,5 +1202,161 @@
   "common/listen-to-you": {
     "text": "[cheerfully] Listen to you!",
     "hash": "7d076d001d5a9d4e"
+  },
+  "hello/title": {
+    "text": "Hello, hello!",
+    "hash": "59e3824f9afdd694"
+  },
+  "hello/hello": {
+    "text": "Hello.",
+    "hash": "f5d1bf5db8738036"
+  },
+  "hello/hello-ask": {
+    "text": "Find hello!",
+    "hash": "f31a718e4921b59b"
+  },
+  "hello/hello-fact-1": {
+    "text": "Hello, Buddy!",
+    "hash": "4a9020ea751de697"
+  },
+  "hello/hello-fact-2": {
+    "text": "Hello! How are you?",
+    "hash": "9aee21d4625cdc38"
+  },
+  "hello/goodbye": {
+    "text": "Goodbye.",
+    "hash": "027c540035349fe3"
+  },
+  "hello/goodbye-ask": {
+    "text": "Find goodbye!",
+    "hash": "7d9347aa3bdc2952"
+  },
+  "hello/goodbye-fact-1": {
+    "text": "Goodbye, Buddy!",
+    "hash": "a564643d0539f8cc"
+  },
+  "hello/goodbye-fact-2": {
+    "text": "Goodbye! See you later!",
+    "hash": "bed1afd798f6c852"
+  },
+  "hello/good-morning": {
+    "text": "Good morning.",
+    "hash": "76897f02f042bef9"
+  },
+  "hello/good-morning-ask": {
+    "text": "Find good morning!",
+    "hash": "c0341a2d55cb58dc"
+  },
+  "hello/good-morning-fact-1": {
+    "text": "Good morning, Emma!",
+    "hash": "d0a2062d98082aef"
+  },
+  "hello/good-morning-fact-2": {
+    "text": "Good morning! Time to wake up!",
+    "hash": "4c00926fd091ab9a"
+  },
+  "hello/good-night": {
+    "text": "Good night.",
+    "hash": "f74e54a4b06f75dc"
+  },
+  "hello/good-night-ask": {
+    "text": "Find good night!",
+    "hash": "4b5b7d514562eac2"
+  },
+  "hello/good-night-fact-1": {
+    "text": "Good night, Mom!",
+    "hash": "eb267e1a38c9d4aa"
+  },
+  "hello/good-night-fact-2": {
+    "text": "Good night! Sleep well.",
+    "hash": "619a8b8914523f21"
+  },
+  "hello/thank-you": {
+    "text": "Thank you.",
+    "hash": "a5179c5d6bbf6b85"
+  },
+  "hello/thank-you-ask": {
+    "text": "Find thank you!",
+    "hash": "f70fb8c427f31070"
+  },
+  "hello/thank-you-fact-1": {
+    "text": "Thank you, Buddy!",
+    "hash": "e2cc73fb115ca979"
+  },
+  "hello/thank-you-fact-2": {
+    "text": "Thank you very much!",
+    "hash": "8d54ee9e3bb3208f"
+  },
+  "hello/please": {
+    "text": "Please.",
+    "hash": "dcc1dca9e1d04e25"
+  },
+  "hello/please-ask": {
+    "text": "Find please!",
+    "hash": "a0e2adeab59a3516"
+  },
+  "hello/please-fact-1": {
+    "text": "Water, please!",
+    "hash": "3e6be432eaafed27"
+  },
+  "hello/please-fact-2": {
+    "text": "Can I play, please?",
+    "hash": "bf24ba2e107dce76"
+  },
+  "hello/q-name-ask": {
+    "text": "What's your name?",
+    "hash": "f92b4659f14fc8e6"
+  },
+  "hello/q-name-answer": {
+    "text": "My name is Emma.",
+    "hash": "8f8dcecf969839a3"
+  },
+  "hello/q-age-ask": {
+    "text": "How old are you?",
+    "hash": "03fe7f7fd2a3dec5"
+  },
+  "hello/q-age-answer": {
+    "text": "I am five.",
+    "hash": "226a3910743f4a94"
+  },
+  "hello/q-from-ask": {
+    "text": "Where are you from?",
+    "hash": "19fc61c115a083c2"
+  },
+  "hello/q-from-answer": {
+    "text": "I am from Colombia.",
+    "hash": "59c2ddbeee50f7de"
+  },
+  "hello/q-how-are-you-ask": {
+    "text": "How are you?",
+    "hash": "4bda1bb1fe0fd96d"
+  },
+  "hello/q-how-are-you-answer": {
+    "text": "I am happy!",
+    "hash": "444e398e95d9f159"
+  },
+  "hello/q-favorite-color-ask": {
+    "text": "What's your favorite color?",
+    "hash": "d11fdecc7f8adf38"
+  },
+  "hello/q-favorite-color-answer": {
+    "text": "My favorite color is pink.",
+    "hash": "33a5a852e1b7cb89"
+  },
+  "hello/q-like-apples-ask": {
+    "text": "Do you like apples?",
+    "hash": "470336b167cb3a28"
+  },
+  "hello/q-like-apples-answer": {
+    "text": "Yes, I do!",
+    "hash": "222004b8180a5f4b"
+  },
+  "hello/q-like-dogs-ask": {
+    "text": "Do you like dogs?",
+    "hash": "97bdec1bf0c6c530"
+  },
+  "hello/q-like-dogs-answer": {
+    "text": "Yes, I do!",
+    "hash": "222004b8180a5f4b"
   }
 }

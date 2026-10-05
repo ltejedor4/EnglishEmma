@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { topics } from './content/index.ts';
+import { puzzleTopics, topics } from './content/index.ts';
 import type { Topic } from './content/types.ts';
 import type { LessonMode } from './lib/lesson.ts';
 import { EMPTY_PROGRESS, loadProgress, recordSpoken, saveProgress } from './lib/progress.ts';
@@ -70,7 +70,7 @@ export default function App() {
     update(next);
 
     if (earnsPiece) {
-      const topic = topics[Math.floor(progress.pieces / PUZZLE_PIECES) % topics.length];
+      const topic = puzzleTopics[Math.floor(progress.pieces / PUZZLE_PIECES) % puzzleTopics.length];
       setScreen({ name: 'puzzle', topic, placedBefore: progress.pieces % PUZZLE_PIECES });
     } else {
       setScreen({ name: 'home', justFinished: true });
