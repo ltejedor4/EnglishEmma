@@ -15,7 +15,7 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import ffmpeg from 'ffmpeg-static';
-import { topics, greetings, celebrations, gentleRetry, instructions, session } from '../src/content/index.ts';
+import { topics, greetings, celebrations, gentleRetry, instructions, session, speaking } from '../src/content/index.ts';
 import type { Mood } from '../src/content/types.ts';
 
 const ROOT = join(import.meta.dirname, '..');
@@ -53,7 +53,7 @@ function collectClips(): Clip[] {
       word.facts.forEach((fact, i) => clips.push({ key: `${topic.id}/${word.id}-fact-${i + 1}`, text: fact }));
     }
   }
-  for (const line of [...greetings, ...celebrations, ...gentleRetry, ...instructions, ...session]) {
+  for (const line of [...greetings, ...celebrations, ...gentleRetry, ...instructions, ...session, ...speaking]) {
     clips.push({ key: `common/${line.id}`, text: (line.mood ? MOOD_TAGS[line.mood] : '') + line.text });
   }
   return clips;

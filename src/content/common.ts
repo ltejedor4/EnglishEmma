@@ -33,6 +33,22 @@ export const instructions: Line[] = [
   // "Find these two! … red … and … blue": se arma con los clips de cada palabra.
   { id: 'find-these-two', text: 'Find these two!', mood: 'cheerful' },
   { id: 'and', text: 'and...' },
+  // Pop the Balloons: "Pop… red!" (+ clip de la palabra).
+  { id: 'pop', text: 'Pop...', mood: 'cheerful' },
+  // Feed Buddy: "I'm hungry! … Give me… apple!" y "Yummy!" al recibirla.
+  { id: 'im-hungry', text: "I'm hungry!", mood: 'cheerful' },
+  { id: 'give-me', text: 'Give me...' },
+  { id: 'yummy', text: 'Yummy!', mood: 'cheerful' },
+];
+
+/** "Your turn! Say it!": Emma dice la palabra en voz alta. Nunca hay un "no". */
+export const speaking: Line[] = [
+  { id: 'lets-talk', text: "Let's talk!", mood: 'cheerful' },
+  { id: 'your-turn', text: 'Your turn! Say it!', mood: 'cheerful' },
+  { id: 'well-said', text: 'Well said!', mood: 'cheerful' },
+  { id: 'try-again', text: "Let's try again!", mood: 'calm' },
+  { id: 'great-try', text: 'Great try!', mood: 'cheerful' },
+  { id: 'listen-to-you', text: 'Listen to you!', mood: 'cheerful' },
 ];
 
 export const session: Line[] = [

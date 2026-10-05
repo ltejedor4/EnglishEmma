@@ -37,7 +37,7 @@ export function Buddy({ pose, size = 160, onClick }: { pose: Pose; size?: number
           className={`pointer-events-none size-full object-contain ${fakeSleep ? 'brightness-75' : ''}`}
         />
       ) : (
-        { hello: '🐶', listen: '🐶', point: '🐶', cheer: '🐶', puzzle: '🐶', sleepy: '🥱', sleeping: '😴' }[pose]
+        { hello: '🐶', listen: '🐶', point: '🐶', cheer: '🐶', puzzle: '🐶', sleepy: '🥱', sleeping: '😴', hungry: '🐶', talk: '🐶' }[pose]
       )}
       {src && fakeSleep && (
         <motion.span

@@ -17,7 +17,7 @@ type Screen =
   | { name: 'home'; justFinished?: boolean }
   | { name: 'gate' }
   | { name: 'parents' }
-  | { name: 'session'; plan: SessionPlan; mode: LessonMode }
+  | { name: 'session'; plan: SessionPlan; mode: LessonMode; practice: boolean }
   | { name: 'puzzle'; topic: Topic; placedBefore: number };
 
 export default function App() {
@@ -37,7 +37,7 @@ export default function App() {
   function startLesson(choice: LessonChoice, mode: LessonMode) {
     const topic = topics.find((t) => t.id === choice);
     const plan = topic ? planTopicSession(topic, progress.words) : todaysPlan();
-    setScreen({ name: 'session', plan, mode });
+    setScreen({ name: 'session', plan, mode, practice: playedToday });
   }
 
   function update(next: Progress) {
@@ -80,7 +80,7 @@ export default function App() {
           key={String(screen.justFinished)}
           playedToday={playedToday}
           justFinished={screen.justFinished}
-          onStart={() => setScreen({ name: 'session', plan: todaysPlan(), mode: 'mix' })}
+          onStart={() => setScreen({ name: 'session', plan: todaysPlan(), mode: 'mix', practice: playedToday })}
           onParents={() => setScreen({ name: 'gate' })}
         />
       );
@@ -98,7 +98,16 @@ export default function App() {
         />
       );
     case 'session':
-      return <Session plan={screen.plan} progress={progress.words} mode={screen.mode} onFinish={finish} />;
+      return (
+        <Session
+          plan={screen.plan}
+          progress={progress.words}
+          mode={screen.mode}
+          seed={progress.sessionDays.length}
+          practice={screen.practice}
+          onFinish={finish}
+        />
+      );
     case 'puzzle':
       return <PuzzleScreen topic={screen.topic} placedBefore={screen.placedBefore} onDone={() => setScreen({ name: 'home', justFinished: true })} />;
   }

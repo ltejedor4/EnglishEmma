@@ -1,5 +1,5 @@
 import { Howl, Howler } from 'howler';
-import { celebrations, gentleRetry, greetings, session } from '../content/index.ts';
+import { celebrations, gentleRetry, greetings, instructions, session, speaking } from '../content/index.ts';
 
 const cache = new Map<string, Howl>();
 /** Cada stopAll() invalida las secuencias en curso, para que no sigan sonando al cambiar de pantalla. */
@@ -22,7 +22,7 @@ export function preload(keys: string[]) {
 }
 
 // Las frases de Buddy que suenan en cualquier sesión, listas desde el principio.
-preload([...greetings, ...celebrations, ...gentleRetry, ...session].map((line) => `common/${line.id}`));
+preload([...greetings, ...celebrations, ...gentleRetry, ...instructions, ...session, ...speaking].map((line) => `common/${line.id}`));
 
 export function stopAll() {
   generation++;

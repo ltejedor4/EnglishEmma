@@ -3,6 +3,9 @@ import { Buddy } from '../components/Buddy.tsx';
 import { GameArea, Screen } from '../components/Screen.tsx';
 import { ListenTouch } from '../games/ListenTouch.tsx';
 import type { RoundResult } from '../games/ListenTouch.tsx';
+import { Balloons } from '../games/Balloons.tsx';
+import { FeedBuddy } from '../games/FeedBuddy.tsx';
+import { Memory } from '../games/Memory.tsx';
 import { Presentation } from '../games/Presentation.tsx';
 import { preload, say } from '../lib/audio.ts';
 import { keyOf } from '../lib/review.ts';
@@ -15,12 +18,19 @@ interface Props {
   plan: SessionPlan;
   progress: WordProgress;
   mode?: LessonMode;
+  /** Cambia cada noche: decide qué juegos tocan hoy. */
+  seed?: number;
+  /** Práctica libre: un solo juego. */
+  practice?: boolean;
   /** Por palabra: true si la acertó a la primera en todas sus rondas. */
   onFinish: (results: Record<string, boolean>) => void;
 }
 
-export function Session({ plan, progress, mode = 'mix', onFinish }: Props) {
-  const steps = useMemo(() => buildSteps(plan, progress, mode), [plan, progress, mode]);
+export function Session({ plan, progress, mode = 'mix', seed = 0, practice = false, onFinish }: Props) {
+  const steps = useMemo(
+    () => buildSteps(plan, progress, { mode, seed, practice }),
+    [plan, progress, mode, seed, practice],
+  );
   const [index, setIndex] = useState(0);
   const results = useRef<Record<string, boolean>>({});
 
@@ -53,6 +63,9 @@ export function Session({ plan, progress, mode = 'mix', onFinish }: Props) {
       {step.kind === 'touch' && (
         <ListenTouch key={index} targets={step.targets} options={step.options} prompt={step.prompt} onDone={answered} />
       )}
+      {step.kind === 'memory' && <Memory key={index} words={step.words} onDone={answered} />}
+      {step.kind === 'balloons' && <Balloons key={index} rounds={step.rounds} onDone={answered} />}
+      {step.kind === 'feed' && <FeedBuddy key={index} rounds={step.rounds} onDone={answered} />}
     </Screen>
   );
 }

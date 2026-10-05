@@ -4,16 +4,31 @@ import type { LessonMode } from './lesson.ts';
 import { factsNaming, keyOf, pickOptions, shuffle } from './review.ts';
 import type { SessionPlan, WordProgress, WordRef } from './review.ts';
 
+/** Una ronda de un juego con varias opciones (Balloons, Feed Buddy). */
+export interface GameRound {
+  target: WordRef;
+  options: WordRef[];
+}
+
+export type GameKind = 'memory' | 'balloons' | 'feed';
+/** Juegos que rotan en la lección de la noche (en este orden). */
+export const GAMES: GameKind[] = ['memory', 'balloons', 'feed'];
+
 export type Step =
   | { kind: 'say'; keys: string[]; pose: Pose }
   | { kind: 'present'; target: WordRef }
-  | { kind: 'touch'; targets: WordRef[]; options: WordRef[]; prompt: string[] };
+  | { kind: 'touch'; targets: WordRef[]; options: WordRef[]; prompt: string[] }
+  | { kind: 'memory'; words: WordRef[] }
+  | { kind: 'balloons'; rounds: GameRound[] }
+  | { kind: 'feed'; rounds: GameRound[] };
 
-/** Rondas de Listen & Touch mínimas por sesión: si hay pocas palabras, se juega más con las mismas. */
+/** Rondas de Listen & Touch mínimas en los modos de un solo tipo de pregunta (ask / fact / pair). */
 export const MIN_ROUNDS = 8;
-/** Una palabra no sale más de esto por sesión: insistir sí, pero intercalada con otras. */
+/** Rondas de Listen & Touch al cierre de la lección completa. */
+export const CLOSING_ROUNDS = 4;
+/** Una palabra no sale más de esto por sesión en Listen & Touch: insistir sí, pero intercalada. */
 export const MAX_ROUNDS_PER_WORD = 3;
-/** Palabras distintas mínimas para las rondas extra (si la lección trae menos, se suman otras que ya vio). */
+/** Palabras distintas mínimas para juegos y rondas extra (si la lección trae menos, se suman otras ya vistas). */
 const MIN_POOL = 3;
 
 const topicOf = (ref: WordRef) => topics.find((t) => t.id === ref.topicId)!;
@@ -25,15 +40,35 @@ function refOfKey(key: string): WordRef | undefined {
   return word && { topicId, word };
 }
 
+export interface LessonOptions {
+  mode?: LessonMode;
+  /** Cambia cada noche (número de noches jugadas): decide qué juegos tocan hoy. */
+  seed?: number;
+  /** Práctica libre: un solo juego. */
+  practice?: boolean;
+}
+
+/** Los juegos de hoy: dos distintos que rotan cada noche; en la práctica, uno (el que no tocó primero). */
+export function gamesFor(seed: number, practice: boolean): GameKind[] {
+  const n = GAMES.length;
+  const first = ((seed % n) + n) % n;
+  return practice ? [GAMES[(first + 2) % n]] : [GAMES[first], GAMES[(first + 1) % n]];
+}
+
 /**
- * Repaso → palabras nuevas → rondas extra hasta MIN_ROUNDS. Las rondas mezclan tres formas de preguntar:
- * - ask:  "Where is the dog?" / "Find the red one!"
- * - fact: una frase que la nombra, "The sky is blue." → encontrar el azul (comprensión en contexto)
- * - pair: "Find these two! red… and… blue" → tocar las dos
- * Con un modo distinto de "mix" (elegido en la zona de padres), todas las rondas usan esa forma.
- * Ninguna palabra sale dos veces seguidas ni más de MAX_ROUNDS_PER_WORD veces.
+ * Arma la lección. En "mix" (la de la noche, 5–7 min):
+ *   saludo → repaso (Listen & Touch) → palabras nuevas (presentación + pregunta directa)
+ *   → juego 1 → juego 2 → cierre (4 Listen & Touch).
+ * En "ask" / "fact" / "pair" (elegidos en la zona de padres): solo Listen & Touch con esa forma de preguntar.
+ * Listen & Touch mezcla tres formas: ask ("Where is the dog?"), fact ("The sky is blue." → azul) y
+ * pair ("Find these two! red… and… blue"). Ninguna palabra sale dos veces seguidas ni más de
+ * MAX_ROUNDS_PER_WORD veces en Listen & Touch.
  */
-export function buildSteps(plan: SessionPlan, progress: WordProgress, mode: LessonMode = 'mix'): Step[] {
+export function buildSteps(plan: SessionPlan, progress: WordProgress, options: LessonOptions = {}): Step[] {
+  const { mode = 'mix', seed = 0, practice = false } = options;
+  // Lección completa (con juegos): la mezcla, o un juego elegido en la zona de padres (ese juego dos veces).
+  const chosenGame = (GAMES as string[]).includes(mode) ? (mode as GameKind) : undefined;
+  const fullLesson = mode === 'mix' || !!chosenGame;
   const steps: Step[] = [{ kind: 'say', keys: ['common/hello-emma', 'common/lets-play'], pose: 'hello' }];
   // Palabras que ya vio: preferidas como distractores. Las nuevas cuentan recién después de presentarlas.
   const known = new Set(Object.keys(progress));
@@ -71,6 +106,7 @@ export function buildSteps(plan: SessionPlan, progress: WordProgress, mode: Less
     return i < 0 ? undefined : remaining.splice(i, 1)[0];
   };
 
+  // --- Repaso ---
   if (plan.review.length) {
     steps.push({ kind: 'say', keys: ['common/lets-review'], pose: 'hello' });
     const remaining = shuffle(plan.review);
@@ -88,6 +124,7 @@ export function buildSteps(plan: SessionPlan, progress: WordProgress, mode: Less
     }
   }
 
+  // --- Palabras nuevas ---
   if (plan.fresh.length) {
     steps.push({ kind: 'say', keys: ['common/new-words'], pose: 'cheer' });
     for (const target of plan.fresh) {
@@ -95,9 +132,10 @@ export function buildSteps(plan: SessionPlan, progress: WordProgress, mode: Less
       known.add(keyOf(target));
     }
     steps.push({ kind: 'say', keys: ['common/lets-play-a-game'], pose: 'hello' });
-    // Primero la pregunta directa con 2 opciones (para conocerlas); después, en el modo elegido con 3.
-    // Una palabra que no puede ir sin repetir la ronda anterior queda para las rondas extra.
-    for (const [round, count] of [2, 3].entries()) {
+    // Primero la pregunta directa con 2 opciones (para conocerlas). En la lección completa los juegos
+    // hacen el resto; en los otros modos, una segunda ronda con 3 opciones y la forma elegida.
+    // Una palabra que no puede ir sin repetir la ronda anterior queda para más adelante.
+    for (const [round, count] of (fullLesson ? [2] : [2, 3]).entries()) {
       const remaining = shuffle(plan.fresh);
       while (remaining.length) {
         const a = takeNext(remaining);
@@ -112,20 +150,44 @@ export function buildSteps(plan: SessionPlan, progress: WordProgress, mode: Less
     }
   }
 
-  // Rondas extra para que la sesión no se quede corta. Si la lección trae pocas palabras (por ejemplo,
-  // solo la que le cuesta), se suman otras que ya vio: la difícil sale más, pero intercalada.
-  const pool = [...plan.review, ...plan.fresh];
+  // Bolsa de palabras para juegos y rondas extra. Si la lección trae pocas (por ejemplo, solo la que le
+  // cuesta), se suman otras que ya vio: la difícil sale más, pero intercalada.
+  const pool = [...plan.fresh, ...plan.review];
   const extra = Object.entries(progress)
     .sort(([, a], [, b]) => a.box - b.box || a.lastSeen.localeCompare(b.lastSeen))
     .map(([key]) => refOfKey(key))
     .filter((ref): ref is WordRef => !!ref && !pool.some((p) => keyOf(p) === keyOf(ref)));
   pool.push(...extra.slice(0, Math.max(0, MIN_POOL - pool.length)));
+  for (const ref of pool) known.add(keyOf(ref));
 
-  if (pool.length && touches().length < MIN_ROUNDS) {
+  // --- Juegos (solo en la lección completa) ---
+  if (fullLesson && pool.length >= 2) {
+    const games = chosenGame ? (practice ? [chosenGame] : [chosenGame, chosenGame]) : gamesFor(seed, practice);
+    for (const game of games) {
+      steps.push({ kind: 'say', keys: ['common/lets-play-a-game'], pose: 'cheer' });
+      // Las nuevas primero (son las que más necesita oír), luego al azar.
+      const ordered = [...plan.fresh, ...shuffle(pool.filter((ref) => !plan.fresh.includes(ref)))];
+      if (game === 'memory') {
+        steps.push({ kind: 'memory', words: ordered.slice(0, 3) });
+      } else {
+        // 5 rondas por juego (o tantas como palabras distintas haya, sin repetir objetivo).
+        const targets = shuffle(ordered.slice(0, 5));
+        const count = game === 'balloons' ? 4 : 3;
+        steps.push({
+          kind: game,
+          rounds: targets.map((target) => ({ target, options: pickOptions(target, topicOf(target), count, known) })),
+        });
+      }
+    }
+  }
+
+  // --- Cierre / rondas extra de Listen & Touch ---
+  const goal = fullLesson ? touches().length + CLOSING_ROUNDS : MIN_ROUNDS;
+  if (pool.length && touches().length < goal) {
     steps.push({ kind: 'say', keys: ['common/lets-play-a-game'], pose: 'cheer' });
     const uses = (ref: WordRef) =>
       touches().filter((s) => s.targets.some((t) => keyOf(t) === keyOf(ref))).length;
-    for (let variant = 0; touches().length < MIN_ROUNDS; variant++) {
+    for (let variant = 0; touches().length < goal; variant++) {
       // Las menos usadas primero (al azar entre iguales); nunca la de la ronda anterior ni una ya agotada.
       const candidates = shuffle(pool)
         .filter((ref) => uses(ref) < MAX_ROUNDS_PER_WORD && !lastTargets().includes(keyOf(ref)))
@@ -134,10 +196,20 @@ export function buildSteps(plan: SessionPlan, progress: WordProgress, mode: Less
       const a = candidates[0];
       const b = candidates.slice(1).find((ref) => canPair(a, ref));
       if (b && (mode === 'pair' || (mode === 'mix' && variant % 3 === 1))) steps.push(pair(a, b));
-      else steps.push(single(a, Math.max(3, countFor(a)), variant));
+      else steps.push(single(a, Math.max(3, countFor(a)), variant + (fullLesson ? 1 : 0)));
     }
   }
   return steps;
+}
+
+/** Cuántas veces tiene que tocar/responder Emma en la lección (para medir su duración). */
+export function interactions(steps: Step[]): number {
+  return steps.reduce((sum, s) => {
+    if (s.kind === 'touch' || s.kind === 'present') return sum + 1;
+    if (s.kind === 'memory') return sum + s.words.length * 2 + 2; // pares + algún error de memoria
+    if (s.kind === 'balloons' || s.kind === 'feed') return sum + s.rounds.length;
+    return sum;
+  }, 0);
 }
 
 /** Todos los clips que puede necesitar la sesión, para precargarlos. */
@@ -145,6 +217,8 @@ export function audioKeys(steps: Step[]): string[] {
   return steps.flatMap((step) => {
     if (step.kind === 'say') return step.keys;
     if (step.kind === 'present') return [clipOf(step.target), `${clipOf(step.target)}-fact-1`];
+    if (step.kind === 'memory') return step.words.map(clipOf);
+    if (step.kind === 'balloons' || step.kind === 'feed') return step.rounds.flatMap((r) => r.options.map(clipOf));
     return [...step.prompt, ...step.targets.map(clipOf)];
   });
 }

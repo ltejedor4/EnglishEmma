@@ -1162,5 +1162,45 @@
   "common/and": {
     "text": "and...",
     "hash": "def224ad089c0912"
+  },
+  "common/pop": {
+    "text": "[cheerfully] Pop...",
+    "hash": "09dd4ee610519d9a"
+  },
+  "common/im-hungry": {
+    "text": "[cheerfully] I'm hungry!",
+    "hash": "0927710d6b59377e"
+  },
+  "common/give-me": {
+    "text": "Give me...",
+    "hash": "76f8596ff86f8503"
+  },
+  "common/yummy": {
+    "text": "[cheerfully] Yummy!",
+    "hash": "8260aa507707c2d3"
+  },
+  "common/lets-talk": {
+    "text": "[cheerfully] Let's talk!",
+    "hash": "803fb355d1c351cf"
+  },
+  "common/your-turn": {
+    "text": "[cheerfully] Your turn! Say it!",
+    "hash": "fe2eaaef5b9507ab"
+  },
+  "common/well-said": {
+    "text": "[cheerfully] Well said!",
+    "hash": "fb46f2d416b5e80c"
+  },
+  "common/try-again": {
+    "text": "[calmly] Let's try again!",
+    "hash": "35a4ae170dfab2ad"
+  },
+  "common/great-try": {
+    "text": "[cheerfully] Great try!",
+    "hash": "6c0cb5a5da0ef163"
+  },
+  "common/listen-to-you": {
+    "text": "[cheerfully] Listen to you!",
+    "hash": "7d076d001d5a9d4e"
   }
 }

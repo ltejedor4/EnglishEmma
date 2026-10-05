@@ -7,6 +7,7 @@ import { Screen } from '../components/Screen.tsx';
 import { Stars } from '../components/Stars.tsx';
 import type { Topic } from '../content/types.ts';
 import { randomCelebration, say } from '../lib/audio.ts';
+import { droppedNear } from '../lib/drag.ts';
 import { puzzleImage } from '../lib/images.ts';
 
 export const PUZZLE_COLS = 3;
@@ -44,16 +45,7 @@ export function PuzzleScreen({ topic, placedBefore, onDone }: Props) {
   }, []);
 
   async function drop(point: { x: number; y: number }) {
-    const slot = slotRef.current?.getBoundingClientRect();
-    if (!slot) return;
-    // Mucha tolerancia: basta con soltarla cerca.
-    const tolerance = slot.width * 0.6;
-    const near =
-      point.x > slot.left - tolerance &&
-      point.x < slot.right + tolerance &&
-      point.y > slot.top - tolerance &&
-      point.y < slot.bottom + tolerance;
-    if (!near) return;
+    if (!droppedNear(point, slotRef.current?.getBoundingClientRect())) return;
     setPlaced(true);
     await say(randomCelebration(), ...(finished ? ['common/puzzle-finished'] : []));
     setReady(true);
