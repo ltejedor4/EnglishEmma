@@ -12,7 +12,9 @@
     "audio": "node scripts/generate-audio.ts",
     "audio:dry": "node scripts/generate-audio.ts --dry-run",
     "images": "node scripts/optimize-images.ts",
-    "buddy": "node scripts/extract-buddy.ts"
+    "buddy": "node scripts/extract-buddy.ts",
+    "images:missing": "node scripts/generate-images.ts --list",
+    "images:generate": "node scripts/generate-images.ts"
   },
   "dependencies": {
     "howler": "^2.2.4",

@@ -16,6 +16,8 @@ export interface Word {
    * "Your turn! Say it!" también las acepta. Ej.: two → ['to', 'too'].
    */
   sounds?: string[];
+  /** Cómo dibujar su tarjeta, si la descripción por defecto del tema no alcanza (scripts/generate-images.ts). */
+  picture?: string;
 }
 
 export interface Topic {
