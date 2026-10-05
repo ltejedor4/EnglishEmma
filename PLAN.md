@@ -150,25 +150,62 @@ Como en Duolingo, **cada sesión terminada = una ficha nueva**.
 
 ---
 
-## 7. Mini-juegos
+## 7. Mini-juegos y estructura de la lección
 
-Todos reutilizan el mismo contenido de cada tema.
+Todos reutilizan el mismo contenido de cada tema, con la ilustración de la tarjeta y su nombre escrito debajo.
 
-1. **Listen & Touch (el núcleo).** La voz dice "Where is the dog?" y aparecen 2–4 imágenes; Emma toca la correcta. Empieza con 2 opciones y sube a 4.
-2. **Find it in the scene.** Una escena (casa, granja, cocina) y la voz pide "Find the **cat**!". Da el contexto que falta en Duolingo.
-3. **Memory.** Cartas boca abajo; al voltear, cada carta *dice* su palabra. Emparejar iguales.
-4. **Simon Says.** La mascota da órdenes ("Simon says: clap your hands!") y Emma las hace de verdad; ella misma toca ✅ al terminar. Ideal para "My body" y "Actions".
-5. **Drag & Drop.** "Put the **apple** in the basket", "Give the **bone** to the dog".
-6. **Pop the Balloons.** Suben globos de colores; la voz dice "Pop the **blue** balloon!".
-7. **Repeat after me (fase posterior).** Botón de micrófono: Emma repite la palabra y escucha su propia grabación (sin calificar pronunciación).
+| Juego | Cómo se juega | Estado |
+|---|---|---|
+| **Listen & Touch** | "Where is the dog?" / "The sky is blue." / "Find these two! red… and… blue" → tocar la(s) tarjeta(s). 2 → 4 opciones | ✅ hecho |
+| **Memory** | 3 pares de cartas boca abajo (`card-back`); al voltear, cada carta *dice* su palabra; emparejar | Etapa A |
+| **Pop the Balloons** | Suben globos (de colores en *Colors*, con la tarjeta colgando en los demás temas); "Pop… red!" → reventar el correcto; si se escapa, vuelve a subir | Etapa A |
+| **Feed Buddy** | Buddy tiene hambre: "Give me… apple!" → arrastrar la tarjeta hasta él (el mismo arrastre del rompecabezas) | Etapa A |
+| **Your turn! Say it!** 🎤 | Buddy dice la palabra y Emma la dice en voz alta (ver sección 7b) | Etapa B |
+| Find it in the scene | Buscar el objeto dentro de la escena del rompecabezas del tema | siguiente |
+| Simon Says | "Touch your nose!": Emma lo hace de verdad y toca ✅. Ideal para *My body* y *Actions* | siguiente |
 
-### Flujo de una sesión nocturna (5–7 min)
-1. Botón ▶️ grande → Buddy: "Hello Emma!" + su calendario de noches.
-2. **Repaso:** Listen & Touch con palabras de días anteriores.
-3. **Palabras nuevas:** presentación dentro de una escena (toca para escuchar) → 1–2 mini-juegos.
-4. **¡Ficha nueva!** 🧩 Emma la coloca en su rompecabezas.
-5. Estrellita en el calendario → Buddy bosteza: "Good night, Emma!" 🌙 y la sesión termina.
-6. Si vuelve el mismo día: Buddy está dormido, pero con un ▶ más pequeño puede **practicar** (sin ficha). Si le va bien, la práctica también trae palabras nuevas (máximo 6 por día); si no, solo repaso.
+**Errores sin castigo en todos los juegos:** la tarjeta se mueve suavemente, "Look, here it is!" y la correcta brilla.
+
+### Flujo de la lección de la noche (5–7 min, ≈25–30 interacciones)
+
+Hasta ahora una lección duraba **menos de 2 minutos** (solo Listen & Touch). La lección pasa a armarse con varias actividades:
+
+1. ▶ → "Hello, Emma! Let's play!"
+2. **Repaso:** Listen & Touch mezclado con palabras de días anteriores (~4).
+3. **Palabras nuevas:** presentación (tarjeta + palabra + frase) y una ronda directa (~6).
+4. **Juego 1:** Memory, Balloons o Feed Buddy (~5).
+5. **Your turn! Say it!** con 3–4 palabras (~4).
+6. **Juego 2:** otro de los tres, distinto del juego 1 (~5).
+7. **Cierre rápido:** 2–3 Listen & Touch con frase o par.
+8. **¡Ficha nueva!** 🧩 → "Good night, Emma! Sweet dreams!" y Buddy se duerme.
+
+- Los dos juegos de la noche **rotan** (según el número de noches jugadas), así cada noche se siente distinta.
+- **Práctica libre** (después de la ficha): la misma estructura con un solo juego + Say it!, sin ficha. Si le va bien trae palabras nuevas (máximo 6 por día); si no, solo repaso.
+- **Variedad:** toda actividad usa al menos 3 palabras distintas; en Listen & Touch una palabra sale máximo 3 veces y nunca dos seguidas.
+- Desde la **zona de padres** se puede pedir un solo juego (por ejemplo, solo Memory o solo Say it!) en cualquier tema.
+
+---
+
+## 7b. Hablar: "Your turn! Say it!" 🎤
+
+Lo que más le gusta de Duolingo. Va **después** de que conoce la palabra (escuchar antes que hablar).
+
+1. Buddy: "Your turn!" + la palabra ("Dog.").
+2. Aparece un **🎤 grande**; Emma **lo toca** y habla (así no se graba la voz de Buddy).
+3. Unos 4 s escuchando, con ondas animadas y Buddy atento.
+4. **Si se parece:** celebración ("Well said!") y estrellas.
+5. **Si no:** "Let's try again!" + la palabra → segundo intento.
+6. **Si tampoco:** "Great try!" y sigue. **Nunca castiga.**
+
+**Evaluación automática y generosa** (`src/lib/speech.ts`):
+- Reconocimiento de voz del navegador (`SpeechRecognition` / `webkitSpeechRecognition`, inglés de EE. UU., hasta 5 alternativas).
+- `matchSpoken(palabra, alternativas)`, función pura con pruebas: compara palabra a palabra y de a dos ("teddy bear") con similitud de Levenshtein ≥ 0,5, equivalencias del acento hispano (y↔j, v↔b, sh↔ch, "e" inicial) y una lista opcional `sounds` por palabra con lo que el reconocedor suele entender (yellow → "jello").
+
+**Respaldo** (sin soporte, sin internet, permiso denegado, iPad como app instalada sin servicio, o elegido por los padres): **grabar y escucharse**. Se graban 3 s, "Listen to you!", suena su voz y ella toca ✅. Funciona sin internet y la voz no sale del dispositivo.
+
+**Progreso:** no afecta las cajas del repaso (hablar es más difícil que reconocer). Se guarda aparte qué palabras dijo bien y qué días, y la zona de padres muestra "Dijo en voz alta: N palabras".
+
+**Zona de padres:** modo de hablar **Automático / Grabar y escucharse / Apagado**, con este aviso: en Chrome la voz se procesa en los servidores de Google; en "Grabar y escucharse" no sale del dispositivo. Dispositivos: Android (Chrome) e iPad (Safari); el iPad se valida en el equipo real.
 
 ---
 
@@ -255,25 +292,40 @@ Detalle paso a paso en [docs/DESPLIEGUE.md](docs/DESPLIEGUE.md).
 - [x] Cierre "Good night, Emma!" y estilo nocturno
 - [x] Temas Colors y Animals (el contenido y los audios de los 10 temas ya están)
 - [x] PWA instalable y offline (precarga app + audios)
-- [ ] Desplegar en el VPS y probar en la tablet **con Emma**
+- [x] Desplegar en el VPS (Coolify) y probar en la tablet **con Emma**
 
-### Fase 2 — Más juegos y contexto
-- [ ] Find it in the scene, Memory, Simon Says, Pop the Balloons
-- [ ] Rompecabezas completo que cobra vida + álbum
-- [ ] Calendario de noches (racha)
-- [ ] Mapa de temas con desbloqueo por palabras aprendidas
+### Fase 2 — Lecciones de 5–7 min y hablar
+**Etapa A — más juegos**
+- [ ] Lección armada por actividades (repaso → nuevas → juego 1 → Say it! → juego 2 → cierre), con rotación de juegos
+- [ ] Memory
+- [ ] Pop the Balloons
+- [ ] Feed Buddy (arrastrar hasta Buddy)
+- [ ] Frases nuevas de Buddy (pop, give me, your turn, try again…)
+
+**Etapa B — hablar**
+- [ ] Your turn! Say it! con reconocimiento automático y generoso
+- [ ] Respaldo "grabar y escucharse"
+- [ ] Ajuste de hablar en la zona de padres + "dijo en voz alta" en el progreso
+
+**Etapa C — pulido**
+- [ ] Modos de un solo juego en la zona de padres (Memory, Balloons, Feed Buddy, Say it!)
+- [ ] Imágenes nuevas (`docs/IMAGENES-3.md`): Buddy con hambre, Buddy con micrófono, botón 🎤
+- [x] Tarjetas ilustradas de las 63 palabras con su nombre escrito
 - [x] Modo offline completo
-- [ ] Temas My body, Food, Numbers
+- [x] Temas My body, Food, Numbers (contenido, audio e imágenes de los 10 temas)
 
-### Fase 3 — Zona de padres y pulido
-- [x] Zona de padres: ⚙️ + suma de dos cifras; elegir tema y tipo de juego, ver progreso y misiones para casa
-- [ ] Drag & Drop
-- [ ] Resto de temas
+### Fase 3 — Más contexto y zona de padres
+- [x] Zona de padres: ⚙️ + suma de dos cifras; elegir tema y tipo de juego, ver progreso, misiones para casa, reiniciar
+- [ ] Find it in the scene, Simon Says
+- [ ] Rompecabezas completo que cobra vida + álbum
+- [ ] Calendario de noches (racha) y mapa de islas
+- [ ] Salida protegida a mitad de una lección (para papá/mamá)
+- [ ] Opción para ocultar los nombres de las tarjetas en los juegos (si lee en vez de escuchar)
 
 ### Fase 4 — Ideas futuras
-- [ ] "Repeat after me" con micrófono
 - [ ] Cuentos cortos interactivos con audio (buen cierre antes de dormir)
 - [ ] Canciones con imágenes animadas
+- [ ] Frases personales con la voz de papá/mamá ("Great job, Emma!")
 - [ ] Sincronizar progreso entre dispositivos (backend pequeño en el VPS)
 
 ---
