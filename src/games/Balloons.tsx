@@ -76,7 +76,8 @@ function BalloonRoundView({
     setMissed(true);
     setWobble(keyOf(ref));
     setBusy(true);
-    await say('common/look-here-it-is', ...prompt.slice(1));
+    // En los globos sí ayuda resaltar el correcto (se mueven y es difícil seguirlos).
+    await say('common/try-again');
     setBusy(false);
     setWobble(null);
   }

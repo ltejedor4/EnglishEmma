@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { Buddy } from '../components/Buddy.tsx';
-import { cardClass, cardHintClass, cardSize } from '../components/cardStyles.ts';
+import { cardClass, cardSize } from '../components/cardStyles.ts';
 import { GameArea } from '../components/Screen.tsx';
 import { SpeakerButton } from '../components/SpeakerButton.tsx';
 import { Stars } from '../components/Stars.tsx';
@@ -65,7 +65,7 @@ function FeedRoundView({ round, prompt, onDone }: { round: FeedRound; prompt: st
     setMissed(true);
     setShaking(keyOf(ref));
     setBusy(true);
-    await say('common/look-here-it-is', ...prompt.slice(1));
+    await say('common/try-again');
     setBusy(false);
     setShaking(null);
   }
@@ -90,7 +90,7 @@ function FeedRoundView({ round, prompt, onDone }: { round: FeedRound; prompt: st
             return (
               <motion.button
                 key={key}
-                className={`${cardClass} cursor-grab touch-none pb-[14%] ${missed && isTarget ? cardHintClass : ''}`}
+                className={`${cardClass} cursor-grab touch-none pb-[14%]`}
                 style={cardSize('min(26vw, 30vh, 200px)')}
                 drag
                 dragSnapToOrigin

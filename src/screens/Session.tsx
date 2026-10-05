@@ -35,7 +35,7 @@ export function Session({ plan, progress, mode = 'mix', seed = 0, practice = fal
   const results = useRef<Record<string, boolean>>({});
 
   useEffect(() => {
-    preload([...audioKeys(steps), 'common/look-here-it-is']);
+    preload([...audioKeys(steps), 'common/try-again']);
   }, [steps]);
 
   function next() {

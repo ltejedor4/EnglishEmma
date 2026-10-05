@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { Buddy } from '../components/Buddy.tsx';
-import { cardClass, cardHintClass, cardSize } from '../components/cardStyles.ts';
+import { cardClass, cardSize } from '../components/cardStyles.ts';
 import { GameArea } from '../components/Screen.tsx';
 import { SpeakerButton } from '../components/SpeakerButton.tsx';
 import { Stars } from '../components/Stars.tsx';
@@ -27,7 +27,7 @@ interface Props {
 
 const clipOf = (ref: WordRef) => `${ref.topicId}/${ref.word.id}`;
 
-/** Buddy pide algo y Emma toca la imagen. Un error no castiga: Buddy muestra la correcta. */
+/** Buddy pide algo y Emma toca la imagen. Un error no castiga ni muestra la respuesta: "Let's try again!". */
 export function ListenTouch({ targets, options, prompt, onDone }: Props) {
   const [found, setFound] = useState<string[]>([]);
   // Palabras que estaban pendientes cuando se equivocó: no cuentan como acierto a la primera.
@@ -61,7 +61,7 @@ export function ListenTouch({ targets, options, prompt, onDone }: Props) {
     setMissed([...missed, ...pending.map(keyOf)]);
     setShaking(key);
     setBusy(true);
-    await say('common/look-here-it-is', ...pending.map(clipOf));
+    await say('common/try-again');
     setBusy(false);
     setShaking(null);
   }
@@ -69,16 +69,15 @@ export function ListenTouch({ targets, options, prompt, onDone }: Props) {
   return (
     <GameArea>
       <SpeakerButton onClick={() => !solved && say(...prompt)} />
-      <Buddy pose={solved ? 'cheer' : missed.length ? 'point' : 'listen'} size={110} />
+      <Buddy pose={solved ? 'cheer' : 'listen'} size={110} />
       <div className="flex max-w-full flex-wrap justify-center gap-6" data-options={prompt.join(' ')}>
         {options.map((ref) => {
           const key = keyOf(ref);
           const right = found.includes(key);
-          const hint = missed.length > 0 && isTarget(ref) && !right;
           return (
             <motion.button
               key={key}
-              className={`${cardClass} pb-[14%] ${hint ? cardHintClass : ''} ${right ? 'border-success' : ''}`}
+              className={`${cardClass} pb-[14%] ${right ? 'border-success' : ''}`}
               style={cardSize(options.length > 4 ? 'min(24vw, 32vh, 200px)' : 'min(30vw, 36vh, 240px)')}
               data-card={right ? 'right' : ''}
               animate={
