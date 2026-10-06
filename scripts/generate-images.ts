@@ -68,7 +68,10 @@ function wordSpec(topic: Topic, word: Word): Spec {
       return {
         name,
         refs: puzzle.length ? puzzle : [BUDDY_REF],
-        prompt: `A single ${picture ?? label}${puzzle.length ? ', drawn exactly like the matching object in the attached scene (same shape and colors)' : ''}, seen from the front.`,
+        // Con descripción propia (`picture`) el objeto no está en la escena: la escena es solo referencia de estilo.
+        prompt: picture
+          ? `A single ${picture}, drawn in exactly the same style as the attached scene, seen from the front.`
+          : `A single ${label}${puzzle.length ? ', drawn exactly like the matching object in the attached scene (same shape and colors)' : ''}, seen from the front.`,
       };
   }
 }

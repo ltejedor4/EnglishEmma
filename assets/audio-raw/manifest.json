@@ -1358,5 +1358,165 @@
   "hello/q-like-dogs-answer": {
     "text": "Yes, I do!",
     "hash": "222004b8180a5f4b"
+  },
+  "animals/horse": {
+    "text": "Horse.",
+    "hash": "171aed2ae21991fc"
+  },
+  "animals/horse-ask": {
+    "text": "Where is the horse?",
+    "hash": "dca7051377a16028"
+  },
+  "animals/horse-fact-1": {
+    "text": "The horse can run fast.",
+    "hash": "f99f15292bbefd60"
+  },
+  "animals/horse-fact-2": {
+    "text": "The horse says neigh!",
+    "hash": "b59aa35a83ffea85"
+  },
+  "animals/pig": {
+    "text": "Pig.",
+    "hash": "361cb056f9153534"
+  },
+  "animals/pig-ask": {
+    "text": "Where is the pig?",
+    "hash": "c20172eff07edb7b"
+  },
+  "animals/pig-fact-1": {
+    "text": "The pig says oink!",
+    "hash": "f975d09852acde6c"
+  },
+  "animals/pig-fact-2": {
+    "text": "The pig is pink.",
+    "hash": "2e6b60eef4bb4beb"
+  },
+  "animals/duck": {
+    "text": "Duck.",
+    "hash": "790fb1c401006e15"
+  },
+  "animals/duck-ask": {
+    "text": "Where is the duck?",
+    "hash": "b5d69eaa8590cb6c"
+  },
+  "animals/duck-fact-1": {
+    "text": "The duck says quack!",
+    "hash": "16729932f9e65ec8"
+  },
+  "animals/duck-fact-2": {
+    "text": "The duck can swim.",
+    "hash": "292364f4ec281ccd"
+  },
+  "animals/sheep": {
+    "text": "Sheep.",
+    "hash": "3a0e5087feec0128"
+  },
+  "animals/sheep-ask": {
+    "text": "Where is the sheep?",
+    "hash": "70434e93f5e641d1"
+  },
+  "animals/sheep-fact-1": {
+    "text": "The sheep says baa!",
+    "hash": "255d0fd9b991964a"
+  },
+  "animals/sheep-fact-2": {
+    "text": "The sheep is white and fluffy.",
+    "hash": "345e4a527fabbda5"
+  },
+  "animals/chicken": {
+    "text": "Chicken.",
+    "hash": "b183cebf90b4f24e"
+  },
+  "animals/chicken-ask": {
+    "text": "Where is the chicken?",
+    "hash": "72bf298af09ac3df"
+  },
+  "animals/chicken-fact-1": {
+    "text": "The chicken says cluck!",
+    "hash": "a10267c6a8d8191b"
+  },
+  "animals/chicken-fact-2": {
+    "text": "The chicken has an egg.",
+    "hash": "ff22bcd1c4853530"
+  },
+  "animals/rabbit": {
+    "text": "Rabbit.",
+    "hash": "0204e0248b80066b"
+  },
+  "animals/rabbit-ask": {
+    "text": "Where is the rabbit?",
+    "hash": "f6623d58f6d8fb9d"
+  },
+  "animals/rabbit-fact-1": {
+    "text": "The rabbit can jump.",
+    "hash": "ee959920a2fffaec"
+  },
+  "animals/rabbit-fact-2": {
+    "text": "The rabbit eats a carrot.",
+    "hash": "c46c7d1eff74be27"
+  },
+  "animals/frog": {
+    "text": "Frog.",
+    "hash": "13f4689209772ff9"
+  },
+  "animals/frog-ask": {
+    "text": "Where is the frog?",
+    "hash": "e3762a4f218be8be"
+  },
+  "animals/frog-fact-1": {
+    "text": "The frog can jump.",
+    "hash": "4f9d9f9d90cb7cc8"
+  },
+  "animals/frog-fact-2": {
+    "text": "The frog is green.",
+    "hash": "37431b961a850ea2"
+  },
+  "animals/elephant": {
+    "text": "Elephant.",
+    "hash": "a2c419359ee9e1b8"
+  },
+  "animals/elephant-ask": {
+    "text": "Where is the elephant?",
+    "hash": "a62401395e6d21d5"
+  },
+  "animals/elephant-fact-1": {
+    "text": "The elephant is very big.",
+    "hash": "0e28df6df98a948a"
+  },
+  "animals/elephant-fact-2": {
+    "text": "The elephant has a long nose.",
+    "hash": "f2d2124fc3920184"
+  },
+  "animals/monkey": {
+    "text": "Monkey.",
+    "hash": "e52759a02c329386"
+  },
+  "animals/monkey-ask": {
+    "text": "Where is the monkey?",
+    "hash": "3965bc0626f95bfc"
+  },
+  "animals/monkey-fact-1": {
+    "text": "The monkey eats a banana.",
+    "hash": "1da849dfaebaf6f4"
+  },
+  "animals/monkey-fact-2": {
+    "text": "The monkey can climb.",
+    "hash": "364ee1ba2ff175a3"
+  },
+  "animals/giraffe": {
+    "text": "Giraffe.",
+    "hash": "ad3c472ab1b0edc8"
+  },
+  "animals/giraffe-ask": {
+    "text": "Where is the giraffe?",
+    "hash": "8aff6e7176baf314"
+  },
+  "animals/giraffe-fact-1": {
+    "text": "The giraffe is very tall.",
+    "hash": "e57c20f315f1bf95"
+  },
+  "animals/giraffe-fact-2": {
+    "text": "The giraffe has a long neck.",
+    "hash": "63c57399d791024e"
   }
 }
