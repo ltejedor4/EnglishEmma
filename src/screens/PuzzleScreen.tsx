@@ -1,28 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
-import type { CSSProperties } from 'react';
 import { motion } from 'motion/react';
 import { Buddy } from '../components/Buddy.tsx';
 import { NextButton } from '../components/NextButton.tsx';
+import { SceneBoard } from '../components/SceneBoard.tsx';
 import { Screen } from '../components/Screen.tsx';
 import { Stars } from '../components/Stars.tsx';
 import type { Topic } from '../content/types.ts';
 import { randomCelebration, say } from '../lib/audio.ts';
 import { droppedNear } from '../lib/drag.ts';
 import { puzzleImage } from '../lib/images.ts';
-
-export const PUZZLE_COLS = 3;
-export const PUZZLE_ROWS = 2;
-export const PUZZLE_PIECES = PUZZLE_COLS * PUZZLE_ROWS;
-
-function pieceStyle(src: string, index: number): CSSProperties {
-  const col = index % PUZZLE_COLS;
-  const row = Math.floor(index / PUZZLE_COLS);
-  return {
-    backgroundImage: `url("${src}")`,
-    backgroundSize: `${PUZZLE_COLS * 100}% ${PUZZLE_ROWS * 100}%`,
-    backgroundPosition: `${(col / (PUZZLE_COLS - 1)) * 100}% ${(row / (PUZZLE_ROWS - 1)) * 100}%`,
-  };
-}
+import { PUZZLE_COLS, PUZZLE_PIECES, PUZZLE_ROWS, pieceStyle } from '../lib/puzzle.ts';
 
 interface Props {
   topic: Topic;
@@ -31,7 +18,7 @@ interface Props {
   onDone: () => void;
 }
 
-/** ¡Ficha nueva! Llega volando y Emma la arrastra a su lugar. */
+/** ¡Ficha nueva! Llega volando y Emma la arrastra a su lugar. Con la última, el rompecabezas cobra vida. */
 export function PuzzleScreen({ topic, placedBefore, onDone }: Props) {
   const src = puzzleImage(topic, PUZZLE_COLS, PUZZLE_ROWS);
   const target = placedBefore;
@@ -39,6 +26,9 @@ export function PuzzleScreen({ topic, placedBefore, onDone }: Props) {
   const slotRef = useRef<HTMLDivElement>(null);
   const [placed, setPlaced] = useState(false);
   const [ready, setReady] = useState(false);
+  // Rompecabezas completo: la última cosa que tocó (dice su palabra).
+  const [touched, setTouched] = useState<string | null>(null);
+  const alive = finished && ready;
 
   useEffect(() => {
     say('common/new-puzzle-piece', 'common/put-the-piece');
@@ -47,30 +37,42 @@ export function PuzzleScreen({ topic, placedBefore, onDone }: Props) {
   async function drop(point: { x: number; y: number }) {
     if (!droppedNear(point, slotRef.current?.getBoundingClientRect())) return;
     setPlaced(true);
-    await say(randomCelebration(), ...(finished ? ['common/puzzle-finished'] : []));
+    await say(randomCelebration(), ...(finished ? ['common/puzzle-finished', 'common/touch-to-listen'] : []));
     setReady(true);
   }
 
   return (
     <Screen className="gap-4 [--board-w:min(84vw,calc(100dvh-200px),720px)]">
       <Buddy pose={placed ? 'cheer' : 'puzzle'} size={110} />
-      <div data-board className="relative grid aspect-3/2 w-(--board-w) grid-cols-3 grid-rows-2 gap-1 rounded-[20px] bg-white/10 p-1">
-        {Array.from({ length: PUZZLE_PIECES }, (_, i) => {
-          const filled = i < target || (i === target && placed);
-          return (
-            <div
-              key={i}
-              ref={i === target ? slotRef : undefined}
-              data-slot={filled ? 'filled' : i === target ? 'target' : 'empty'}
-              className={`rounded-[10px] ${
-                filled ? '' : i === target ? 'animate-glow border-3 border-dashed border-moon' : 'border-3 border-dashed border-white/25'
-              }`}
-              style={filled ? pieceStyle(src, i) : undefined}
-            />
-          );
-        })}
-        {placed && finished && <Stars count={12} />}
-      </div>
+      {alive ? (
+        <SceneBoard
+          topic={topic}
+          marked={touched ? [touched] : []}
+          className="w-(--board-w)"
+          onTouch={(wordId) => {
+            setTouched(wordId);
+            say(`${topic.id}/${wordId}`);
+          }}
+        />
+      ) : (
+        <div data-board className="relative grid aspect-3/2 w-(--board-w) grid-cols-3 grid-rows-2 gap-1 rounded-[20px] bg-white/10 p-1">
+          {Array.from({ length: PUZZLE_PIECES }, (_, i) => {
+            const filled = i < target || (i === target && placed);
+            return (
+              <div
+                key={i}
+                ref={i === target ? slotRef : undefined}
+                data-slot={filled ? 'filled' : i === target ? 'target' : 'empty'}
+                className={`rounded-[10px] ${
+                  filled ? '' : i === target ? 'animate-glow border-3 border-dashed border-moon' : 'border-3 border-dashed border-white/25'
+                }`}
+                style={filled ? pieceStyle(src, i) : undefined}
+              />
+            );
+          })}
+          {placed && finished && <Stars count={12} />}
+        </div>
+      )}
       <div className="flex min-h-[calc(var(--board-w)/3)] items-center justify-center gap-6">
         {!placed && (
           <motion.div

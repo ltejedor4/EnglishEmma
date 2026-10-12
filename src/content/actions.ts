@@ -13,5 +13,6 @@ export default {
     { id: 'dance', image: '💃', say: 'Dance.', ask: 'Who is dancing?', facts: ["Let's dance!", 'Dance, dance, dance!'] },
     { id: 'sleep', image: '😴', say: 'Sleep.', ask: 'Who is sleeping?', facts: ['Time to sleep.', 'Shh! MaLu is sleeping.'] },
   ],
+  commands: true,
   homeMission: ["Let's jump!", 'Sit down, please.', 'Time to sleep!'],
 } satisfies Topic;

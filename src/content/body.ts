@@ -13,5 +13,6 @@ export default {
     { id: 'hands', image: '🙌', say: 'Hands.', ask: 'Where are the hands?', facts: ['Clap your hands!', 'Wash your hands.'] },
     { id: 'feet', image: '🦶', say: 'Feet.', ask: 'Where are the feet?', facts: ['Stamp your feet!', 'I walk with my feet.'] },
   ],
+  commands: true,
   homeMission: ['Wash your hands!', 'Where is your nose?', 'Brush your teeth, open your mouth!'],
 } satisfies Topic;

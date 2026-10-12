@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 import { questions, topics } from '../content/index.ts';
 import { keyOf, planSession, planTopicSession, recordResult, refsOf } from './review.ts';
 import type { WordProgress } from './review.ts';
-import { buildSteps, CLOSING_ROUNDS, GAMES, gamesFor, interactions, MAX_ROUNDS_PER_WORD, MIN_ROUNDS, questionsFor } from './session.ts';
+import { inScene, scenes } from '../content/scenes.ts';
+import { buildSteps, CLOSING_ROUNDS, CONTEXT_GAMES, GAMES, gamesFor, interactions, MAX_ROUNDS_PER_WORD, MIN_CONTEXT_WORDS, MIN_ROUNDS, questionsFor } from './session.ts';
 import type { Step } from './session.ts';
 import type { LessonMode } from './lesson.ts';
 
@@ -11,8 +12,9 @@ const [colors] = topics;
 
 const touchTargets = (steps: Step[]) =>
   steps.flatMap((s) => (s.kind === 'touch' ? [s.targets.map(keyOf)] : []));
-const gamesIn = (steps: Step[]) =>
-  steps.flatMap((s) => (s.kind === 'memory' || s.kind === 'balloons' || s.kind === 'feed' ? [s.kind] : []));
+const ALL_GAMES: string[] = [...GAMES, ...CONTEXT_GAMES];
+const isGame = (kind: string) => ALL_GAMES.includes(kind);
+const gamesIn = (steps: Step[]) => steps.flatMap((s) => (isGame(s.kind) ? [s.kind] : []));
 
 function assertValid(steps: Step[], label: string) {
   const rounds = touchTargets(steps);
@@ -30,6 +32,17 @@ function assertValid(steps: Step[], label: string) {
     if (s.kind === 'balloons' || s.kind === 'feed') {
       for (const r of s.rounds) assert.ok(r.options.some((o) => keyOf(o) === keyOf(r.target)), `${label}: ${s.kind} sin la correcta`);
       assert.equal(new Set(s.rounds.map((r) => keyOf(r.target))).size, s.rounds.length, `${label}: ${s.kind} repite objetivo`);
+    }
+    if (s.kind === 'find' || s.kind === 'simon') {
+      assert.ok(s.targets.length >= MIN_CONTEXT_WORDS, `${label}: ${s.kind} con pocas palabras`);
+      assert.equal(new Set(s.targets.map(keyOf)).size, s.targets.length, `${label}: ${s.kind} repite palabra`);
+      assert.equal(new Set(s.targets.map((t) => t.topicId)).size, 1, `${label}: ${s.kind} mezcla temas`);
+    }
+    if (s.kind === 'find') {
+      for (const t of s.targets) assert.ok(t.topicId === s.topicId && inScene(t.topicId, t.word.id), `${label}: ${keyOf(t)} no está en la escena`);
+    }
+    if (s.kind === 'simon') {
+      for (const t of s.targets) assert.ok(topics.find((topic) => topic.id === t.topicId)!.commands, `${label}: ${keyOf(t)} no es una orden`);
     }
     if (s.kind === 'memory') {
       assert.ok(s.words.length >= 2, `${label}: memory con menos de 2 pares`);
@@ -75,7 +88,7 @@ test('la práctica tiene un solo juego', () => {
 test('la lección cierra con rondas de Listen & Touch después del último juego', () => {
   const { p, plan } = secondNight();
   const steps = buildSteps(plan, p, { seed: 1 });
-  const lastGame = steps.findLastIndex((s) => s.kind === 'balloons' || s.kind === 'feed' || s.kind === 'memory');
+  const lastGame = steps.findLastIndex((s) => isGame(s.kind));
   const closing = steps.slice(lastGame + 1).filter((s) => s.kind === 'touch').length;
   assert.equal(closing, CLOSING_ROUNDS);
 });
@@ -116,8 +129,8 @@ test('aunque el plan traiga una sola palabra, se suman otras ya vistas', () => {
 });
 
 test('200 lecciones al azar en todos los modos respetan las reglas', () => {
-  const modes: LessonMode[] = ['mix', 'ask', 'fact', 'pair'];
-  for (let run = 0; run < 200; run++) {
+  const modes: LessonMode[] = ['mix', 'ask', 'fact', 'pair', 'find', 'simon'];
+  for (let run = 0; run < 300; run++) {
     // Progreso al azar: algunas palabras de los primeros temas, acertadas o no.
     let p: WordProgress = {};
     for (const ref of topics.slice(0, 3).flatMap(refsOf)) {
@@ -127,7 +140,7 @@ test('200 lecciones al azar en todos los modos respetan las reglas', () => {
     const plan = run % 2 ? planSession(topics, p, '2026-10-03') : planTopicSession(topics[run % topics.length], p);
     const steps = buildSteps(plan, p, { mode, seed: run, practice: run % 3 === 0 });
     assertValid(steps, `run ${run} (${mode})`);
-    if (mode !== 'mix' && (Object.keys(p).length >= 3 || plan.fresh.length >= 3)) {
+    if (['ask', 'fact', 'pair'].includes(mode) && (Object.keys(p).length >= 3 || plan.fresh.length >= 3)) {
       assert.ok(touchTargets(steps).length >= Math.min(MIN_ROUNDS, 6), `run ${run}: pocas rondas`);
     }
   }
@@ -177,7 +190,7 @@ test('lección del tema de saludos: 3 preguntas en Say it!', () => {
 test('sin hablar si los padres lo apagan; en la práctica va después del único juego', () => {
   const { p, plan } = secondNight();
   assert.equal(buildSteps(plan, p, { speak: false }).filter((s) => s.kind === 'speak').length, 0);
-  const practice = buildSteps(plan, p, { practice: true, seed: 2 }).map((s) => s.kind).filter((k) => ['memory', 'balloons', 'feed', 'speak'].includes(k));
+  const practice = buildSteps(plan, p, { practice: true, seed: 2 }).map((s) => s.kind).filter((k) => isGame(k) || k === 'speak');
   assert.equal(practice.length, 2);
   assert.equal(practice[1], 'speak');
 });
@@ -190,4 +203,50 @@ test('modo "solo hablar" de la zona de padres: 5 palabras + 3 preguntas y sin ju
   assert.equal(speakSteps.length, 1);
   assert.ok(speakSteps[0].kind === 'speak' && speakSteps[0].targets.length === 5 && speakSteps[0].questions.length === 3);
   assertValid(steps, 'speak');
+});
+
+test('los juegos de contexto entran en la rotación solo cuando hay palabras para jugarlos', () => {
+  assert.deepEqual(gamesFor(3, false, ['find']), ['find', 'memory']);
+  // Colors tiene escena pero no órdenes: Find it sí (con todos menos blue, que es el cielo), Simon Says no.
+  const { p, plan } = secondNight();
+  const kinds = new Set([0, 1, 2, 3].flatMap((seed) => gamesIn(buildSteps(plan, p, { seed }))));
+  assert.ok(kinds.has('find') && !kinds.has('simon'), [...kinds].join());
+  // Hello! no tiene escena ni órdenes: solo los juegos de siempre, aunque los padres pidan Find it.
+  const hello = topics.find((t) => t.id === 'hello')!;
+  for (let seed = 0; seed < 5; seed++) {
+    for (const mode of ['mix', 'find', 'simon'] as LessonMode[]) {
+      const games = gamesIn(buildSteps(planTopicSession(hello, {}), {}, { seed, mode }));
+      assert.ok(games.length === 2 && games.every((g) => (GAMES as string[]).includes(g)), `${mode}: ${games}`);
+    }
+  }
+});
+
+test('Find it y Simon Says elegidos en la zona de padres', () => {
+  const body = topics.find((t) => t.id === 'body')!;
+  const plan = planTopicSession(body, {});
+  for (const game of CONTEXT_GAMES) {
+    const steps = buildSteps(plan, {}, { mode: game });
+    assert.deepEqual(gamesIn(steps), [game, game]);
+    assertValid(steps, game);
+  }
+  // Numbers: en la escena solo se pueden contar del uno al cuatro.
+  const numbers = topics.find((t) => t.id === 'numbers')!;
+  let p: WordProgress = {};
+  for (const ref of refsOf(numbers)) p = recordResult(p, keyOf(ref), true, '2026-10-03');
+  const find = buildSteps(planTopicSession(numbers, p), p, { mode: 'find' }).filter((s) => s.kind === 'find');
+  assert.ok(find.length > 0);
+  for (const s of find) assert.ok(s.targets.every((t) => ['one', 'two', 'three', 'four'].includes(t.word.id)));
+});
+
+test('cada zona de las escenas corresponde a una palabra de su tema y cabe en la imagen', () => {
+  for (const [topicId, spots] of Object.entries(scenes)) {
+    const topic = topics.find((t) => t.id === topicId);
+    assert.ok(topic, topicId);
+    for (const [wordId, list] of Object.entries(spots)) {
+      assert.ok(topic.words.some((w) => w.id === wordId), `${topicId}/${wordId}`);
+      for (const [cx, cy, rx, ry] of list) {
+        assert.ok(cx - rx >= 0 && cx + rx <= 100 && cy - ry >= 0 && cy + ry <= 100, `${topicId}/${wordId} se sale`);
+      }
+    }
+  }
 });

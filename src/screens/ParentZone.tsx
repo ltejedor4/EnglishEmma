@@ -3,7 +3,8 @@ import { topics } from '../content/index.ts';
 import { image } from '../lib/images.ts';
 import { LESSON_MODES } from '../lib/lesson.ts';
 import type { LessonMode } from '../lib/lesson.ts';
-import { isLearned, keyOf, refsOf } from '../lib/review.ts';
+import { streak } from '../lib/nights.ts';
+import { isLearned, keyOf, refsOf, today } from '../lib/review.ts';
 import type { Progress, Settings } from '../lib/progress.ts';
 import { canRecognize, canRecord } from '../lib/speech.ts';
 import type { SpeechMode } from '../lib/speech.ts';
@@ -108,6 +109,26 @@ export function ParentZone({ progress, playedToday, onStart, onSettings, onReset
 
         <SpeechSettings mode={progress.settings.speech} issue={progress.speechIssue} onChange={(speech) => onSettings({ ...progress.settings, speech })} />
 
+        <section className="flex flex-col gap-3" data-caption-settings>
+          <h2 className="m-0 text-lg font-semibold text-moon">Nombres en las tarjetas</h2>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {CAPTION_MODES.map((m) => (
+              <button
+                key={String(m.show)}
+                className={option(progress.settings.captions === m.show)}
+                onClick={() => onSettings({ ...progress.settings, captions: m.show })}
+                data-captions={m.show ? 'show' : 'hide'}
+              >
+                <span className="text-3xl">{m.icon}</span>
+                <span>
+                  <span className="block font-semibold">{m.label}</span>
+                  <span className="text-sm text-cream/70">{m.hint}</span>
+                </span>
+              </button>
+            ))}
+          </div>
+        </section>
+
         {topic && (
           <section className="flex flex-col gap-2 rounded-2xl bg-white/8 p-4">
             <h2 className="m-0 text-lg font-semibold text-moon">Misión para casa · {topic.title}</h2>
@@ -134,6 +155,10 @@ export function ParentZone({ progress, playedToday, onStart, onSettings, onReset
               : 'Es la primera sesión de hoy: al terminar gana su ficha del rompecabezas.'}
           </p>
         </div>
+
+        <p className="m-0 text-center text-sm text-cream/70" data-nights-summary>
+          🌙 Noches jugadas: {progress.sessionDays.length} · racha actual: {streak(progress.sessionDays, today())} · fichas: {progress.pieces}
+        </p>
 
         <section className="mt-4 flex flex-col items-center gap-2 border-t border-white/10 pt-6">
           <ConfirmButton label="Reiniciar todo" onConfirm={onResetAll} data-reset="all" />
@@ -180,6 +205,11 @@ function ConfirmButton({
     </button>
   );
 }
+
+const CAPTION_MODES = [
+  { show: true, icon: '🔤', label: 'Mostrar', hint: 'Cada tarjeta lleva su nombre escrito: asocia sonido, imagen y letras.' },
+  { show: false, icon: '🙈', label: 'Ocultar en los juegos', hint: 'Si notan que lee en vez de escuchar. Al presentar una palabra nueva se sigue viendo.' },
+];
 
 const SPEECH_MODES: { id: SpeechMode; icon: string; label: string; hint: string }[] = [
   { id: 'auto', icon: '🎤', label: 'Automático', hint: 'Escucha y celebra si se parece (muy generoso). Necesita internet.' },

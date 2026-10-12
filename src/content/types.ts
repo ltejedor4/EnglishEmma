@@ -31,6 +31,8 @@ export interface Topic {
   homeMission: string[];
   /** Preguntas para conversar en "Your turn! Say it!" (ej. "What's your name?"). */
   questions?: Question[];
+  /** Simon Says: la primera frase de cada palabra es una orden que Emma puede hacer ("Touch your nose!"). */
+  commands?: boolean;
 }
 
 /** Qué respuesta se acepta (siempre generoso). */

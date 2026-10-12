@@ -1,5 +1,6 @@
 import type { Pose } from './pose.ts';
 import { questions as allQuestions, topics } from '../content/index.ts';
+import { inScene } from '../content/scenes.ts';
 import type { QuestionRef } from '../content/index.ts';
 import type { LessonMode } from './lesson.ts';
 import { factsNaming, keyOf, pickOptions, shuffle } from './review.ts';
@@ -11,9 +12,16 @@ export interface GameRound {
   options: WordRef[];
 }
 
-export type GameKind = 'memory' | 'balloons' | 'feed';
-/** Juegos que rotan en la lección de la noche (en este orden). */
+export type GameKind = 'memory' | 'balloons' | 'feed' | 'find' | 'simon';
+/** Juegos que rotan en la lección de la noche (en este orden) y sirven con cualquier palabra. */
 export const GAMES: GameKind[] = ['memory', 'balloons', 'feed'];
+/**
+ * Juegos que dependen de las palabras de la lección y se suman a la rotación cuando se puede:
+ * Find it in the scene (palabras que están en la escena de su tema) y Simon Says (órdenes para hacer).
+ */
+export const CONTEXT_GAMES: GameKind[] = ['find', 'simon'];
+/** Palabras del mismo tema que hacen falta para un juego de contexto. */
+export const MIN_CONTEXT_WORDS = 3;
 
 export type Step =
   | { kind: 'say'; keys: string[]; pose: Pose }
@@ -22,6 +30,10 @@ export type Step =
   | { kind: 'memory'; words: WordRef[] }
   | { kind: 'balloons'; rounds: GameRound[] }
   | { kind: 'feed'; rounds: GameRound[] }
+  /** Find it in the scene: buscar cada palabra dentro de la escena del rompecabezas del tema. */
+  | { kind: 'find'; topicId: string; targets: WordRef[] }
+  /** Simon Says: "Touch your nose!" → Emma lo hace de verdad y toca ✅ (no evalúa). */
+  | { kind: 'simon'; targets: WordRef[] }
   /** "Your turn! Say it!": palabras para decir y preguntas para responder ("How old are you?"). */
   | { kind: 'speak'; targets: WordRef[]; questions: QuestionRef[] };
 
@@ -66,12 +78,28 @@ export interface LessonOptions {
   speak?: boolean;
 }
 
-/** Los juegos de hoy: dos distintos que rotan cada noche; en la práctica, uno (el que no tocó primero). */
-export function gamesFor(seed: number, practice: boolean): GameKind[] {
-  const n = GAMES.length;
+/**
+ * Los juegos de hoy: dos distintos que rotan cada noche; en la práctica, uno (el que no tocó primero).
+ * `extra` son los juegos de contexto que se pueden jugar con las palabras de hoy.
+ */
+export function gamesFor(seed: number, practice: boolean, extra: GameKind[] = []): GameKind[] {
+  const games = [...GAMES, ...extra];
+  const n = games.length;
   const first = ((seed % n) + n) % n;
-  return practice ? [GAMES[(first + 2) % n]] : [GAMES[first], GAMES[(first + 1) % n]];
+  return practice ? [games[(first + 2) % n]] : [games[first], games[(first + 1) % n]];
 }
+
+/** Las palabras del tema que más aporta (en el orden recibido), si llegan al mínimo para jugar. */
+function sameTopic(words: WordRef[], max: number): WordRef[] {
+  const byTopic = new Map<string, WordRef[]>();
+  for (const ref of words) byTopic.set(ref.topicId, [...(byTopic.get(ref.topicId) ?? []), ref]);
+  const best = [...byTopic.values()].sort((a, b) => b.length - a.length)[0] ?? [];
+  return best.length >= MIN_CONTEXT_WORDS ? best.slice(0, max) : [];
+}
+/** Palabras para Find it in the scene: del mismo tema y dibujadas en su escena. */
+export const findable = (words: WordRef[]) => sameTopic(words.filter((ref) => inScene(ref.topicId, ref.word.id)), 5);
+/** Palabras para Simon Says: de un tema cuyas frases son órdenes (My body, Actions). */
+export const doable = (words: WordRef[]) => sameTopic(words.filter((ref) => topicOf(ref).commands), 4);
 
 /**
  * Arma la lección. En "mix" (la de la noche, 5–7 min):
@@ -86,8 +114,8 @@ export function gamesFor(seed: number, practice: boolean): GameKind[] {
 export function buildSteps(plan: SessionPlan, progress: WordProgress, options: LessonOptions = {}): Step[] {
   const { mode = 'mix', seed = 0, practice = false, speak = true } = options;
   // Lección completa (con juegos): la mezcla, o un juego elegido en la zona de padres (ese juego dos veces).
-  const chosenGame = (GAMES as string[]).includes(mode) ? (mode as GameKind) : undefined;
-  const fullLesson = mode === 'mix' || mode === 'speak' || !!chosenGame;
+  const picked = ([...GAMES, ...CONTEXT_GAMES] as string[]).includes(mode) ? (mode as GameKind) : undefined;
+  const fullLesson = mode === 'mix' || mode === 'speak' || !!picked;
   const steps: Step[] = [{ kind: 'say', keys: ['common/hello-emma', 'common/lets-play'], pose: 'hello' }];
   // Palabras que ya vio: preferidas como distractores. Las nuevas cuentan recién después de presentarlas.
   const known = new Set(Object.keys(progress));
@@ -181,11 +209,15 @@ export function buildSteps(plan: SessionPlan, progress: WordProgress, options: L
 
   // --- Juegos (solo en la lección completa) ---
   if (fullLesson && pool.length >= 2) {
-    const games = chosenGame
-      ? practice ? [chosenGame] : [chosenGame, chosenGame]
-      : mode === 'speak' ? [] : gamesFor(seed, practice);
     // Las nuevas primero (son las que más necesita oír y decir), luego las demás al azar.
     const ordered = () => [...plan.fresh, ...shuffle(pool.filter((ref) => !plan.fresh.includes(ref)))];
+    const contextWords = { find: findable, simon: doable };
+    const playable = (game: GameKind) => game !== 'find' && game !== 'simon' ? true : contextWords[game](pool).length > 0;
+    // Un juego de contexto elegido por los padres que no se puede con estas palabras: la mezcla de siempre.
+    const chosenGame = picked && playable(picked) ? picked : undefined;
+    const games = chosenGame
+      ? practice ? [chosenGame] : [chosenGame, chosenGame]
+      : mode === 'speak' ? [] : gamesFor(seed, practice, CONTEXT_GAMES.filter(playable));
     // En la lección: 3 palabras + 1 pregunta (en el tema de saludos, 2 palabras + 3 preguntas).
     const speakStep = (): Step => {
       const qs = questionsFor(plan, seed, false);
@@ -199,6 +231,11 @@ export function buildSteps(plan: SessionPlan, progress: WordProgress, options: L
       const words = ordered();
       if (game === 'memory') {
         steps.push({ kind: 'memory', words: words.slice(0, 3) });
+      } else if (game === 'find') {
+        const targets = shuffle(findable(words));
+        steps.push({ kind: 'find', topicId: targets[0].topicId, targets });
+      } else if (game === 'simon') {
+        steps.push({ kind: 'simon', targets: shuffle(doable(words)) });
       } else {
         // 5 rondas por juego (o tantas como palabras distintas haya, sin repetir objetivo).
         const targets = shuffle(words.slice(0, 5));
@@ -239,6 +276,7 @@ export function interactions(steps: Step[]): number {
     if (s.kind === 'touch' || s.kind === 'present') return sum + 1;
     if (s.kind === 'memory') return sum + s.words.length * 2 + 2; // pares + algún error de memoria
     if (s.kind === 'balloons' || s.kind === 'feed') return sum + s.rounds.length;
+    if (s.kind === 'find' || s.kind === 'simon') return sum + s.targets.length;
     if (s.kind === 'speak') return sum + s.targets.length + s.questions.length;
     return sum;
   }, 0);
@@ -257,6 +295,8 @@ export function audioKeys(steps: Step[]): string[] {
       ];
     }
     if (step.kind === 'balloons' || step.kind === 'feed') return step.rounds.flatMap((r) => r.options.map(clipOf));
+    if (step.kind === 'find') return step.targets.flatMap((t) => [clipOf(t), `${clipOf(t)}-ask`]);
+    if (step.kind === 'simon') return step.targets.flatMap((t) => [clipOf(t), `${clipOf(t)}-fact-1`]);
     return [...step.prompt, ...step.targets.map(clipOf)];
   });
 }

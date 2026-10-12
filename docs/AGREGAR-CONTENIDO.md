@@ -78,3 +78,6 @@ Después: `npm run audio` (pregunta y respuesta modelo) y `npm run images:genera
 1. Crear `src/content/<tema>.ts` (copiar uno existente) y sumarlo a `src/content/index.ts`: en `topics` donde corresponda en el orden de avance, y en `puzzleTopics` **al final** (así no cambia el rompecabezas que Emma está armando).
 2. Pedir su escena/rompecabezas: `npm run images:generate -- puzzle-<tema> --prompt "..."` (ver la plantilla en `docs/IMAGENES.md`). Conviene generarla **antes** que las tarjetas, porque las tarjetas la usan como referencia.
 3. Seguir los pasos de "Agregar una palabra".
+4. Para **Find it in the scene** y el rompecabezas que cobra vida: marcar dónde está cada palabra en la escena, en `src/content/scenes.ts` (elipses `[centroX, centroY, radioX, radioY]` en % de la imagen). Sin zonas, el tema simplemente no usa esos dos.
+5. Para **Simon Says**: si la primera frase de cada palabra es una orden que Emma puede hacer ("Touch your nose!"), poner `commands: true` en el tema.
+6. El mapa (`src/screens/MapScreen.tsx`, `ISLANDS`) tiene una posición por rompecabezas; la imagen `bg-map` trae 10 islas.

@@ -1,5 +1,5 @@
 /** Tipo de juego que papá/mamá pueden elegir en la zona de padres. */
-export type LessonMode = 'mix' | 'ask' | 'fact' | 'pair' | 'memory' | 'balloons' | 'feed' | 'speak';
+export type LessonMode = 'mix' | 'ask' | 'fact' | 'pair' | 'memory' | 'balloons' | 'feed' | 'find' | 'simon' | 'speak';
 
 export const LESSON_MODES: { id: LessonMode; icon: string; label: string; hint: string }[] = [
   { id: 'mix', icon: '🎲', label: 'Mezcla', hint: 'La lección completa: preguntas, dos juegos y hablar (recomendado)' },
@@ -9,5 +9,7 @@ export const LESSON_MODES: { id: LessonMode; icon: string; label: string; hint: 
   { id: 'memory', icon: '🃏', label: 'Memory', hint: 'Cartas que dicen su palabra: encontrar los pares' },
   { id: 'balloons', icon: '🎈', label: 'Pop the Balloons', hint: '"Pop… red!" → reventar el globo' },
   { id: 'feed', icon: '🍎', label: 'Feed Buddy', hint: '"Give me… apple!" → arrastrar o tocar' },
+  { id: 'find', icon: '🔎', label: 'Find it in the scene', hint: '"Where is the dog?" → buscarlo en la escena del rompecabezas' },
+  { id: 'simon', icon: '🙋', label: 'Simon Says', hint: '"Touch your nose!" → lo hace de verdad y toca ✅ (My body y Actions)' },
   { id: 'speak', icon: '🎤', label: 'Your turn! Say it!', hint: 'Decir las palabras en voz alta' },
 ];

@@ -144,9 +144,10 @@ Como en Duolingo, **cada sesión terminada = una ficha nueva**.
 
 - Cada tema tiene su rompecabezas (6 fichas en los primeros temas, 9 después), con una ilustración del tema: una granja con los animales, una cocina con la comida…
 - Al terminar la sesión, la ficha **llega volando** con un sonido suave y **Emma la coloca ella misma** arrastrándola a su lugar (encaje con mucha tolerancia).
-- **Rompecabezas completo** → la imagen cobra vida: cada cosa es tocable y dice su palabra ("dog!", "cow!"). Es una recompensa y a la vez un repaso.
-- **Álbum de rompecabezas** en el mapa: los completos se ven enteros, el actual con sus huecos.
-- **Calendario de noches:** una estrellita o luna por cada noche jugada (su "racha", como la de papá/mamá).
+- **Rompecabezas completo** → la imagen cobra vida: cada cosa es tocable y dice su palabra ("dog!", "cow!"). Es una recompensa y a la vez un repaso. Pasa al poner la última ficha y, después, cada vez que lo abre desde el mapa.
+- **Álbum de rompecabezas** en el **mapa de islas** (botón redondo en el inicio): una isla por rompecabezas; los completos se ven enteros y con una estrella, el actual con sus huecos y los que faltan muestran el ícono del tema.
+- **Calendario de noches** (arriba, en el inicio): una estrella por cada noche jugada de la última semana y la luna para la de hoy. La racha en números está en la zona de padres.
+- Las zonas tocables de cada escena están en `src/content/scenes.ts` (elipses en % de la imagen).
 
 ---
 
@@ -161,8 +162,8 @@ Todos reutilizan el mismo contenido de cada tema, con la ilustración de la tarj
 | **Pop the Balloons** | Suben globos (de colores en *Colors*, con la tarjeta colgando en los demás temas); "Pop… red!" → reventar el correcto; si se escapa, vuelve a subir | ✅ hecho |
 | **Feed Buddy** | Buddy tiene hambre: "Give me… apple!" → arrastrar la tarjeta hasta él (el mismo arrastre del rompecabezas) o tocarla | ✅ hecho |
 | **Your turn! Say it!** 🎤 | Buddy dice la palabra y Emma la dice en voz alta (ver sección 7b) | ✅ hecho |
-| Find it in the scene | Buscar el objeto dentro de la escena del rompecabezas del tema | siguiente |
-| Simon Says | "Touch your nose!": Emma lo hace de verdad y toca ✅. Ideal para *My body* y *Actions* | siguiente |
+| **Find it in the scene** | "Where is the dog?" → tocarlo dentro de la escena del rompecabezas del tema. Solo con palabras dibujadas en la escena (3 o más del mismo tema) | ✅ hecho |
+| **Simon Says** | "Simon says: Touch your nose!": Emma lo hace de verdad y toca ✅; después aparece la tarjeta. No evalúa. Solo *My body* y *Actions* (`commands: true`) | ✅ hecho |
 
 **Errores sin castigo en todos los juegos:** la tarjeta se mueve suavemente y Buddy dice "Let's try again!", sin mostrar la respuesta (solo en Pop the Balloons brilla el globo correcto, porque se mueven).
 
@@ -179,7 +180,7 @@ Hasta ahora una lección duraba **menos de 2 minutos** (solo Listen & Touch). La
 7. **Cierre rápido:** 2–3 Listen & Touch con frase o par.
 8. **¡Ficha nueva!** 🧩 → "Good night, Emma! Sweet dreams!" y Buddy se duerme.
 
-- Los dos juegos de la noche **rotan** (según el número de noches jugadas), así cada noche se siente distinta.
+- Los dos juegos de la noche **rotan** (según el número de noches jugadas), así cada noche se siente distinta. Find it in the scene y Simon Says entran en la rotación solo las noches en que las palabras lo permiten.
 - **Práctica libre** (después de la ficha): la misma estructura con un solo juego + Say it!, sin ficha. Si le va bien trae palabras nuevas (máximo 6 por día); si no, solo repaso.
 - **Variedad:** toda actividad usa al menos 3 palabras distintas; en Listen & Touch una palabra sale máximo 3 veces y nunca dos seguidas.
 - Desde la **zona de padres** se puede pedir un solo juego (por ejemplo, solo Memory o solo Say it!) en cualquier tema.
@@ -237,6 +238,8 @@ Lo que más le gusta de Duolingo. Va **después** de que conoce la palabra (escu
 - Mascota guía (un perrito "Buddy") que habla y celebra.
 - Botón 🔊 siempre visible para repetir la instrucción.
 - **Tono nocturno:** colores suaves y fondos oscuros cálidos, sin destellos ni confeti explosivo; celebraciones con estrellas que aparecen despacio.
+- **Salida a mitad de una lección:** una ✕ discreta arriba a la izquierda, detrás de la misma suma de la zona de padres. Se guarda lo que alcanzó a responder, pero no gana ficha ni cuenta la noche.
+- **Nombres en las tarjetas:** se pueden ocultar en los juegos desde la zona de padres (si lee en vez de escuchar); al presentar una palabra nueva siempre se ven.
 - **Zona de papá/mamá:** botón ⚙️ en el inicio + una suma de dos cifras (34 + 27). Ahí: elegir la lección (la de hoy o cualquier tema) y el tipo de juego (mezcla, Where is…?, frases, Find these two!), ver palabras vistas/aprendidas por tema, las misiones para casa y reiniciar un tema o todo (con doble toque de confirmación).
 - Alto contraste en lo importante, sin parpadeos, volumen consistente entre audios.
 
@@ -260,21 +263,24 @@ EmmaIngles/
 ├── src/
 │   ├── main.tsx
 │   ├── App.tsx
-│   ├── screens/              # Home, Session, PuzzleScreen, GoodNight (estado simple en App.tsx, sin router)
-│   ├── content/              # un archivo por tema + types.ts
+│   ├── screens/              # Home, Session, PuzzleScreen, MapScreen, AlbumPuzzle, ParentGate, ParentZone (estado simple en App.tsx, sin router)
+│   ├── content/              # un archivo por tema + types.ts + scenes.ts (zonas tocables de cada escena)
 │   ├── games/
 │   │   ├── ListenTouch.tsx
 │   │   ├── FindInScene.tsx
 │   │   ├── Memory.tsx
 │   │   ├── SimonSays.tsx
-│   │   ├── DragDrop.tsx
+│   │   ├── FeedBuddy.tsx
+│   │   ├── SayIt.tsx
 │   │   └── Balloons.tsx
-│   ├── components/           # Buddy, BigButton, AudioButton, Puzzle, NightCalendar
+│   ├── components/           # Buddy, SceneBoard, PuzzleBoard, NightCalendar, botones
 │   ├── lib/
 │   │   ├── audio.ts          # Howler: precarga, secuencias, cortar al cambiar de paso
 │   │   ├── progress.ts       # localStorage
 │   │   ├── images.ts         # imágenes optimizadas, con emojis de respaldo
-│   │   └── review.ts         # repaso espaciado (lógica pura, con pruebas)
+│   │   ├── review.ts         # repaso espaciado (lógica pura, con pruebas)
+│   │   ├── session.ts        # armado de la lección (pasos y juegos de la noche)
+│   │   └── nights.ts         # calendario de noches, racha y fichas por rompecabezas
 │   └── styles/
 ├── Dockerfile                # build + Nginx para Coolify
 └── deploy/
@@ -337,11 +343,13 @@ Detalle paso a paso en [docs/DESPLIEGUE.md](docs/DESPLIEGUE.md).
 
 ### Fase 3 — Más contexto y zona de padres
 - [x] Zona de padres: ⚙️ + suma de dos cifras; elegir tema y tipo de juego, ver progreso, misiones para casa, reiniciar
-- [ ] Find it in the scene, Simon Says
-- [ ] Rompecabezas completo que cobra vida + álbum
-- [ ] Calendario de noches (racha) y mapa de islas
-- [ ] Salida protegida a mitad de una lección (para papá/mamá)
-- [ ] Opción para ocultar los nombres de las tarjetas en los juegos (si lee en vez de escuchar)
+- [x] Find it in the scene, Simon Says
+- [x] Rompecabezas completo que cobra vida + álbum
+- [x] Calendario de noches (racha) y mapa de islas
+- [x] Salida protegida a mitad de una lección (para papá/mamá)
+- [x] Opción para ocultar los nombres de las tarjetas en los juegos (si lee en vez de escuchar)
+- [ ] Probar la Fase 3 en la tablet con Emma (tamaño de las zonas tocables de las escenas, mapa en el celular vertical)
+- [ ] Escena e isla para el rompecabezas de *Hello!* (hoy usa emojis y va sobre el sol del mapa)
 
 ### Fase 4 — Ideas futuras
 - [ ] Cuentos cortos interactivos con audio (buen cierre antes de dormir)

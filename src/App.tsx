@@ -4,19 +4,26 @@ import type { Topic } from './content/types.ts';
 import type { LessonMode } from './lib/lesson.ts';
 import { EMPTY_PROGRESS, loadProgress, recordSpoken, saveProgress } from './lib/progress.ts';
 import type { Progress, Settings } from './lib/progress.ts';
+import { puzzleFill } from './lib/nights.ts';
+import { PUZZLE_PIECES } from './lib/puzzle.ts';
 import { doingWell, keyOf, planSession, planTopicSession, recordResult, refsOf, resetTopic, today } from './lib/review.ts';
 import type { SessionPlan } from './lib/review.ts';
+import { AlbumPuzzle } from './screens/AlbumPuzzle.tsx';
 import { Home } from './screens/Home.tsx';
+import { MapScreen } from './screens/MapScreen.tsx';
 import { ParentGate } from './screens/ParentGate.tsx';
 import { ParentZone } from './screens/ParentZone.tsx';
 import type { LessonChoice } from './screens/ParentZone.tsx';
-import { PUZZLE_PIECES, PuzzleScreen } from './screens/PuzzleScreen.tsx';
+import { PuzzleScreen } from './screens/PuzzleScreen.tsx';
 import { Session } from './screens/Session.tsx';
 
 type Screen =
   | { name: 'home'; justFinished?: boolean }
   | { name: 'gate' }
   | { name: 'parents' }
+  | { name: 'map' }
+  /** Un rompecabezas del álbum en grande (índice en puzzleTopics). */
+  | { name: 'album'; index: number }
   | { name: 'session'; plan: SessionPlan; mode: LessonMode; practice: boolean }
   | { name: 'puzzle'; topic: Topic; placedBefore: number };
 
@@ -54,16 +61,18 @@ export default function App() {
     update({ ...progress, words: resetTopic(progress.words, topic), spoken });
   }
 
-  function finish(results: Record<string, boolean>, spoken: string[]) {
+  /** Lo que hizo en la lección (completa o cortada a la mitad) pasa al repaso espaciado. */
+  function learned(results: Record<string, boolean>, spoken: string[]): Progress {
     let words = progress.words;
     for (const [key, firstTry] of Object.entries(results)) words = recordResult(words, key, firstTry, day);
+    return { ...progress, words, spoken: recordSpoken(progress.spoken, spoken, day) };
+  }
 
+  function finish(results: Record<string, boolean>, spoken: string[]) {
     // Una ficha por noche, como en Duolingo; repetir la sesión el mismo día no da otra.
     const earnsPiece = !playedToday;
     const next = {
-      ...progress,
-      words,
-      spoken: recordSpoken(progress.spoken, spoken, day),
+      ...learned(results, spoken),
       sessionDays: earnsPiece ? [...progress.sessionDays, day] : progress.sessionDays,
       pieces: progress.pieces + (earnsPiece ? 1 : 0),
     };
@@ -78,6 +87,7 @@ export default function App() {
   }
 
   const home = () => setScreen({ name: 'home' });
+  const map = () => setScreen({ name: 'map' });
   switch (screen.name) {
     case 'home':
       return (
@@ -85,6 +95,9 @@ export default function App() {
           key={String(screen.justFinished)}
           playedToday={playedToday}
           justFinished={screen.justFinished}
+          sessionDays={progress.sessionDays}
+          day={day}
+          onMap={map}
           onStart={() => setScreen({ name: 'session', plan: todaysPlan(), mode: 'mix', practice: playedToday })}
           onParents={() => setScreen({ name: 'gate' })}
         />
@@ -97,7 +110,10 @@ export default function App() {
           progress={progress}
           playedToday={playedToday}
           onStart={startLesson}
-          onSettings={(settings: Settings) => update({ ...progress, settings, speechIssue: undefined })}
+          onSettings={(settings: Settings) =>
+            // Al cambiar el modo de hablar, el aviso del último problema con el micrófono ya no aplica.
+            update({ ...progress, settings, speechIssue: settings.speech === progress.settings.speech ? progress.speechIssue : undefined })
+          }
           onResetTopic={resetTopicProgress}
           onResetAll={() => update({ ...EMPTY_PROGRESS, settings: progress.settings })}
           onClose={home}
@@ -112,8 +128,23 @@ export default function App() {
           seed={progress.sessionDays.length}
           practice={screen.practice}
           speech={progress.settings.speech}
+          captions={progress.settings.captions}
           onSpeechIssue={(reason) => update({ ...progress, speechIssue: reason })}
           onFinish={finish}
+          onExit={(results, spoken) => {
+            update(learned(results, spoken));
+            home();
+          }}
+        />
+      );
+    case 'map':
+      return <MapScreen pieces={progress.pieces} onOpen={(index) => setScreen({ name: 'album', index })} onClose={home} />;
+    case 'album':
+      return (
+        <AlbumPuzzle
+          topic={puzzleTopics[screen.index]}
+          filled={puzzleFill(progress.pieces, puzzleTopics.length, PUZZLE_PIECES)[screen.index]}
+          onClose={map}
         />
       );
     case 'puzzle':

@@ -4,6 +4,8 @@ import type { SpeechMode } from './speech.ts';
 export interface Settings {
   /** "Your turn! Say it!": automático (reconocimiento), grabar y escucharse, o apagado. */
   speech: SpeechMode;
+  /** Mostrar el nombre escrito en las tarjetas de los juegos (en la presentación de una palabra nueva siempre se ve). */
+  captions: boolean;
 }
 
 export interface Progress {
@@ -20,7 +22,7 @@ export interface Progress {
 }
 
 const KEY = 'emma-english:v1';
-export const DEFAULT_SETTINGS: Settings = { speech: 'auto' };
+export const DEFAULT_SETTINGS: Settings = { speech: 'auto', captions: true };
 export const EMPTY_PROGRESS: Progress = { words: {}, sessionDays: [], pieces: 0, spoken: {}, settings: DEFAULT_SETTINGS };
 
 export function loadProgress(): Progress {

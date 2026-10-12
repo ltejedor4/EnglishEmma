@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import { Captions } from '../lib/captions.ts';
 import { image } from '../lib/images.ts';
 import type { WordRef } from '../lib/review.ts';
 
@@ -10,6 +12,7 @@ export function WordImage({ target }: { target: WordRef }) {
 
 /** Nombre en inglés debajo de la imagen ("Teddy bear"), para ir asociando sonido, imagen y letras. */
 export function WordCaption({ target }: { target: WordRef }) {
+  if (!useContext(Captions)) return null;
   return (
     <span className="absolute bottom-[5%] text-[calc(var(--size)*0.13)] leading-none font-bold text-night">
       {target.word.say.replace(/[.!?]$/, '')}
