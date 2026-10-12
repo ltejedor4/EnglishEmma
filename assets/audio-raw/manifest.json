@@ -1518,5 +1518,165 @@
   "animals/giraffe-fact-2": {
     "text": "The giraffe has a long neck.",
     "hash": "63c57399d791024e"
+  },
+  "colors/purple": {
+    "text": "Purple.",
+    "hash": "9b450b217ffd7f6d"
+  },
+  "colors/purple-ask": {
+    "text": "Find the purple one!",
+    "hash": "aa0921d97a9044d1"
+  },
+  "colors/purple-fact-1": {
+    "text": "The grapes are purple.",
+    "hash": "225274754b6407d7"
+  },
+  "colors/purple-fact-2": {
+    "text": "The purple flower is pretty.",
+    "hash": "0a3d3532ddea8449"
+  },
+  "colors/brown": {
+    "text": "Brown.",
+    "hash": "6ddd71ef6e531670"
+  },
+  "colors/brown-ask": {
+    "text": "Find the brown one!",
+    "hash": "ff50eb64332afd1b"
+  },
+  "colors/brown-fact-1": {
+    "text": "The bear is brown.",
+    "hash": "05f3957564ce154d"
+  },
+  "colors/brown-fact-2": {
+    "text": "Chocolate is brown.",
+    "hash": "b93bd3389d849703"
+  },
+  "colors/black": {
+    "text": "Black.",
+    "hash": "15dcb907b6b01284"
+  },
+  "colors/black-ask": {
+    "text": "Find the black one!",
+    "hash": "b7fb17f3f1d26663"
+  },
+  "colors/black-fact-1": {
+    "text": "The cat is black.",
+    "hash": "0852131cedc7cc2d"
+  },
+  "colors/black-fact-2": {
+    "text": "The black bird can fly.",
+    "hash": "933bb3d74eb6f300"
+  },
+  "colors/white": {
+    "text": "White.",
+    "hash": "92973336032ffe6c"
+  },
+  "colors/white-ask": {
+    "text": "Find the white one!",
+    "hash": "16c2eff116517286"
+  },
+  "colors/white-fact-1": {
+    "text": "The snow is white.",
+    "hash": "b0a5a8888d42d938"
+  },
+  "colors/white-fact-2": {
+    "text": "Milk is white.",
+    "hash": "0ee03f6693559ddf"
+  },
+  "colors/gray": {
+    "text": "Gray.",
+    "hash": "8e03b5142c161f71"
+  },
+  "colors/gray-ask": {
+    "text": "Find the gray one!",
+    "hash": "bd517dc769aa3008"
+  },
+  "colors/gray-fact-1": {
+    "text": "The elephant is gray.",
+    "hash": "e3cf473f58e44295"
+  },
+  "colors/gray-fact-2": {
+    "text": "The cloud is gray.",
+    "hash": "60b5df01f8b1782d"
+  },
+  "colors/gold": {
+    "text": "Gold.",
+    "hash": "c03c00628c22c46a"
+  },
+  "colors/gold-ask": {
+    "text": "Find the gold one!",
+    "hash": "37512bc06f5bf09c"
+  },
+  "colors/gold-fact-1": {
+    "text": "The star is gold.",
+    "hash": "fb607047c41a86d2"
+  },
+  "colors/gold-fact-2": {
+    "text": "The crown is gold.",
+    "hash": "6970a90131036ec7"
+  },
+  "colors/silver": {
+    "text": "Silver.",
+    "hash": "09ca974a09490c85"
+  },
+  "colors/silver-ask": {
+    "text": "Find the silver one!",
+    "hash": "53f62bacb205088e"
+  },
+  "colors/silver-fact-1": {
+    "text": "The spoon is silver.",
+    "hash": "23ffaa7dacaaf0b6"
+  },
+  "colors/silver-fact-2": {
+    "text": "The key is silver.",
+    "hash": "cd83891bf74dcf03"
+  },
+  "colors/turquoise": {
+    "text": "Turquoise.",
+    "hash": "a95cf45fcdc50306"
+  },
+  "colors/turquoise-ask": {
+    "text": "Find the turquoise one!",
+    "hash": "e6de8f64108c0376"
+  },
+  "colors/turquoise-fact-1": {
+    "text": "The water is turquoise.",
+    "hash": "65965d7e1c34efa5"
+  },
+  "colors/turquoise-fact-2": {
+    "text": "The turquoise bead is pretty.",
+    "hash": "747cf191e05ead47"
+  },
+  "colors/light-blue": {
+    "text": "Light blue.",
+    "hash": "4521a73fef9a69b4"
+  },
+  "colors/light-blue-ask": {
+    "text": "Find the light blue one!",
+    "hash": "1465e6cd2b81ed90"
+  },
+  "colors/light-blue-fact-1": {
+    "text": "The sky is light blue.",
+    "hash": "4368e7905e576da1"
+  },
+  "colors/light-blue-fact-2": {
+    "text": "My shirt is light blue.",
+    "hash": "e30948df95510b4b"
+  },
+  "colors/dark-green": {
+    "text": "Dark green.",
+    "hash": "1a59d96c59790245"
+  },
+  "colors/dark-green-ask": {
+    "text": "Find the dark green one!",
+    "hash": "a8f0b06704b7197b"
+  },
+  "colors/dark-green-fact-1": {
+    "text": "The pine tree is dark green.",
+    "hash": "2757eccba741994d"
+  },
+  "colors/dark-green-fact-2": {
+    "text": "The leaf is dark green.",
+    "hash": "63d0ed481357d8c7"
   }
 }

@@ -44,7 +44,7 @@ function wordSpec(topic: Topic, word: Word): Spec {
   const puzzle = existsSync(join(SRC, `puzzle-${topic.id}.png`)) ? [`puzzle-${topic.id}.png`] : [];
   switch (topic.id) {
     case 'colors':
-      return { name, refs: [BUDDY_REF], prompt: `A big cute paint splash in pure bright ${label}, with a tiny happy face. ${picture ?? ''}` };
+      return { name, refs: [BUDDY_REF], prompt: `A big cute paint splash ${picture ?? `in pure bright ${label}`}, with a tiny happy face.` };
     case 'numbers': {
       const n = topic.words.indexOf(word) + 1;
       return {
@@ -94,7 +94,17 @@ function allSpecs(): Spec[] {
       refs: question.id === 'name' && existsSync(join(SRC, 'puzzle-body.png')) ? ['puzzle-body.png'] : [BUDDY_REF],
       prompt: question.picture ?? question.image,
     }));
-  return [...words, ...buddy, ...asks];
+  // Pop the Balloons: en Colors cada palabra necesita su globo de ese color (balloon-<id>).
+  const colorsTopic = topics.find((t) => t.id === 'colors');
+  const balloons = (colorsTopic?.words ?? []).map((word) => ({
+    name: `balloon-${word.id}`,
+    refs: existsSync(join(SRC, 'balloon-red.png')) ? ['balloon-red.png'] : [BUDDY_REF],
+    prompt:
+      // Solo el color de la descripción (antes de la primera coma): la carita es para la mancha, no para el globo.
+      `A single shiny party balloon ${word.picture?.split(',')[0] ?? `in pure bright ${word.say.replace(/[.!?]$/, '').toLowerCase()}`}, ` +
+      'with a small highlight and a curly string hanging below; exactly the same shape, size, string and style as the attached balloon, only the color changes.',
+  }));
+  return [...words, ...buddy, ...asks, ...balloons];
 }
 
 const exists = (name: string) => existsSync(join(SRC, `${name}.png`));

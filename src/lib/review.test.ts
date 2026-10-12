@@ -69,9 +69,10 @@ test('aprendida = 3 días distintos acertando a la primera', () => {
 
 test('Animals empieza cuando ya vio todos los colores y acierta la mayoría', () => {
   let p: WordProgress = {};
-  for (const ref of refsOf(colors).slice(0, 5)) p = recordResult(p, keyOf(ref), true, '2026-10-03');
-  assert.equal(currentTopic(topics, p)?.id, colors.id, 'falta ver orange');
-  p = recordResult(p, 'colors/orange', true, '2026-10-03');
+  const all = refsOf(colors);
+  for (const ref of all.slice(0, -1)) p = recordResult(p, keyOf(ref), true, '2026-10-03');
+  assert.equal(currentTopic(topics, p)?.id, colors.id, 'falta ver el último color');
+  p = recordResult(p, keyOf(all.at(-1)!), true, '2026-10-03');
   assert.equal(currentTopic(topics, p)?.id, animals.id);
 });
 
@@ -106,7 +107,8 @@ test('sin palabras nuevas disponibles, la sesión es más repaso', () => {
   for (const ref of refsOf(colors)) p = recordResult(p, keyOf(ref), false, '2026-10-03');
   const plan = planSession(topics, p, '2026-10-04');
   assert.equal(plan.fresh.length, 0);
-  assert.equal(plan.review.length, 6);
+  // Repaso ampliado: maxReview + maxNew = 7 (o todas, si el tema tiene menos).
+  assert.equal(plan.review.length, Math.min(colors.words.length, 7));
 });
 
 test('la práctica (maxNew 0) es solo repaso, aunque le cueste', () => {
