@@ -1678,5 +1678,165 @@
   "colors/dark-green-fact-2": {
     "text": "The leaf is dark green.",
     "hash": "63d0ed481357d8c7"
+  },
+  "body/ears": {
+    "text": "Ears.",
+    "hash": "eb934560e66848b2"
+  },
+  "body/ears-ask": {
+    "text": "Where are the ears?",
+    "hash": "7c1f1c1ff8995cb8"
+  },
+  "body/ears-fact-1": {
+    "text": "Touch your ears!",
+    "hash": "8b0b9c524579e12b"
+  },
+  "body/ears-fact-2": {
+    "text": "I hear with my ears.",
+    "hash": "ccf109f4f749991d"
+  },
+  "body/hair": {
+    "text": "Hair.",
+    "hash": "be16952864d4e571"
+  },
+  "body/hair-ask": {
+    "text": "Where is the hair?",
+    "hash": "94f39d68e1d9a15f"
+  },
+  "body/hair-fact-1": {
+    "text": "Touch your hair!",
+    "hash": "246d0aaf43dbd8d1"
+  },
+  "body/hair-fact-2": {
+    "text": "My hair is soft.",
+    "hash": "e8278956161997a2"
+  },
+  "body/teeth": {
+    "text": "Teeth.",
+    "hash": "43a58aae36fb2596"
+  },
+  "body/teeth-ask": {
+    "text": "Where are the teeth?",
+    "hash": "91dfead6e7ac7a45"
+  },
+  "body/teeth-fact-1": {
+    "text": "Show me your teeth!",
+    "hash": "5a870b3298f4dd68"
+  },
+  "body/teeth-fact-2": {
+    "text": "Brush your teeth.",
+    "hash": "ba4401ab5978adc7"
+  },
+  "body/arms": {
+    "text": "Arms.",
+    "hash": "f64f756f6cc0e31b"
+  },
+  "body/arms-ask": {
+    "text": "Where are the arms?",
+    "hash": "335b9194db8ea083"
+  },
+  "body/arms-fact-1": {
+    "text": "Wave your arms!",
+    "hash": "4d31a559d3fb187c"
+  },
+  "body/arms-fact-2": {
+    "text": "I hug with my arms.",
+    "hash": "2aee287868d5c25d"
+  },
+  "body/legs": {
+    "text": "Legs.",
+    "hash": "4d07feab62aa3257"
+  },
+  "body/legs-ask": {
+    "text": "Where are the legs?",
+    "hash": "4f6461c49cb0e6fd"
+  },
+  "body/legs-fact-1": {
+    "text": "Shake your legs!",
+    "hash": "a44729c2cb42cfbe"
+  },
+  "body/legs-fact-2": {
+    "text": "I run with my legs.",
+    "hash": "d0036bbfb58a30bd"
+  },
+  "body/fingers": {
+    "text": "Fingers.",
+    "hash": "4701dc838b2a7ea7"
+  },
+  "body/fingers-ask": {
+    "text": "Where are the fingers?",
+    "hash": "4384cfd75d771dce"
+  },
+  "body/fingers-fact-1": {
+    "text": "Wiggle your fingers!",
+    "hash": "22513dd218412df6"
+  },
+  "body/fingers-fact-2": {
+    "text": "I have ten fingers.",
+    "hash": "d65391d5f6c44c5b"
+  },
+  "body/toes": {
+    "text": "Toes.",
+    "hash": "cb276fa89fbbbd1e"
+  },
+  "body/toes-ask": {
+    "text": "Where are the toes?",
+    "hash": "e51de43de411d6ff"
+  },
+  "body/toes-fact-1": {
+    "text": "Touch your toes!",
+    "hash": "684a22ee37b47858"
+  },
+  "body/toes-fact-2": {
+    "text": "I have ten toes.",
+    "hash": "5c4ccaef58decfae"
+  },
+  "body/knees": {
+    "text": "Knees.",
+    "hash": "c9f30f7f02413c5f"
+  },
+  "body/knees-ask": {
+    "text": "Where are the knees?",
+    "hash": "4d00e5c36fdb1a1b"
+  },
+  "body/knees-fact-1": {
+    "text": "Touch your knees!",
+    "hash": "4697b15b868d2a6b"
+  },
+  "body/knees-fact-2": {
+    "text": "Bend your knees and jump!",
+    "hash": "c5bf38abcfa36bcb"
+  },
+  "body/shoulders": {
+    "text": "Shoulders.",
+    "hash": "9e575292776998a6"
+  },
+  "body/shoulders-ask": {
+    "text": "Where are the shoulders?",
+    "hash": "a32c13c6e2606bd8"
+  },
+  "body/shoulders-fact-1": {
+    "text": "Touch your shoulders!",
+    "hash": "28eff29266989ad6"
+  },
+  "body/shoulders-fact-2": {
+    "text": "Head, shoulders, knees and toes!",
+    "hash": "f1e3c81d901727dc"
+  },
+  "body/tummy": {
+    "text": "Tummy.",
+    "hash": "777ceaff38249896"
+  },
+  "body/tummy-ask": {
+    "text": "Where is the tummy?",
+    "hash": "62e67d997054c159"
+  },
+  "body/tummy-fact-1": {
+    "text": "Rub your tummy!",
+    "hash": "c30d6a551b2a0f91"
+  },
+  "body/tummy-fact-2": {
+    "text": "My tummy says yum!",
+    "hash": "d7f7ceb6fda53f0c"
   }
 }

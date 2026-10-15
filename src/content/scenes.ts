@@ -5,7 +5,7 @@
  * Cada zona es una elipse [centroX, centroY, radioX, radioY] en % del ancho y alto de la imagen.
  * Una palabra puede tener varias zonas ("red" = el camión de bomberos y la manzana). Si dos se
  * superponen, gana la que está más abajo en la lista (los ojos van después de la cabeza).
- * Las palabras que no aparecen en la escena (la segunda tanda de Animals y Colors) no se listan.
+ * Las palabras que no aparecen en la escena (la segunda tanda de Animals, Colors y My body) no se listan.
  */
 export type Spot = [cx: number, cy: number, rx: number, ry: number];
 
